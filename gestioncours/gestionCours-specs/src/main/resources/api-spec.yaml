@@ -87,7 +87,7 @@ components:
       type: object
       required:
         - name
-          - credits_etcs
+        - credits_etcs
       properties:
         name:
           type: string

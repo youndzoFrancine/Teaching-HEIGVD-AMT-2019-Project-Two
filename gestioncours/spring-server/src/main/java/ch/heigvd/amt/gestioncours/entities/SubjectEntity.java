@@ -15,40 +15,17 @@ public class SubjectEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String firstname;
-    private String lastname;
-    private String password;
-    private String role;
+    private String name;
+    private int credits_etcs;
 
-    public void setRole(String role) { this.role = role; }
+    public long getId() { return id; }
 
-    public String getRole() { return role; }
+    public String getName() { return name; }
 
-    public long getId() {
-        return id;
-    }
+    public int getCredits_etcs() { return credits_etcs; }
 
-    public String getFirstname() {
-        return firstname;
-    }
+    public void setName(String name) { this.name = name; }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+    public void setCredits_etcs(int credits_etcs) { this.credits_etcs = credits_etcs; }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
