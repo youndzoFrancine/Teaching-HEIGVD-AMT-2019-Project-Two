@@ -1,5 +1,7 @@
 ch\heigvd\amt\gestioncours\dto\SubjectListTest.class
 ch\heigvd\amt\gestioncours\JSON$LocalDateTypeAdapter.class
+ch\heigvd\amt\gestioncours\dto\EnrollmentListTest.class
+ch\heigvd\amt\gestioncours\dto\EnrollmentList.class
 ch\heigvd\amt\gestioncours\auth\HttpBasicAuth.class
 ch\heigvd\amt\gestioncours\auth\HttpBearerAuth.class
 ch\heigvd\amt\gestioncours\Configuration.class

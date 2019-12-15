@@ -31,17 +31,15 @@ paths:
     get:
       description: get the list of all subjects
       operationId: getSubjects
-      parameters:
-        - in: path
-          name: allSujects
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/SubjectList'
       responses:
         '200':
           description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubjectList'
         '401':
           description: unexpected error
 
@@ -67,17 +65,15 @@ paths:
     get:
       description: get the list of all enrollments
       operationId: getEnrollments
-      parameters:
-        - in: path
-          name: allEnrollemnts
-          required: true
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/EnrollmentList'
       responses:
         '200':
           description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnrollmentList'
         '401':
           description: unexpected error
 
@@ -85,32 +81,22 @@ components:
   schemas:
     Subject:
       type: object
-      required:
-        - name
-        - credits_etcs
       properties:
         name:
           type: string
         credits_etcs:
           type: integer
           format: int64
-
     SubjectList:
       allOf:
         - $ref: '#/components/schemas/Subject'
         - type: object
-      properties:
-        id:
-          type : integer
-          format: int64
+          properties:
+            id:
+              type : integer
+              format: int64
     User:
       type: object
-      required:
-        - e_mail
-        - first_name
-        - last_name
-        - password
-        - user_role
       properties:
         e_mail:
           type: string
@@ -124,9 +110,6 @@ components:
           type: string
     Enrollment:
       type: object
-      required:
-        - subject_id
-        - e_mail
       properties:
         subject_id:
           type: integer
@@ -137,10 +120,11 @@ components:
       allOf:
         - $ref: '#/components/schemas/Enrollment'
         - type: object
-      properties:
-        id:
-          type: integer
-          format: int64
+          properties:
+            id:
+             type: integer
+             format: int64
+
 
 
 

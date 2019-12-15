@@ -22,7 +22,7 @@ formatter.match({
   "location": "CreationSteps.there_is_a_Subjects_server()"
 });
 formatter.result({
-  "duration": 3297919900,
+  "duration": 6766817400,
   "status": "passed"
 });
 formatter.scenario({
@@ -52,15 +52,15 @@ formatter.match({
   "location": "CreationSteps.i_have_a_subject_payload()"
 });
 formatter.result({
-  "duration": 237100,
+  "duration": 518400,
   "status": "passed"
 });
 formatter.match({
   "location": "CreationSteps.i_POST_it_to_the_subjects_endpoint()"
 });
 formatter.result({
-  "duration": 81615800,
-  "error_message": "java.lang.IllegalArgumentException: Expected URL scheme \u0027http\u0027 or \u0027https\u0027 but no colon was found\r\n\tat okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)\r\n\tat okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)\r\n\tat okhttp3.Request$Builder.url(Request.kt:184)\r\n\tat ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)\r\n\tat ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:208)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:220)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:255)\r\n\tat ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)\r\n\tat ✽.When I POST it to the /subjects endpoint(creation.feature:8)\r\n",
+  "duration": 113955200,
+  "error_message": "java.lang.IllegalArgumentException: Expected URL scheme \u0027http\u0027 or \u0027https\u0027 but no colon was found\r\n\tat okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)\r\n\tat okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)\r\n\tat okhttp3.Request$Builder.url(Request.kt:184)\r\n\tat ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)\r\n\tat ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:219)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:231)\r\n\tat ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:270)\r\n\tat ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)\r\n\tat ✽.When I POST it to the /subjects endpoint(creation.feature:8)\r\n",
   "status": "failed"
 });
 formatter.match({

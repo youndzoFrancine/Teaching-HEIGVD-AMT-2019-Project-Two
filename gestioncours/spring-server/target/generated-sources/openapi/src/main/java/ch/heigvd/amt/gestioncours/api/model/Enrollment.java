@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * Enrollment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-13T12:33:48.433+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-15T21:22:24.651+01:00[Europe/Berlin]")
 
 public class Enrollment   {
   @JsonProperty("subject_id")
@@ -30,8 +30,7 @@ public class Enrollment   {
    * Get subjectId
    * @return subjectId
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public Long getSubjectId() {
@@ -51,8 +50,7 @@ public class Enrollment   {
    * Get eMail
    * @return eMail
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String geteMail() {

@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-13T12:33:48.433+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-15T21:22:24.651+01:00[Europe/Berlin]")
 
 public class User   {
   @JsonProperty("e_mail")
@@ -39,8 +39,7 @@ public class User   {
    * Get eMail
    * @return eMail
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String geteMail() {
@@ -60,8 +59,7 @@ public class User   {
    * Get firstName
    * @return firstName
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String getFirstName() {
@@ -81,8 +79,7 @@ public class User   {
    * Get lastName
    * @return lastName
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String getLastName() {
@@ -102,8 +99,7 @@ public class User   {
    * Get password
    * @return password
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String getPassword() {
@@ -123,8 +119,7 @@ public class User   {
    * Get userRole
    * @return userRole
   */
-  @ApiModelProperty(required = true, value = "")
-  @NotNull
+  @ApiModelProperty(value = "")
 
 
   public String getUserRole() {

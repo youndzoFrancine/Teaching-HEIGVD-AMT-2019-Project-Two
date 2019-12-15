@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-13T12:33:48.433+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-15T21:22:24.651+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "enrollments", description = "the enrollments API")
@@ -52,13 +52,23 @@ public interface EnrollmentsApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getEnrollments", notes = "get the list of all enrollments", tags={  })
+    @ApiOperation(value = "", nickname = "getEnrollments", notes = "get the list of all enrollments", response = EnrollmentList.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success"),
+        @ApiResponse(code = 200, message = "success", response = EnrollmentList.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "unexpected error") })
     @RequestMapping(value = "/enrollments",
+        produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<Void> getEnrollments(@ApiParam(value = "",required=true) @PathVariable("allEnrollemnts") List<EnrollmentList> allEnrollemnts) {
+    default ResponseEntity<List<EnrollmentList>> getEnrollments() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

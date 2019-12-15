@@ -16,16 +16,16 @@ public class SubjectEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int credits_etcs;
+    private long credits_etcs;
 
     public long getId() { return id; }
 
     public String getName() { return name; }
 
-    public int getCredits_etcs() { return credits_etcs; }
+    public long getCredits_etcs() { return credits_etcs; }
 
     public void setName(String name) { this.name = name; }
 
-    public void setCredits_etcs(int credits_etcs) { this.credits_etcs = credits_etcs; }
+    public void setCredits_etcs(long credits_etcs) { this.credits_etcs = credits_etcs; }
 
 }

@@ -71,6 +71,8 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | created |  -  |
 **401** | unexpected error |  -  |
+**403** | forbidden |  -  |
+**404** | not found |  -  |
 
 <a name="createSubject"></a>
 # **createSubject**
@@ -133,6 +135,8 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | created |  -  |
 **401** | unexpected error |  -  |
+**403** | forbidden |  -  |
+**404** | not found |  -  |
 
 <a name="getEnrollments"></a>
 # **getEnrollments**
@@ -157,7 +161,7 @@ public class Example {
     defaultClient.setBasePath("https://localhost:8080/gestionCours");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    List<Enrollment> allEnrollemnts = Arrays.asList(); // List<Enrollment> | 
+    List<EnrollmentList> allEnrollemnts = Arrays.asList(); // List<EnrollmentList> | 
     try {
       apiInstance.getEnrollments(allEnrollemnts);
     } catch (ApiException e) {
@@ -175,7 +179,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allEnrollemnts** | [**List&lt;Enrollment&gt;**](Enrollment.md)|  |
+ **allEnrollemnts** | [**List&lt;EnrollmentList&gt;**](EnrollmentList.md)|  |
 
 ### Return type
 
@@ -198,7 +202,7 @@ No authorization required
 
 <a name="getSubjects"></a>
 # **getSubjects**
-> getSubjects(allUsers)
+> getSubjects(allSujects)
 
 
 
@@ -219,9 +223,9 @@ public class Example {
     defaultClient.setBasePath("https://localhost:8080/gestionCours");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    List<SubjectList> allUsers = Arrays.asList(); // List<SubjectList> | 
+    List<SubjectList> allSujects = Arrays.asList(); // List<SubjectList> | 
     try {
-      apiInstance.getSubjects(allUsers);
+      apiInstance.getSubjects(allSujects);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getSubjects");
       System.err.println("Status code: " + e.getCode());
@@ -237,7 +241,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allUsers** | [**List&lt;SubjectList&gt;**](SubjectList.md)|  |
+ **allSujects** | [**List&lt;SubjectList&gt;**](SubjectList.md)|  |
 
 ### Return type
 

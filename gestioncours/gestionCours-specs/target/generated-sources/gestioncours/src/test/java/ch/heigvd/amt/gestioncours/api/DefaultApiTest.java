@@ -15,6 +15,7 @@ package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.ApiException;
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
+import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
 import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 import org.junit.Test;
@@ -76,7 +77,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getEnrollmentsTest() throws ApiException {
-        List<Enrollment> allEnrollemnts = null;
+        List<EnrollmentList> allEnrollemnts = null;
         api.getEnrollments(allEnrollemnts);
 
         // TODO: test validations
@@ -92,8 +93,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getSubjectsTest() throws ApiException {
-        List<SubjectList> allUsers = null;
-        api.getSubjects(allUsers);
+        List<SubjectList> allSujects = null;
+        api.getSubjects(allSujects);
 
         // TODO: test validations
     }

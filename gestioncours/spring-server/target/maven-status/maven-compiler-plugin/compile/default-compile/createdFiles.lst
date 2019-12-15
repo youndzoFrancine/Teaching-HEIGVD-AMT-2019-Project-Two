@@ -14,6 +14,7 @@ ch\heigvd\amt\gestioncours\api\SubjectsApi.class
 ch\heigvd\amt\gestioncours\api\ApiUtil.class
 ch\heigvd\amt\gestioncours\api\util\ApiResponseMessage.class
 ch\heigvd\amt\gestioncours\RFC3339DateFormat.class
+ch\heigvd\amt\gestioncours\api\model\SubjectListAllOf.class
 ch\heigvd\amt\gestioncours\Swagger2SpringBoot.class
 ch\heigvd\amt\gestioncours\api\model\SubjectList.class
 ch\heigvd\amt\gestioncours\api\model\Subject.class
