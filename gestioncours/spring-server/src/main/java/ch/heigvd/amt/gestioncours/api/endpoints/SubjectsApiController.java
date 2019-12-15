@@ -8,14 +8,17 @@ import ch.heigvd.amt.gestioncours.repositories.SubjectRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SubjectsApiController implements SubjectsApi {
@@ -32,6 +35,14 @@ public class SubjectsApiController implements SubjectsApi {
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());
         subject.setId(entity.getId());
+        return subject;
+    }
+
+    private SubjectList toSubjectList(Optional<SubjectEntity> subjectEntity) {
+        SubjectList subject = new SubjectList();
+        subject.setCreditsEtcs(toSubjectList(subjectEntity).getCreditsEtcs());
+        subject.setName(toSubjectList(subjectEntity).getName());
+        subject.setId(toSubjectList(subjectEntity).getId());
         return subject;
     }
 
@@ -56,6 +67,11 @@ public class SubjectsApiController implements SubjectsApi {
             subjects.add(toSubjectList(subjectEntity));
         }
         return ResponseEntity.ok(subjects);
+    }
+
+    public ResponseEntity<SubjectList> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+        Optional<SubjectEntity> subjectEntity = subjectRepository.findById(id);
+        return ResponseEntity.ok(toSubjectList(subjectEntity));
     }
 
 }
