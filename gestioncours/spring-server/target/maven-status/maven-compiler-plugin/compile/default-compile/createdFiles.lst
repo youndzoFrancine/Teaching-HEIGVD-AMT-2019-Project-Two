@@ -1,5 +1,4 @@
 ch\heigvd\amt\gestioncours\api\EnrollmentsApi.class
-ch\heigvd\amt\gestioncours\api\model\User.class
 ch\heigvd\amt\gestioncours\configuration\HomeController.class
 ch\heigvd\amt\gestioncours\api\util\ApiOriginFilter.class
 ch\heigvd\amt\gestioncours\entities\SubjectEntity.class

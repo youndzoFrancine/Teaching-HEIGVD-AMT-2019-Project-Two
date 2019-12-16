@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-15T22:38:18.895+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -47,6 +47,30 @@ public interface SubjectsApi {
         consumes = { "application/json" },
         method = RequestMethod.POST)
     default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "deleteASubject", notes = "", response = SubjectList.class, tags={ "adminAllow", })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = SubjectList.class),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
+    @RequestMapping(value = "/subjects/{id}",
+        produces = { "application/json" }, 
+        method = RequestMethod.DELETE)
+    default ResponseEntity<SubjectList> deleteASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
