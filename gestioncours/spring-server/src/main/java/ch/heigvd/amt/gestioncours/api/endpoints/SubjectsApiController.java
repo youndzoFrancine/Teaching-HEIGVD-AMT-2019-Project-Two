@@ -30,7 +30,7 @@ public class SubjectsApiController implements SubjectsApi {
         return entity;
     }
 
-    private SubjectList toSubjectList(SubjectEntity entity) {
+    private SubjectList toSubject(SubjectEntity entity) {
         SubjectList subject = new SubjectList();
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());
@@ -38,13 +38,16 @@ public class SubjectsApiController implements SubjectsApi {
         return subject;
     }
 
-    private SubjectList toSubjectList(Optional<SubjectEntity> subjectEntity) {
+   /* private SubjectList toSubjectList(Optional<SubjectEntity> subjectEntity) {
         SubjectList subject = new SubjectList();
-        subject.setCreditsEtcs(toSubjectList(subjectEntity).getCreditsEtcs());
-        subject.setName(toSubjectList(subjectEntity).getName());
-        subject.setId(toSubjectList(subjectEntity).getId());
+        //subject.setCreditsEtcs(toSubjectList(subjectEntity).getCreditsEtcs());
+       // subject.setName(toSubjectList(subjectEntity).getName());
+        //subject.setId(toSubjectList(subjectEntity).getId());
+
+        subject.setCreditsEtcs(toSubject(subjectEntity));
+
         return subject;
-    }
+    }*/
 
     @Autowired
     SubjectRepository subjectRepository;
@@ -64,14 +67,21 @@ public class SubjectsApiController implements SubjectsApi {
     public ResponseEntity<List<SubjectList>> getSubjects() {
         List<SubjectList> subjects = new ArrayList<>();
         for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
-            subjects.add(toSubjectList(subjectEntity));
+            subjects.add(toSubject(subjectEntity));
         }
         return ResponseEntity.ok(subjects);
     }
 
     public ResponseEntity<SubjectList> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
-        Optional<SubjectEntity> subjectEntity = subjectRepository.findById(id);
-        return ResponseEntity.ok(toSubjectList(subjectEntity));
+
+        SubjectList subject =new SubjectList();
+        for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
+           if(subjectEntity.getId() == id){
+               subject = toSubject(subjectEntity);
+               break;
+           }
+        }
+        return ResponseEntity.ok(subject);
     }
 
 }
