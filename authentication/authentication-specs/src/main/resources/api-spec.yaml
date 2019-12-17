@@ -28,6 +28,10 @@ paths:
       responses:
         "200":
           description: success
+          content:
+            application/json:
+              schema:
+                type: jwt
         "401":
           $ref: '#/components/responses/UnauthorizedError'
   /users:

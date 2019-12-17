@@ -26,10 +26,12 @@ paths:
             schema:
               $ref: '#/components/schemas/Credentials'
       responses:
-        "200":
+        '200':
           description: success
-        "401":
-          $ref: '#/components/responses/UnauthorizedError'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
   /users:
     post:
       tags:
@@ -86,8 +88,6 @@ paths:
                 $ref: '#/components/schemas/User'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
-      security:
-        - bearerAuth: []
     delete:
       tags:
         - adminAllow
@@ -105,14 +105,7 @@ paths:
           description: success
         '401':
           $ref: '#/components/responses/UnauthorizedError'
-      security:
-        - bearerAuth: []
 components:
-  securitySchemes:
-    bearerAuth: # arbitrary name for the security scheme
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
   schemas:
     User:
       type: object
@@ -141,6 +134,11 @@ components:
         email:
           type: string
         password:
+          type: string
+    Token:
+      type: object
+      properties:
+        token:
           type: string
   responses:
     UnauthorizedError:

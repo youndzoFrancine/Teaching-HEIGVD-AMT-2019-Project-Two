@@ -101,7 +101,6 @@ paths:
                   $ref: '#/components/schemas/EnrollmentList'
         '401':
           description: unexpected error
-
 components:
   schemas:
     Subject:
