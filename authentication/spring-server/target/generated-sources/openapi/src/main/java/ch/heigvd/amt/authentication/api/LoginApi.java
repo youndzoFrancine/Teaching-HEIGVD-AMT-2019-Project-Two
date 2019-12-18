@@ -6,6 +6,7 @@
 package ch.heigvd.amt.authentication.api;
 
 import ch.heigvd.amt.authentication.api.model.Credentials;
+import ch.heigvd.amt.authentication.api.model.Token;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T11:30:29.867+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-17T17:06:53.737+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "login", description = "the login API")
@@ -36,14 +37,23 @@ public interface LoginApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "login", notes = "have access to ressources", tags={ "allUsers", })
+    @ApiOperation(value = "", nickname = "login", notes = "have access to ressources", response = Token.class, tags={ "allUsers", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success"),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 200, message = "success", response = Token.class) })
     @RequestMapping(value = "/login",
+        produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    default ResponseEntity<Void> login(@ApiParam(value = ""  )  @Valid @RequestBody Credentials credentials) {
+    default ResponseEntity<Token> login(@ApiParam(value = ""  )  @Valid @RequestBody Credentials credentials) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"token\" : \"token\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

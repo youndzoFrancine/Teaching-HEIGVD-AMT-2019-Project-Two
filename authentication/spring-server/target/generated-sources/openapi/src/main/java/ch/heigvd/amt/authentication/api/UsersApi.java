@@ -6,7 +6,6 @@
 package ch.heigvd.amt.authentication.api;
 
 import ch.heigvd.amt.authentication.api.model.User;
-import ch.heigvd.amt.authentication.api.model.UserWithId;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T11:30:29.867+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-17T17:06:53.737+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "users", description = "the users API")
@@ -50,9 +49,7 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", authorizations = {
-        @Authorization(value = "bearerAuth")
-    }, tags={ "adminAllow", })
+    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", tags={ "adminAllow", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success"),
         @ApiResponse(code = 401, message = "Access token is missing or invalid") })
@@ -64,18 +61,18 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = UserWithId.class, responseContainer = "List", tags={ "allUsers", })
+    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = User.class, responseContainer = "List", tags={ "allUsers", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = UserWithId.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "success", response = User.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "Access token is missing or invalid") })
     @RequestMapping(value = "/users",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<List<UserWithId>> getUsers() {
+    default ResponseEntity<List<User>> getUsers() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
+                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"email\" : \"email\", \"lastname\" : \"lastname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -86,9 +83,7 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, authorizations = {
-        @Authorization(value = "bearerAuth")
-    }, tags={ "rigthUser","adminAllow", })
+    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, tags={ "rigthUser","adminAllow", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = User.class),
         @ApiResponse(code = 401, message = "Access token is missing or invalid") })

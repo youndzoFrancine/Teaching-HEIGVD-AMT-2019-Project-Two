@@ -48,9 +48,7 @@ public interface SubjectsApi {
         method = RequestMethod.POST)
     default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
     }
-
 
     @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
     @ApiResponses(value = { 

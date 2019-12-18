@@ -1,8 +1,8 @@
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\UserWithId.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\configuration\SwaggerDocumentationConfig.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\util\ApiOriginFilter.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\util\ApiResponseMessage.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\repositories\UserRepository.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\Token.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\UsersApi.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\endpoints\UsersApiController.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\LoginApi.java
@@ -14,5 +14,4 @@ E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authenti
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\exceptions\NotFoundException.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\ApiUtil.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\Swagger2SpringBoot.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\UserWithIdAllOf.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\configuration\HomeController.java
