@@ -62,7 +62,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserWithId'
+                  $ref: '#/components/schemas/User'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
   /users/{e_mail}:
@@ -120,14 +120,6 @@ components:
           type: string
         role:
           type: string
-    UserWithId:
-      allOf:
-        - $ref: '#/components/schemas/User'
-        - type: object
-          properties:
-            id:
-              type: integer
-              format: int64
     Credentials:
       type: object
       properties:

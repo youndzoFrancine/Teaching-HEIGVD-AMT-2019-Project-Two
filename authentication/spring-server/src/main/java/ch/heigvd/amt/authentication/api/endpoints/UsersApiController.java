@@ -3,7 +3,6 @@ package ch.heigvd.amt.authentication.api.endpoints;
 import ch.heigvd.amt.authentication.api.UsersApi;
 
 import ch.heigvd.amt.authentication.api.model.User;
-import ch.heigvd.amt.authentication.api.model.UserWithId;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
@@ -32,14 +31,13 @@ public class UsersApiController implements UsersApi {
         return entity;
     }
 
-    private UserWithId toUserWithId(UserEntity userEntity) {
-        UserWithId user = new UserWithId();
+    private User toUser(UserEntity userEntity) {
+        User user = new User();
         user.setEmail(userEntity.getEmail());
         user.setFirstname(userEntity.getFirstname());
         user.setLastname(userEntity.getLastname());
         user.setRole(userEntity.getRole());
         user.setPassword(userEntity.getPassword());
-        user.setId(userEntity.getId());
         return user;
     }
 
@@ -58,10 +56,10 @@ public class UsersApiController implements UsersApi {
         return ResponseEntity.created(location).build();
     }
 
-    public ResponseEntity<List<UserWithId>> getUsers(){
-        List<UserWithId> users = new ArrayList<>();
+    public ResponseEntity<List<User>> getUsers(){
+        List<User> users = new ArrayList<>();
         for (UserEntity userEntity : userRepository.findAll()) {
-            users.add(toUserWithId(userEntity));
+            users.add(toUser(userEntity));
         }
         return ResponseEntity.ok(users);
     }
