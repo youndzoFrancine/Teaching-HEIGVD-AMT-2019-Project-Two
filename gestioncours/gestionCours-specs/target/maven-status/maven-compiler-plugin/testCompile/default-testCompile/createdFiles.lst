@@ -1,4 +1,3 @@
-ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.class
-ch/heigvd/amt/gestioncours/spec/steps/CreationSteps.class
-ch/heigvd/amt/gestioncours/spec/SpecificationTest.class
-ch/heigvd/amt/gestioncours/spec/helpers/Environment.class
+ch\heigvd\amt\gestioncours\spec\SpecificationTest.class
+ch\heigvd\amt\gestioncours\spec\helpers\Environment.class
+ch\heigvd\amt\gestioncours\spec\steps\CreationSteps.class

@@ -18,5 +18,4 @@ public class SubjectsApiController implements SubjectsApi {
 
     }
 
-
 }

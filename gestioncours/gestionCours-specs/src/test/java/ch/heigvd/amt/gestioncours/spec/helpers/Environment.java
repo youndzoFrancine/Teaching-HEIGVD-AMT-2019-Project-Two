@@ -17,7 +17,7 @@ public class Environment {
     public Environment() throws IOException {
         Properties properties = new Properties();
         properties.load(this.getClass().getClassLoader().getResourceAsStream("environment.properties"));
-        String url = properties.getProperty("ch.heigvd.amt.gestionCours.server.url");
+        String url = properties.getProperty("io.avalia.fruits.server.url");
         api.getApiClient().setBasePath(url);
 
     }

@@ -13,7 +13,7 @@
 
 package ch.heigvd.amt.gestioncours;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-16T16:37:58.742+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T11:44:22.131+01:00[Europe/Berlin]")
 public class Pair {
     private String name = "";
     private String value = "";

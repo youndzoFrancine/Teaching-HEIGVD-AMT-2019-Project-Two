@@ -45,7 +45,6 @@ paths:
         '401':
           description: unexpected error
 
-
   /enrollments:
     post:
       operationId: createEnrollment
@@ -81,46 +80,6 @@ paths:
           description: success
         '401':
           description: unexpected error
-
-  /enrollments/{id}:
-
-    get:
-      description: Returns an enrollment based on a single ID
-      operationId: find enrollment by id
-      parameters:
-        - name: subject-id
-          in: path
-          description: ID of enrollment to fetch
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: enrollment response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Enrollment'
-        default:
-          description: unexpected error
-
-
-    delete:
-      description: delete a single enrollment on the ID supplied
-      operationId: deleteEnrollment
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-
-      responses:
-        '204':
-          description: enrollment deleted
-        default:
-          description: unexpected error
-
 
 components:
   schemas:
