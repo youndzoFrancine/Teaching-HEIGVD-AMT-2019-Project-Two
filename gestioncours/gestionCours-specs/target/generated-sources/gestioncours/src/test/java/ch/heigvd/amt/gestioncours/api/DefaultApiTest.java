@@ -15,6 +15,7 @@ package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.ApiException;
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
+import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
 import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 import org.junit.Test;
@@ -69,6 +70,38 @@ public class DefaultApiTest {
     /**
      * 
      *
+     * delete a single enrollment on the ID supplied
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteEnrollmentTest() throws ApiException {
+        Integer id = null;
+        api.deleteEnrollment(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns an enrollment based on a single ID
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findEnrollmentByIdTest() throws ApiException {
+        Integer id = null;
+        Enrollment response = api.findEnrollmentById(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * get the list of all enrollments
      *
      * @throws ApiException
@@ -76,7 +109,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getEnrollmentsTest() throws ApiException {
-        List<Enrollment> allEnrollemnts = null;
+        List<EnrollmentList> allEnrollemnts = null;
         api.getEnrollments(allEnrollemnts);
 
         // TODO: test validations
@@ -92,8 +125,8 @@ public class DefaultApiTest {
      */
     @Test
     public void getSubjectsTest() throws ApiException {
-        List<SubjectList> allUsers = null;
-        api.getSubjects(allUsers);
+        List<SubjectList> allSujects = null;
+        api.getSubjects(allSujects);
 
         // TODO: test validations
     }
