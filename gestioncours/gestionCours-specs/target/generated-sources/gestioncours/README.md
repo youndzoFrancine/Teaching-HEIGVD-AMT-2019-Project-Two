@@ -2,7 +2,7 @@
 
 Authentication api
 - API version: 1.0.0-oas3
-  - Build date: 2019-12-13T11:44:22.131+01:00[Europe/Berlin]
+  - Build date: 2019-12-16T16:37:58.742+01:00[Europe/Zurich]
 
 An API for authentication
 
@@ -108,6 +108,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**createEnrollment**](docs/DefaultApi.md#createEnrollment) | **POST** /enrollments | 
 *DefaultApi* | [**createSubject**](docs/DefaultApi.md#createSubject) | **POST** /subjects | 
+*DefaultApi* | [**deleteEnrollment**](docs/DefaultApi.md#deleteEnrollment) | **DELETE** /enrollments/{id} | 
+*DefaultApi* | [**findEnrollmentById**](docs/DefaultApi.md#findEnrollmentById) | **GET** /enrollments/{id} | 
 *DefaultApi* | [**getEnrollments**](docs/DefaultApi.md#getEnrollments) | **GET** /enrollments | 
 *DefaultApi* | [**getSubjects**](docs/DefaultApi.md#getSubjects) | **GET** /subjects | 
 
@@ -115,6 +117,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Enrollment](docs/Enrollment.md)
+ - [EnrollmentList](docs/EnrollmentList.md)
  - [Subject](docs/Subject.md)
  - [SubjectList](docs/SubjectList.md)
  - [User](docs/User.md)
