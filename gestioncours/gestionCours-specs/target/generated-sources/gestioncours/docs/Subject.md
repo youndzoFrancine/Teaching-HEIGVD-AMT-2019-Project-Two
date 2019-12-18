@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**creditsEtcs** | **Long** |  | 
+**name** | **String** |  |  [optional]
+**creditsEtcs** | **Long** |  |  [optional]
 
 
 

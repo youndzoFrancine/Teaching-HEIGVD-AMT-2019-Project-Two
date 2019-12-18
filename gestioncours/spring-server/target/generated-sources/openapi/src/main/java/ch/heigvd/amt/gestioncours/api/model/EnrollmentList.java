@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 /**
  * EnrollmentList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T16:42:24.068+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-13T12:33:48.433+01:00[Europe/Berlin]")
 
 public class EnrollmentList extends Enrollment  {
 

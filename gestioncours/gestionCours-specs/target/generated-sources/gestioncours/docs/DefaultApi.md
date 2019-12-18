@@ -6,8 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createEnrollment**](DefaultApi.md#createEnrollment) | **POST** /enrollments | 
 [**createSubject**](DefaultApi.md#createSubject) | **POST** /subjects | 
-[**deleteEnrollment**](DefaultApi.md#deleteEnrollment) | **DELETE** /enrollments/{id} | 
-[**findEnrollmentById**](DefaultApi.md#findEnrollmentById) | **GET** /enrollments/{id} | 
 [**getEnrollments**](DefaultApi.md#getEnrollments) | **GET** /enrollments | 
 [**getSubjects**](DefaultApi.md#getSubjects) | **GET** /subjects | 
 
@@ -73,8 +71,6 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | created |  -  |
 **401** | unexpected error |  -  |
-**403** | forbidden |  -  |
-**404** | not found |  -  |
 
 <a name="createSubject"></a>
 # **createSubject**
@@ -137,133 +133,6 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | created |  -  |
 **401** | unexpected error |  -  |
-**403** | forbidden |  -  |
-**404** | not found |  -  |
-
-<a name="deleteEnrollment"></a>
-# **deleteEnrollment**
-> deleteEnrollment(id)
-
-
-
-delete a single enrollment on the ID supplied
-
-### Example
-```java
-// Import classes:
-import ch.heigvd.amt.gestioncours.ApiClient;
-import ch.heigvd.amt.gestioncours.ApiException;
-import ch.heigvd.amt.gestioncours.Configuration;
-import ch.heigvd.amt.gestioncours.models.*;
-import ch.heigvd.amt.gestioncours.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://localhost:8080/gestionCours");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    Integer id = 56; // Integer | 
-    try {
-      apiInstance.deleteEnrollment(id);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#deleteEnrollment");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**|  |
-
-### Return type
-
-null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**204** | enrollment deleted |  -  |
-**0** | unexpected error |  -  |
-
-<a name="findEnrollmentById"></a>
-# **findEnrollmentById**
-> Enrollment findEnrollmentById(id)
-
-
-
-Returns an enrollment based on a single ID
-
-### Example
-```java
-// Import classes:
-import ch.heigvd.amt.gestioncours.ApiClient;
-import ch.heigvd.amt.gestioncours.ApiException;
-import ch.heigvd.amt.gestioncours.Configuration;
-import ch.heigvd.amt.gestioncours.models.*;
-import ch.heigvd.amt.gestioncours.api.DefaultApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://localhost:8080/gestionCours");
-
-    DefaultApi apiInstance = new DefaultApi(defaultClient);
-    Integer id = 56; // Integer | ID of enrollment to fetch
-    try {
-      Enrollment result = apiInstance.findEnrollmentById(id);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling DefaultApi#findEnrollmentById");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Integer**| ID of enrollment to fetch |
-
-### Return type
-
-[**Enrollment**](Enrollment.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | enrollment response |  -  |
-**0** | unexpected error |  -  |
 
 <a name="getEnrollments"></a>
 # **getEnrollments**
@@ -288,7 +157,7 @@ public class Example {
     defaultClient.setBasePath("https://localhost:8080/gestionCours");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    List<EnrollmentList> allEnrollemnts = Arrays.asList(); // List<EnrollmentList> | 
+    List<Enrollment> allEnrollemnts = Arrays.asList(); // List<Enrollment> | 
     try {
       apiInstance.getEnrollments(allEnrollemnts);
     } catch (ApiException e) {
@@ -306,7 +175,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allEnrollemnts** | [**List&lt;EnrollmentList&gt;**](EnrollmentList.md)|  |
+ **allEnrollemnts** | [**List&lt;Enrollment&gt;**](Enrollment.md)|  |
 
 ### Return type
 
@@ -329,7 +198,7 @@ No authorization required
 
 <a name="getSubjects"></a>
 # **getSubjects**
-> getSubjects(allSujects)
+> getSubjects(allUsers)
 
 
 
@@ -350,9 +219,9 @@ public class Example {
     defaultClient.setBasePath("https://localhost:8080/gestionCours");
 
     DefaultApi apiInstance = new DefaultApi(defaultClient);
-    List<SubjectList> allSujects = Arrays.asList(); // List<SubjectList> | 
+    List<SubjectList> allUsers = Arrays.asList(); // List<SubjectList> | 
     try {
-      apiInstance.getSubjects(allSujects);
+      apiInstance.getSubjects(allUsers);
     } catch (ApiException e) {
       System.err.println("Exception when calling DefaultApi#getSubjects");
       System.err.println("Status code: " + e.getCode());
@@ -368,7 +237,7 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **allSujects** | [**List&lt;SubjectList&gt;**](SubjectList.md)|  |
+ **allUsers** | [**List&lt;SubjectList&gt;**](SubjectList.md)|  |
 
 ### Return type
 

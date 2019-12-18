@@ -28,7 +28,6 @@ import java.io.IOException;
 
 
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
-import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
 import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 
@@ -68,8 +67,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createEnrollmentCall(Enrollment enrollment, final ApiCallback _callback) throws ApiException {
@@ -125,8 +122,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public void createEnrollment(Enrollment enrollment) throws ApiException {
@@ -144,8 +139,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> createEnrollmentWithHttpInfo(Enrollment enrollment) throws ApiException {
@@ -165,8 +158,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createEnrollmentAsync(Enrollment enrollment, final ApiCallback<Void> _callback) throws ApiException {
@@ -186,8 +177,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSubjectCall(Subject subject, final ApiCallback _callback) throws ApiException {
@@ -243,8 +232,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public void createSubject(Subject subject) throws ApiException {
@@ -262,8 +249,6 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Void> createSubjectWithHttpInfo(Subject subject) throws ApiException {
@@ -283,240 +268,12 @@ public class DefaultApi {
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call createSubjectAsync(Subject subject, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = createSubjectValidateBeforeCall(subject, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for deleteEnrollment
-     * @param id  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteEnrollmentCall(Integer id, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/enrollments/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteEnrollmentValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling deleteEnrollment(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = deleteEnrollmentCall(id, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * delete a single enrollment on the ID supplied
-     * @param id  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public void deleteEnrollment(Integer id) throws ApiException {
-        deleteEnrollmentWithHttpInfo(id);
-    }
-
-    /**
-     * 
-     * delete a single enrollment on the ID supplied
-     * @param id  (required)
-     * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Void> deleteEnrollmentWithHttpInfo(Integer id) throws ApiException {
-        okhttp3.Call localVarCall = deleteEnrollmentValidateBeforeCall(id, null);
-        return localVarApiClient.execute(localVarCall);
-    }
-
-    /**
-     *  (asynchronously)
-     * delete a single enrollment on the ID supplied
-     * @param id  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call deleteEnrollmentAsync(Integer id, final ApiCallback<Void> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = deleteEnrollmentValidateBeforeCall(id, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for findEnrollmentById
-     * @param id ID of enrollment to fetch (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call findEnrollmentByIdCall(Integer id, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/enrollments/{id}"
-            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        String[] localVarAuthNames = new String[] {  };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call findEnrollmentByIdValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'id' is set
-        if (id == null) {
-            throw new ApiException("Missing the required parameter 'id' when calling findEnrollmentById(Async)");
-        }
-        
-
-        okhttp3.Call localVarCall = findEnrollmentByIdCall(id, _callback);
-        return localVarCall;
-
-    }
-
-    /**
-     * 
-     * Returns an enrollment based on a single ID
-     * @param id ID of enrollment to fetch (required)
-     * @return Enrollment
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public Enrollment findEnrollmentById(Integer id) throws ApiException {
-        ApiResponse<Enrollment> localVarResp = findEnrollmentByIdWithHttpInfo(id);
-        return localVarResp.getData();
-    }
-
-    /**
-     * 
-     * Returns an enrollment based on a single ID
-     * @param id ID of enrollment to fetch (required)
-     * @return ApiResponse&lt;Enrollment&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<Enrollment> findEnrollmentByIdWithHttpInfo(Integer id) throws ApiException {
-        okhttp3.Call localVarCall = findEnrollmentByIdValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<Enrollment>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     *  (asynchronously)
-     * Returns an enrollment based on a single ID
-     * @param id ID of enrollment to fetch (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
-        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call findEnrollmentByIdAsync(Integer id, final ApiCallback<Enrollment> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = findEnrollmentByIdValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<Enrollment>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -532,7 +289,7 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnrollmentsCall(List<EnrollmentList> allEnrollemnts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getEnrollmentsCall(List<Enrollment> allEnrollemnts, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -563,7 +320,7 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEnrollmentsValidateBeforeCall(List<EnrollmentList> allEnrollemnts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getEnrollmentsValidateBeforeCall(List<Enrollment> allEnrollemnts, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'allEnrollemnts' is set
         if (allEnrollemnts == null) {
@@ -588,7 +345,7 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public void getEnrollments(List<EnrollmentList> allEnrollemnts) throws ApiException {
+    public void getEnrollments(List<Enrollment> allEnrollemnts) throws ApiException {
         getEnrollmentsWithHttpInfo(allEnrollemnts);
     }
 
@@ -605,7 +362,7 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getEnrollmentsWithHttpInfo(List<EnrollmentList> allEnrollemnts) throws ApiException {
+    public ApiResponse<Void> getEnrollmentsWithHttpInfo(List<Enrollment> allEnrollemnts) throws ApiException {
         okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(allEnrollemnts, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -624,7 +381,7 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnrollmentsAsync(List<EnrollmentList> allEnrollemnts, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getEnrollmentsAsync(List<Enrollment> allEnrollemnts, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(allEnrollemnts, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -632,7 +389,7 @@ public class DefaultApi {
     }
     /**
      * Build call for getSubjects
-     * @param allSujects  (required)
+     * @param allUsers  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -643,12 +400,12 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubjectsCall(List<SubjectList> allSujects, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubjectsCall(List<SubjectList> allUsers, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/subjects"
-            .replaceAll("\\{" + "allSujects" + "\\}", localVarApiClient.escapeString(localVarApiClient.collectionPathParameterToString("csv", allSujects)));
+            .replaceAll("\\{" + "allUsers" + "\\}", localVarApiClient.escapeString(localVarApiClient.collectionPathParameterToString("csv", allUsers)));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -674,15 +431,15 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubjectsValidateBeforeCall(List<SubjectList> allSujects, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubjectsValidateBeforeCall(List<SubjectList> allUsers, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'allSujects' is set
-        if (allSujects == null) {
-            throw new ApiException("Missing the required parameter 'allSujects' when calling getSubjects(Async)");
+        // verify the required parameter 'allUsers' is set
+        if (allUsers == null) {
+            throw new ApiException("Missing the required parameter 'allUsers' when calling getSubjects(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getSubjectsCall(allSujects, _callback);
+        okhttp3.Call localVarCall = getSubjectsCall(allUsers, _callback);
         return localVarCall;
 
     }
@@ -690,7 +447,7 @@ public class DefaultApi {
     /**
      * 
      * get the list of all subjects
-     * @param allSujects  (required)
+     * @param allUsers  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -699,14 +456,14 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public void getSubjects(List<SubjectList> allSujects) throws ApiException {
-        getSubjectsWithHttpInfo(allSujects);
+    public void getSubjects(List<SubjectList> allUsers) throws ApiException {
+        getSubjectsWithHttpInfo(allUsers);
     }
 
     /**
      * 
      * get the list of all subjects
-     * @param allSujects  (required)
+     * @param allUsers  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -716,15 +473,15 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getSubjectsWithHttpInfo(List<SubjectList> allSujects) throws ApiException {
-        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allSujects, null);
+    public ApiResponse<Void> getSubjectsWithHttpInfo(List<SubjectList> allUsers) throws ApiException {
+        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allUsers, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      *  (asynchronously)
      * get the list of all subjects
-     * @param allSujects  (required)
+     * @param allUsers  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -735,9 +492,9 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubjectsAsync(List<SubjectList> allSujects, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getSubjectsAsync(List<SubjectList> allUsers, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allSujects, _callback);
+        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allUsers, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

@@ -24,16 +24,12 @@ paths:
           description: created
         '401':
           description: unexpected error
-        '403':
-          description: forbidden
-        '404':
-          description: not found
     get:
       description: get the list of all subjects
       operationId: getSubjects
       parameters:
         - in: path
-          name: allSujects
+          name: allUsers
           required: true
           schema:
             type: array
@@ -44,7 +40,6 @@ paths:
           description: success
         '401':
           description: unexpected error
-
 
   /enrollments:
     post:
@@ -61,10 +56,6 @@ paths:
           description: created
         '401':
           description: unexpected error
-        '403':
-          description: forbidden
-        '404':
-          description: not found
     get:
       description: get the list of all enrollments
       operationId: getEnrollments
@@ -75,52 +66,12 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/EnrollmentList'
+              $ref: '#/components/schemas/Enrollment'
       responses:
         '200':
           description: success
         '401':
           description: unexpected error
-
-  /enrollments/{id}:
-
-    get:
-      description: Returns an enrollment based on a single ID
-      operationId: find enrollment by id
-      parameters:
-        - name: id
-          in: path
-          description: ID of enrollment to fetch
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: enrollment response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Enrollment'
-        default:
-          description: unexpected error
-
-
-    delete:
-      description: delete a single enrollment on the ID supplied
-      operationId: deleteEnrollment
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-
-      responses:
-        '204':
-          description: enrollment deleted
-        default:
-          description: unexpected error
-
 
 components:
   schemas:
@@ -128,7 +79,7 @@ components:
       type: object
       required:
         - name
-        - credits_etcs
+          - credits_etcs
       properties:
         name:
           type: string
@@ -174,14 +125,6 @@ components:
           format: int64
         e_mail:
           type: string
-    EnrollmentList:
-      allOf:
-        - $ref: '#/components/schemas/Enrollment'
-        - type: object
-      properties:
-        id:
-          type: integer
-          format: int64
 
 
 
