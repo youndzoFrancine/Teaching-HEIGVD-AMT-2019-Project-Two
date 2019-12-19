@@ -54,7 +54,33 @@ paths:
             type: integer
             format: int64
             minimum: 1
-            description: The user ID
+            description: The subject ID
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubjectList'
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+    delete:
+      tags:
+        - adminAllow
+      operationId: deleteASubject
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            description: The subject ID
       responses:
         '200':
           description: success
@@ -119,19 +145,6 @@ components:
             id:
               type : integer
               format: int64
-    User:
-      type: object
-      properties:
-        e_mail:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        password:
-          type: string
-        user_role:
-          type: string
     Enrollment:
       type: object
       properties:
