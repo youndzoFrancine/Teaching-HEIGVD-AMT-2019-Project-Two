@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-13T12:33:48.433+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -52,13 +52,71 @@ public interface SubjectsApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getSubjects", notes = "get the list of all subjects", tags={  })
+    @ApiOperation(value = "", nickname = "deleteASubject", notes = "", response = SubjectList.class, tags={ "adminAllow", })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success"),
+        @ApiResponse(code = 200, message = "success", response = SubjectList.class),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
+    @RequestMapping(value = "/subjects/{id}",
+        produces = { "application/json" }, 
+        method = RequestMethod.DELETE)
+    default ResponseEntity<SubjectList> deleteASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = SubjectList.class),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
+    @RequestMapping(value = "/subjects/{id}",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    default ResponseEntity<SubjectList> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "getSubjects", notes = "get the list of all subjects", response = SubjectList.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = SubjectList.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "unexpected error") })
     @RequestMapping(value = "/subjects",
+        produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<Void> getSubjects(@ApiParam(value = "",required=true) @PathVariable("allSujects") List<SubjectList> allSujects) {
+    default ResponseEntity<List<SubjectList>> getSubjects() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

@@ -24,13 +24,16 @@ paths:
           description: created
         '401':
           description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
     get:
       description: get the list of all subjects
       operationId: getSubjects
       parameters:
         - in: path
-          name: allUsers
-          required: true
+          name: allSujects
           schema:
             type: array
             items:
@@ -56,17 +59,20 @@ paths:
           description: created
         '401':
           description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
     get:
       description: get the list of all enrollments
       operationId: getEnrollments
       parameters:
         - in: path
           name: allEnrollemnts
-          required: true
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/Enrollment'
+              $ref: '#/components/schemas/EnrollmentList'
       responses:
         '200':
           description: success
@@ -79,7 +85,7 @@ components:
       type: object
       required:
         - name
-          - credits_etcs
+        - credits_etcs
       properties:
         name:
           type: string
@@ -125,6 +131,14 @@ components:
           format: int64
         e_mail:
           type: string
+    EnrollmentList:
+      allOf:
+        - $ref: '#/components/schemas/Enrollment'
+        - type: object
+      properties:
+        id:
+          type: integer
+          format: int64
 
 
 

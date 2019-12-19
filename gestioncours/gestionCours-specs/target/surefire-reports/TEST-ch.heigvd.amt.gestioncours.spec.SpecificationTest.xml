@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="ch.heigvd.amt.gestioncours.spec.SpecificationTest" time="0.018" errors="2" skipped="1">
+<testsuite tests="5" failures="0" name="ch.heigvd.amt.gestioncours.spec.SpecificationTest" time="0.037" errors="2" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
@@ -64,37 +64,37 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Scenario: create a subject" name="Given there is a Subjects server" time="0.005"/>
+  <testcase classname="Scenario: create a subject" name="Given there is a Subjects server" time="0.016"/>
   <testcase classname="Scenario: create a subject" name="Given I have a subject payload" time="0"/>
-  <testcase classname="Scenario: create a subject" name="When I POST it to the /subjects endpoint" time="0.003">
+  <testcase classname="Scenario: create a subject" name="When I POST it to the /subjects endpoint" time="0.007">
     <error message="Expected URL scheme &apos;http&apos; or &apos;https&apos; but no colon was found" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Expected URL scheme &apos;http&apos; or &apos;https&apos; but no colon was found
 	at okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)
 	at okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)
 	at okhttp3.Request$Builder.url(Request.kt:184)
 	at ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)
 	at ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:208)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:220)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:255)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:219)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:231)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:270)
 	at ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)
 	at ✽.When I POST it to the /subjects endpoint(creation.feature:8)
 </error>
   </testcase>
-  <testcase classname="Scenario: create a subject" name="Scenario: create a subject" time="0.004">
+  <testcase classname="Scenario: create a subject" name="Scenario: create a subject" time="0.007">
     <error message="Expected URL scheme &apos;http&apos; or &apos;https&apos; but no colon was found" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Expected URL scheme &apos;http&apos; or &apos;https&apos; but no colon was found
 	at okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)
 	at okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)
 	at okhttp3.Request$Builder.url(Request.kt:184)
 	at ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)
 	at ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:208)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:220)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:255)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:219)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:231)
+	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:270)
 	at ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)
 	at ✽.When I POST it to the /subjects endpoint(creation.feature:8)
 </error>
   </testcase>
-  <testcase classname="Scenario: create a subject" name="Then I receive a 201 status code" time="0.006">
+  <testcase classname="Scenario: create a subject" name="Then I receive a 201 status code" time="0.007">
     <skipped/>
   </testcase>
 </testsuite>

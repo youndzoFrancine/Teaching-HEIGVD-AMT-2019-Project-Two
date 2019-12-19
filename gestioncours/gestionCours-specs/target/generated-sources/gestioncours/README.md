@@ -2,7 +2,7 @@
 
 Authentication api
 - API version: 1.0.0-oas3
-  - Build date: 2019-12-13T11:44:22.131+01:00[Europe/Berlin]
+  - Build date: 2019-12-13T15:03:23.879+01:00[Europe/Berlin]
 
 An API for authentication
 
@@ -115,6 +115,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Enrollment](docs/Enrollment.md)
+ - [EnrollmentList](docs/EnrollmentList.md)
  - [Subject](docs/Subject.md)
  - [SubjectList](docs/SubjectList.md)
  - [User](docs/User.md)
