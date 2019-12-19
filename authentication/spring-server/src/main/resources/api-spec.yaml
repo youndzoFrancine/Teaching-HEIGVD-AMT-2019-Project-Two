@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: Authentication api
+  description: An API for authentication purposes
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0-oas3
+tags:
+  - name: adminAllow
+    description: only admins are allowed
+  - name: rightUser
+    description: user that have the right to do a operation
+  - name: allUsers
+    description: operation available to all
+paths:
+  /login:
+    post:
+      tags:
+        - allUsers
+      description: have access to ressources
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+  /users:
+    post:
+      tags:
+        - adminAllow
+      description: create a user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        '201':
+          description: created
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    get:
+      tags:
+        - allUsers
+      description: get the list of users
+      operationId: getUsers
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /users/{e_mail}:
+    put:
+      tags:
+        - rigthUser
+        - adminAllow
+      description: updates a single user based on the e_mail supplied
+      operationId: updateUser
+      parameters:
+        - name: e_mail
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The user e_mail
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+    delete:
+      tags:
+        - adminAllow
+      description: deletes a single user based on the e_mail supplied
+      operationId: deleteUser
+      parameters:
+        - name: e_mail
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The user e_mail
+      responses:
+        '200':
+          description: success
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        password:
+          type: string
+        role:
+          type: string
+    Credentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid

@@ -48,34 +48,9 @@ public interface SubjectsApi {
         method = RequestMethod.POST)
     default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
     }
-
-
-    @ApiOperation(value = "", nickname = "deleteASubject", notes = "", response = SubjectList.class, tags={ "adminAllow", })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = SubjectList.class),
-        @ApiResponse(code = 401, message = "unexpected error"),
-        @ApiResponse(code = 403, message = "forbidden"),
-        @ApiResponse(code = 404, message = "not found") })
-    @RequestMapping(value = "/subjects/{id}",
-        produces = { "application/json" }, 
-        method = RequestMethod.DELETE)
-    default ResponseEntity<SubjectList> deleteASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
+  
+  
     @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = SubjectList.class),
