@@ -1,0 +1,43 @@
+version: '2.2'
+
+services:
+    mysql:
+        build:
+          context: ../images/mysql
+        environment:
+         - MYSQL_DATABASE=gestionCours
+         - MYSQL_USER=amtprojet2
+         - MYSQL_PASSWORD=pswrd
+         - MYSQL_ROOT_PASSWORD=root
+        ports:
+         - "3306:3306"
+        init: true
+
+    db_authentication:
+        build:
+          context: ../images/mysql
+        environment:
+         - MYSQL_DATABASE=Users
+         - MYSQL_USER=amtprojet2
+         - MYSQL_PASSWORD=pswrd
+         - MYSQL_ROOT_PASSWORD=root
+        ports:
+         - "3307:3306"
+        init: true
+        
+    backend-auth:
+        build: ../images/authentication
+        ports:
+         - "8080:8080"
+        restart: unless-stopped
+        environment:
+            spring_profiles_active: docker
+            
+    phpmyadmin:
+        build: ../images/phpmyadmin
+        environment:
+          - MYSQL_ROOT_PASSWORD=pswrd
+        ports:
+          - "6060:80"
+        links:
+          - mysql:db
