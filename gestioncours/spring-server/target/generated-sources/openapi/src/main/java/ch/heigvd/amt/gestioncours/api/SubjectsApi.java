@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-15T22:38:18.895+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -49,7 +49,8 @@ public interface SubjectsApi {
     default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
-
+  
+  
     @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = SubjectList.class),
