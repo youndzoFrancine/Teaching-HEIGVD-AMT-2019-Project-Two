@@ -19,7 +19,7 @@ paths:
       tags:
         - allUsers
       description: have access to ressources
-      operationId: login
+      operationId: authenticate
       requestBody:
         content:
           application/json:
