@@ -7,7 +7,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subjectId** | **Long** |  | 
-**eMail** | **String** |  | 
+**studentEmail** | **String** |  | 
 
 
 

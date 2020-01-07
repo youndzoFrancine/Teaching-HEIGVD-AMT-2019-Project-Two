@@ -6,11 +6,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eMail** | **String** |  | 
-**firstName** | **String** |  | 
-**lastName** | **String** |  | 
-**password** | **String** |  | 
-**userRole** | **String** |  | 
+**eMail** | **String** |  |  [optional]
+**firstName** | **String** |  |  [optional]
+**lastName** | **String** |  |  [optional]
+**password** | **String** |  |  [optional]
+**userRole** | **String** |  |  [optional]
 
 
 

@@ -1,30 +1,40 @@
 -------------------------------------------------------------------------------
 Test set: ch.heigvd.amt.gestioncours.spec.SpecificationTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 2, Skipped: 1, Time elapsed: 10.369 sec <<< FAILURE!
-When I POST it to the /subjects endpoint(Scenario: create a subject)  Time elapsed: 0.007 sec  <<< ERROR!
-java.lang.IllegalArgumentException: Expected URL scheme 'http' or 'https' but no colon was found
-	at okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)
-	at okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)
-	at okhttp3.Request$Builder.url(Request.kt:184)
-	at ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)
-	at ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:219)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:231)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:270)
-	at ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)
-	at ✽.When I POST it to the /subjects endpoint(creation.feature:8)
+Tests run: 19, Failures: 4, Errors: 0, Skipped: 5, Time elapsed: 1.751 sec <<< FAILURE!
+Then I receive a 201 status code(Scenario: create a enrollment)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<201> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ✽.Then I receive a 201 status code(enrollment.feature:6)
 
-Scenario: create a subject  Time elapsed: 0.007 sec  <<< ERROR!
-java.lang.IllegalArgumentException: Expected URL scheme 'http' or 'https' but no colon was found
-	at okhttp3.HttpUrl$Builder.parse$okhttp(HttpUrl.kt:1257)
-	at okhttp3.HttpUrl$Companion.get(HttpUrl.kt:1630)
-	at okhttp3.Request$Builder.url(Request.kt:184)
-	at ch.heigvd.amt.gestioncours.ApiClient.buildRequest(ApiClient.java:1024)
-	at ch.heigvd.amt.gestioncours.ApiClient.buildCall(ApiClient.java:999)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectCall(DefaultApi.java:219)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectValidateBeforeCall(DefaultApi.java:231)
-	at ch.heigvd.amt.gestioncours.api.DefaultApi.createSubjectWithHttpInfo(DefaultApi.java:270)
-	at ch.heigvd.amt.gestioncours.spec.steps.CreationSteps.i_POST_it_to_the_subjects_endpoint(CreationSteps.java:49)
-	at ✽.When I POST it to the /subjects endpoint(creation.feature:8)
+Scenario: create a enrollment  Time elapsed: 0.005 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<201> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ✽.Then I receive a 201 status code(enrollment.feature:6)
+
+Then I receive a 201 status code(Scenario: create a subject)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<201> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ✽.Then I receive a 201 status code(subject.feature:9)
+
+Scenario: create a subject  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<201> but was:<0>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ✽.Then I receive a 201 status code(subject.feature:9)
 

@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
 public class User {
   public static final String SERIALIZED_NAME_E_MAIL = "e_mail";
   @SerializedName(SERIALIZED_NAME_E_MAIL)
@@ -60,7 +60,8 @@ public class User {
    * Get eMail
    * @return eMail
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String geteMail() {
     return eMail;
@@ -82,7 +83,8 @@ public class User {
    * Get firstName
    * @return firstName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getFirstName() {
     return firstName;
@@ -104,7 +106,8 @@ public class User {
    * Get lastName
    * @return lastName
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getLastName() {
     return lastName;
@@ -126,7 +129,8 @@ public class User {
    * Get password
    * @return password
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getPassword() {
     return password;
@@ -148,7 +152,8 @@ public class User {
    * Get userRole
    * @return userRole
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getUserRole() {
     return userRole;

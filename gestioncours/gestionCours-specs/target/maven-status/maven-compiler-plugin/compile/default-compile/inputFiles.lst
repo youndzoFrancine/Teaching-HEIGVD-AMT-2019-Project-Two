@@ -1,27 +1,31 @@
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ApiException.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\dto\SubjectList.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\dto\SubjectTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\api\DefaultApi.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\dto\User.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\dto\Enrollment.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\Configuration.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\Pair.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\dto\EnrollmentTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\auth\ApiKeyAuth.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\dto\EnrollmentListTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ApiCallback.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\GzipRequestInterceptor.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\JSON.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\dto\UserTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ApiClient.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\dto\EnrollmentList.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\dto\SubjectListTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ApiResponse.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\src\test\java\ch\heigvd\amt\gestioncours\api\DefaultApiTest.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\auth\HttpBearerAuth.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ProgressRequestBody.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\ProgressResponseBody.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\dto\Subject.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\StringUtil.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\auth\HttpBasicAuth.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs\target\generated-sources\gestioncours\.\ch\heigvd\amt\gestioncours\auth\Authentication.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/User.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/GzipRequestInterceptor.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/SubjectListAllOf.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ProgressResponseBody.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/api/DefaultApi.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/Enrollment.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/LaboTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/EnrollmentList.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/StringUtil.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/api/DefaultApiTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/Labo.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ApiResponse.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectListTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/Subject.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/Configuration.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ProgressRequestBody.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/auth/ApiKeyAuth.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/JSON.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/UserTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/auth/HttpBearerAuth.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ApiCallback.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/auth/Authentication.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectListAllOfTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ApiClient.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/dto/SubjectList.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/ApiException.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/auth/HttpBasicAuth.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentListTest.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs/target/generated-sources/gestioncours/./ch/heigvd/amt/gestioncours/Pair.java

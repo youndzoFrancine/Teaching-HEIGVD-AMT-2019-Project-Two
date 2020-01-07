@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "enrollments", description = "the enrollments API")
@@ -47,6 +47,40 @@ public interface EnrollmentsApi {
         consumes = { "application/json" },
         method = RequestMethod.POST)
     default ResponseEntity<Void> createEnrollment(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "deleteEnrollment", notes = "delete a single enrollment on the ID supplied", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 204, message = "enrollment deleted"),
+        @ApiResponse(code = 200, message = "unexpected error") })
+    @RequestMapping(value = "/enrollments/{id}",
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> deleteEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "findEnrollmentById", notes = "Returns an enrollment based on a single ID", response = Enrollment.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "enrollment response", response = Enrollment.class),
+        @ApiResponse(code = 200, message = "unexpected error") })
+    @RequestMapping(value = "/enrollments/{id}",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    default ResponseEntity<Enrollment> findEnrollmentById(@ApiParam(value = "ID of enrollment to fetch",required=true) @PathVariable("id") Integer id) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"subject_id\" : 0, \"student_email\" : \"student_email\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }

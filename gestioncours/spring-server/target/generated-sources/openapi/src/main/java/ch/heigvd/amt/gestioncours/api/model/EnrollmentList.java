@@ -14,14 +14,14 @@ import javax.validation.constraints.*;
 /**
  * EnrollmentList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
 
 public class EnrollmentList   {
   @JsonProperty("subject_id")
   private Long subjectId;
 
-  @JsonProperty("e_mail")
-  private String eMail;
+  @JsonProperty("student_email")
+  private String studentEmail;
 
   @JsonProperty("id")
   private Long id;
@@ -35,7 +35,8 @@ public class EnrollmentList   {
    * Get subjectId
    * @return subjectId
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public Long getSubjectId() {
@@ -46,24 +47,25 @@ public class EnrollmentList   {
     this.subjectId = subjectId;
   }
 
-  public EnrollmentList eMail(String eMail) {
-    this.eMail = eMail;
+  public EnrollmentList studentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
     return this;
   }
 
   /**
-   * Get eMail
-   * @return eMail
+   * Get studentEmail
+   * @return studentEmail
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public String geteMail() {
-    return eMail;
+  public String getStudentEmail() {
+    return studentEmail;
   }
 
-  public void seteMail(String eMail) {
-    this.eMail = eMail;
+  public void setStudentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
   }
 
   public EnrollmentList id(Long id) {
@@ -97,13 +99,13 @@ public class EnrollmentList   {
     }
     EnrollmentList enrollmentList = (EnrollmentList) o;
     return Objects.equals(this.subjectId, enrollmentList.subjectId) &&
-        Objects.equals(this.eMail, enrollmentList.eMail) &&
+        Objects.equals(this.studentEmail, enrollmentList.studentEmail) &&
         Objects.equals(this.id, enrollmentList.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, eMail, id);
+    return Objects.hash(subjectId, studentEmail, id);
   }
 
   @Override
@@ -112,7 +114,7 @@ public class EnrollmentList   {
     sb.append("class EnrollmentList {\n");
     
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
-    sb.append("    eMail: ").append(toIndentedString(eMail)).append("\n");
+    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

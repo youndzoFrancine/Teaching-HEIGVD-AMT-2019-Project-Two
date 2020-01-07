@@ -38,17 +38,6 @@ public class SubjectsApiController implements SubjectsApi {
         return subject;
     }
 
-   /* private SubjectList toSubjectList(Optional<SubjectEntity> subjectEntity) {
-        SubjectList subject = new SubjectList();
-        //subject.setCreditsEtcs(toSubjectList(subjectEntity).getCreditsEtcs());
-       // subject.setName(toSubjectList(subjectEntity).getName());
-        //subject.setId(toSubjectList(subjectEntity).getId());
-
-        subject.setCreditsEtcs(toSubject(subjectEntity));
-
-        return subject;
-    }*/
-
     @Autowired
     SubjectRepository subjectRepository;
 

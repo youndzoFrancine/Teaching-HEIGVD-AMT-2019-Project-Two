@@ -16,6 +16,7 @@ package ch.heigvd.amt.gestioncours.api;
 import ch.heigvd.amt.gestioncours.ApiException;
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
 import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
+import ch.heigvd.amt.gestioncours.dto.Labo;
 import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 import org.junit.Test;
@@ -54,6 +55,22 @@ public class DefaultApiTest {
     /**
      * 
      *
+     * create a Labo
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createLaboTest() throws ApiException {
+        Labo labo = null;
+        api.createLabo(labo);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * create a subject
      *
      * @throws ApiException
@@ -70,6 +87,70 @@ public class DefaultApiTest {
     /**
      * 
      *
+     * delete a single enrollment on the ID supplied
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteEnrollmentTest() throws ApiException {
+        Integer id = null;
+        api.deleteEnrollment(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * delete a single subject on the ID
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSubjectTest() throws ApiException {
+        Integer id = null;
+        api.deleteSubject(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * Returns an enrollment based on a single ID
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void findEnrollmentByIdTest() throws ApiException {
+        Integer id = null;
+        Enrollment response = api.findEnrollmentById(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * gets a single subject based on the ID supplied
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getASubjectTest() throws ApiException {
+        Long id = null;
+        SubjectList response = api.getASubject(id);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
      * get the list of all enrollments
      *
      * @throws ApiException
@@ -77,8 +158,22 @@ public class DefaultApiTest {
      */
     @Test
     public void getEnrollmentsTest() throws ApiException {
-        List<EnrollmentList> allEnrollemnts = null;
-        api.getEnrollments(allEnrollemnts);
+        List<EnrollmentList> response = api.getEnrollments();
+
+        // TODO: test validations
+    }
+    
+    /**
+     * 
+     *
+     * get the list of all the Labo
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void getLabosTest() throws ApiException {
+        List<Labo> response = api.getLabos();
 
         // TODO: test validations
     }
@@ -93,8 +188,7 @@ public class DefaultApiTest {
      */
     @Test
     public void getSubjectsTest() throws ApiException {
-        List<SubjectList> allSujects = null;
-        api.getSubjects(allSujects);
+        List<SubjectList> response = api.getSubjects();
 
         // TODO: test validations
     }

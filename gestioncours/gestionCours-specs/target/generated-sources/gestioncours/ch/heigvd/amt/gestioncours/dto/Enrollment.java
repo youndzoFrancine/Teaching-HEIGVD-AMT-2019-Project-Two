@@ -27,15 +27,15 @@ import java.io.IOException;
 /**
  * Enrollment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
 public class Enrollment {
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subject_id";
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
   private Long subjectId;
 
-  public static final String SERIALIZED_NAME_E_MAIL = "e_mail";
-  @SerializedName(SERIALIZED_NAME_E_MAIL)
-  private String eMail;
+  public static final String SERIALIZED_NAME_STUDENT_EMAIL = "student_email";
+  @SerializedName(SERIALIZED_NAME_STUDENT_EMAIL)
+  private String studentEmail;
 
 
   public Enrollment subjectId(Long subjectId) {
@@ -60,25 +60,25 @@ public class Enrollment {
   }
 
 
-  public Enrollment eMail(String eMail) {
+  public Enrollment studentEmail(String studentEmail) {
     
-    this.eMail = eMail;
+    this.studentEmail = studentEmail;
     return this;
   }
 
    /**
-   * Get eMail
-   * @return eMail
+   * Get studentEmail
+   * @return studentEmail
   **/
   @ApiModelProperty(required = true, value = "")
 
-  public String geteMail() {
-    return eMail;
+  public String getStudentEmail() {
+    return studentEmail;
   }
 
 
-  public void seteMail(String eMail) {
-    this.eMail = eMail;
+  public void setStudentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
   }
 
 
@@ -92,12 +92,12 @@ public class Enrollment {
     }
     Enrollment enrollment = (Enrollment) o;
     return Objects.equals(this.subjectId, enrollment.subjectId) &&
-        Objects.equals(this.eMail, enrollment.eMail);
+        Objects.equals(this.studentEmail, enrollment.studentEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, eMail);
+    return Objects.hash(subjectId, studentEmail);
   }
 
 
@@ -106,7 +106,7 @@ public class Enrollment {
     StringBuilder sb = new StringBuilder();
     sb.append("class Enrollment {\n");
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
-    sb.append("    eMail: ").append(toIndentedString(eMail)).append("\n");
+    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

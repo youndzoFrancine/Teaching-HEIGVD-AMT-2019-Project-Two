@@ -13,7 +13,7 @@
 
 package ch.heigvd.amt.gestioncours;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

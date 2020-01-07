@@ -2,7 +2,7 @@
 
 Authentication api
 - API version: 1.0.0-oas3
-  - Build date: 2019-12-13T15:03:23.879+01:00[Europe/Berlin]
+  - Build date: 2020-01-06T10:46:59.014+01:00[Europe/Zurich]
 
 An API for authentication
 
@@ -107,8 +107,14 @@ All URIs are relative to *https://localhost:8080/gestionCours*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**createEnrollment**](docs/DefaultApi.md#createEnrollment) | **POST** /enrollments | 
+*DefaultApi* | [**createLabo**](docs/DefaultApi.md#createLabo) | **POST** /Labo | 
 *DefaultApi* | [**createSubject**](docs/DefaultApi.md#createSubject) | **POST** /subjects | 
+*DefaultApi* | [**deleteEnrollment**](docs/DefaultApi.md#deleteEnrollment) | **DELETE** /enrollments/{id} | 
+*DefaultApi* | [**deleteSubject**](docs/DefaultApi.md#deleteSubject) | **DELETE** /subjects/{id} | 
+*DefaultApi* | [**findEnrollmentById**](docs/DefaultApi.md#findEnrollmentById) | **GET** /enrollments/{id} | 
+*DefaultApi* | [**getASubject**](docs/DefaultApi.md#getASubject) | **GET** /subjects/{id} | 
 *DefaultApi* | [**getEnrollments**](docs/DefaultApi.md#getEnrollments) | **GET** /enrollments | 
+*DefaultApi* | [**getLabos**](docs/DefaultApi.md#getLabos) | **GET** /Labo | 
 *DefaultApi* | [**getSubjects**](docs/DefaultApi.md#getSubjects) | **GET** /subjects | 
 
 
@@ -116,8 +122,10 @@ Class | Method | HTTP request | Description
 
  - [Enrollment](docs/Enrollment.md)
  - [EnrollmentList](docs/EnrollmentList.md)
+ - [Labo](docs/Labo.md)
  - [Subject](docs/Subject.md)
  - [SubjectList](docs/SubjectList.md)
+ - [SubjectListAllOf](docs/SubjectListAllOf.md)
  - [User](docs/User.md)
 
 

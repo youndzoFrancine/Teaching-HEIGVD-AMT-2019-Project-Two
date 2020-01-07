@@ -12,14 +12,14 @@ import javax.validation.constraints.*;
 /**
  * Enrollment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
 
 public class Enrollment   {
   @JsonProperty("subject_id")
   private Long subjectId;
 
-  @JsonProperty("e_mail")
-  private String eMail;
+  @JsonProperty("student_email")
+  private String studentEmail;
 
   public Enrollment subjectId(Long subjectId) {
     this.subjectId = subjectId;
@@ -30,7 +30,8 @@ public class Enrollment   {
    * Get subjectId
    * @return subjectId
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public Long getSubjectId() {
@@ -41,24 +42,25 @@ public class Enrollment   {
     this.subjectId = subjectId;
   }
 
-  public Enrollment eMail(String eMail) {
-    this.eMail = eMail;
+  public Enrollment studentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
     return this;
   }
 
   /**
-   * Get eMail
-   * @return eMail
+   * Get studentEmail
+   * @return studentEmail
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
-  public String geteMail() {
-    return eMail;
+  public String getStudentEmail() {
+    return studentEmail;
   }
 
-  public void seteMail(String eMail) {
-    this.eMail = eMail;
+  public void setStudentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
   }
 
 
@@ -72,12 +74,12 @@ public class Enrollment   {
     }
     Enrollment enrollment = (Enrollment) o;
     return Objects.equals(this.subjectId, enrollment.subjectId) &&
-        Objects.equals(this.eMail, enrollment.eMail);
+        Objects.equals(this.studentEmail, enrollment.studentEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, eMail);
+    return Objects.hash(subjectId, studentEmail);
   }
 
   @Override
@@ -86,7 +88,7 @@ public class Enrollment   {
     sb.append("class Enrollment {\n");
     
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
-    sb.append("    eMail: ").append(toIndentedString(eMail)).append("\n");
+    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

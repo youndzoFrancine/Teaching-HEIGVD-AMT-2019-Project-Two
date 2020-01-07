@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Subject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
 public class Subject {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -48,7 +48,8 @@ public class Subject {
    * Get name
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public String getName() {
     return name;
@@ -70,7 +71,8 @@ public class Subject {
    * Get creditsEtcs
    * @return creditsEtcs
   **/
-  @ApiModelProperty(required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
 
   public Long getCreditsEtcs() {
     return creditsEtcs;
