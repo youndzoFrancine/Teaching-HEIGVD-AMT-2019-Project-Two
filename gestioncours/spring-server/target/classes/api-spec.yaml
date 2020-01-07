@@ -118,7 +118,6 @@ paths:
           description: unexpected error
 
   /enrollments/{id}:
-
     get:
       description: Returns an enrollment based on a single ID
       operationId: find enrollment by id
@@ -187,8 +186,6 @@ paths:
                   $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
-
-
 components:
   schemas:
     Subject:
