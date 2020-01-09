@@ -14,14 +14,14 @@ import javax.validation.constraints.*;
 /**
  * EnrollmentList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
 
 public class EnrollmentList   {
   @JsonProperty("subject_id")
   private Long subjectId;
 
-  @JsonProperty("student_email")
-  private String studentEmail;
+  @JsonProperty("user_email")
+  private String userEmail;
 
   @JsonProperty("id")
   private Long id;
@@ -47,25 +47,25 @@ public class EnrollmentList   {
     this.subjectId = subjectId;
   }
 
-  public EnrollmentList studentEmail(String studentEmail) {
-    this.studentEmail = studentEmail;
+  public EnrollmentList userEmail(String userEmail) {
+    this.userEmail = userEmail;
     return this;
   }
 
   /**
-   * Get studentEmail
-   * @return studentEmail
+   * Get userEmail
+   * @return userEmail
   */
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
 
-  public String getStudentEmail() {
-    return studentEmail;
+  public String getUserEmail() {
+    return userEmail;
   }
 
-  public void setStudentEmail(String studentEmail) {
-    this.studentEmail = studentEmail;
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
   }
 
   public EnrollmentList id(Long id) {
@@ -99,13 +99,13 @@ public class EnrollmentList   {
     }
     EnrollmentList enrollmentList = (EnrollmentList) o;
     return Objects.equals(this.subjectId, enrollmentList.subjectId) &&
-        Objects.equals(this.studentEmail, enrollmentList.studentEmail) &&
+        Objects.equals(this.userEmail, enrollmentList.userEmail) &&
         Objects.equals(this.id, enrollmentList.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, studentEmail, id);
+    return Objects.hash(subjectId, userEmail, id);
   }
 
   @Override
@@ -114,7 +114,7 @@ public class EnrollmentList   {
     sb.append("class EnrollmentList {\n");
     
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
-    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();

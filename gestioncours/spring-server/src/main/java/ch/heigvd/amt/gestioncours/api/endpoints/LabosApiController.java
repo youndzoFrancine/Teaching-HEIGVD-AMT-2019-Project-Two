@@ -20,7 +20,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LabosApiEntity {
+public class LabosApiController {
 
     @Autowired
     LaboRepository labosRepository;

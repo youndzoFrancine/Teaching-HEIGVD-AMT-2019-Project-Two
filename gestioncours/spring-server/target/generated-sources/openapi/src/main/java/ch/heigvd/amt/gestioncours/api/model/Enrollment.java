@@ -12,14 +12,14 @@ import javax.validation.constraints.*;
 /**
  * Enrollment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
 
 public class Enrollment   {
   @JsonProperty("subject_id")
   private Long subjectId;
 
-  @JsonProperty("student_email")
-  private String studentEmail;
+  @JsonProperty("user_email")
+  private String userEmail;
 
   public Enrollment subjectId(Long subjectId) {
     this.subjectId = subjectId;
@@ -42,25 +42,25 @@ public class Enrollment   {
     this.subjectId = subjectId;
   }
 
-  public Enrollment studentEmail(String studentEmail) {
-    this.studentEmail = studentEmail;
+  public Enrollment userEmail(String userEmail) {
+    this.userEmail = userEmail;
     return this;
   }
 
   /**
-   * Get studentEmail
-   * @return studentEmail
+   * Get userEmail
+   * @return userEmail
   */
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
 
-  public String getStudentEmail() {
-    return studentEmail;
+  public String getUserEmail() {
+    return userEmail;
   }
 
-  public void setStudentEmail(String studentEmail) {
-    this.studentEmail = studentEmail;
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
   }
 
 
@@ -74,12 +74,12 @@ public class Enrollment   {
     }
     Enrollment enrollment = (Enrollment) o;
     return Objects.equals(this.subjectId, enrollment.subjectId) &&
-        Objects.equals(this.studentEmail, enrollment.studentEmail);
+        Objects.equals(this.userEmail, enrollment.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, studentEmail);
+    return Objects.hash(subjectId, userEmail);
   }
 
   @Override
@@ -88,7 +88,7 @@ public class Enrollment   {
     sb.append("class Enrollment {\n");
     
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
-    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

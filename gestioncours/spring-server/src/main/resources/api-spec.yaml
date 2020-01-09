@@ -121,7 +121,7 @@ paths:
 
     get:
       description: Returns an enrollment based on a single ID
-      operationId: find enrollment by id
+      operationId: get enrollment by id
       parameters:
         - name: id
           in: path
@@ -138,7 +138,6 @@ paths:
                 $ref: '#/components/schemas/Enrollment'
         default:
           description: unexpected error
-
     delete:
       description: delete a single enrollment on the ID supplied
       operationId: deleteEnrollment
@@ -224,12 +223,12 @@ components:
       type: object
       required:
         - subject_id
-        - student_email
+        - user_email
       properties:
         subject_id:
           type: integer
           format: int64
-        student_email:
+        user_email:
           type: string
     EnrollmentList:
       allOf:

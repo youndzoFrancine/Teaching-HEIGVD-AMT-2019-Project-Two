@@ -16,14 +16,14 @@ public class EnrollmentEntity implements Serializable {
     @ManyToOne
     private SubjectEntity subject;
 
-    private String student_email;
+    private String user_email;
 
     public long getId() {
         return id;
     }
 
-    public String getStudent_email() {
-        return student_email;
+    public String getUser_email() {
+        return user_email;
     }
 
     public SubjectEntity getSubject() {
@@ -38,7 +38,7 @@ public class EnrollmentEntity implements Serializable {
         this.id = id;
     }
 
-    public void setStudent_email(String student_email) {
-        this.student_email = student_email;
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
     }
 }
