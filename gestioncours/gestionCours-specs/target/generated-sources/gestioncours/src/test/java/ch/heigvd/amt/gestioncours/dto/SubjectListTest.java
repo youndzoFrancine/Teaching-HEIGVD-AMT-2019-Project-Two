@@ -14,6 +14,15 @@
 package ch.heigvd.amt.gestioncours.dto;
 
 import ch.heigvd.amt.gestioncours.dto.Subject;
+import ch.heigvd.amt.gestioncours.dto.SubjectListAllOf;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -47,6 +56,14 @@ public class SubjectListTest {
     @Test
     public void creditsEtcsTest() {
         // TODO: test creditsEtcs
+    }
+
+    /**
+     * Test the property 'id'
+     */
+    @Test
+    public void idTest() {
+        // TODO: test id
     }
 
 }

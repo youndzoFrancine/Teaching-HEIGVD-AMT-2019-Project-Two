@@ -68,6 +68,22 @@ paths:
           description: forbidden
         '404':
           description: not found
+
+    delete:
+      description: delete a single subject on the ID
+      operationId: deleteSubject
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: subject deleted
+        default:
+          description: unexpected error
+
   /enrollments:
     post:
       operationId: createEnrollment
@@ -102,6 +118,78 @@ paths:
         '401':
           description: unexpected error
 
+  /enrollments/{id}:
+
+    get:
+      description: Returns an enrollment based on a single ID
+      operationId: find enrollment by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of enrollment to fetch
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: enrollment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        default:
+          description: unexpected error
+
+    delete:
+      description: delete a single enrollment on the ID supplied
+      operationId: deleteEnrollment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: enrollment deleted
+        default:
+          description: unexpected error
+
+  /Labo:
+    post:
+      operationId: createLabo
+      description: create a Labo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Labo'
+      responses:
+        '201':
+          description: created
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+    get:
+      description: get the list of all the Labo
+      operationId: getLabos
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Labo'
+        '401':
+          description: unexpected error
+
+
 components:
   schemas:
     Subject:
@@ -135,11 +223,14 @@ components:
           type: string
     Enrollment:
       type: object
+      required:
+        - subject_id
+        - student_email
       properties:
         subject_id:
           type: integer
           format: int64
-        e_mail:
+        student_email:
           type: string
     EnrollmentList:
       allOf:
@@ -149,10 +240,14 @@ components:
             id:
               type: integer
               format: int64
-
-
-
-
-
-
-
+    Labo:
+      type: object
+      required:
+        - labo_name
+        - ponderation
+      properties:
+        labo_name:
+          type: string
+        ponderation:
+          type: integer
+          format: int64

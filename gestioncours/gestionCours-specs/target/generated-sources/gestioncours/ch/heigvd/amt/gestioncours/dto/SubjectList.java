@@ -16,12 +16,102 @@ package ch.heigvd.amt.gestioncours.dto;
 import java.util.Objects;
 import java.util.Arrays;
 import ch.heigvd.amt.gestioncours.dto.Subject;
+import ch.heigvd.amt.gestioncours.dto.SubjectListAllOf;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * SubjectList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
-public class SubjectList extends Subject {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
+public class SubjectList {
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name;
+
+  public static final String SERIALIZED_NAME_CREDITS_ETCS = "credits_etcs";
+  @SerializedName(SERIALIZED_NAME_CREDITS_ETCS)
+  private Long creditsEtcs;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Long id;
+
+
+  public SubjectList name(String name) {
+    
+    this.name = name;
+    return this;
+  }
+
+   /**
+   * Get name
+   * @return name
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public String getName() {
+    return name;
+  }
+
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+
+  public SubjectList creditsEtcs(Long creditsEtcs) {
+    
+    this.creditsEtcs = creditsEtcs;
+    return this;
+  }
+
+   /**
+   * Get creditsEtcs
+   * @return creditsEtcs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getCreditsEtcs() {
+    return creditsEtcs;
+  }
+
+
+  public void setCreditsEtcs(Long creditsEtcs) {
+    this.creditsEtcs = creditsEtcs;
+  }
+
+
+  public SubjectList id(Long id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getId() {
+    return id;
+  }
+
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +121,15 @@ public class SubjectList extends Subject {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    SubjectList subjectList = (SubjectList) o;
+    return Objects.equals(this.name, subjectList.name) &&
+        Objects.equals(this.creditsEtcs, subjectList.creditsEtcs) &&
+        Objects.equals(this.id, subjectList.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(name, creditsEtcs, id);
   }
 
 
@@ -44,7 +137,9 @@ public class SubjectList extends Subject {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubjectList {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    creditsEtcs: ").append(toIndentedString(creditsEtcs)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

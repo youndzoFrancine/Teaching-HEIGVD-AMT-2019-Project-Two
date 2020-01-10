@@ -16,12 +16,100 @@ package ch.heigvd.amt.gestioncours.dto;
 import java.util.Objects;
 import java.util.Arrays;
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
+import ch.heigvd.amt.gestioncours.dto.SubjectListAllOf;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * EnrollmentList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-12-13T15:03:23.879+01:00[Europe/Berlin]")
-public class EnrollmentList extends Enrollment {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
+public class EnrollmentList {
+  public static final String SERIALIZED_NAME_SUBJECT_ID = "subject_id";
+  @SerializedName(SERIALIZED_NAME_SUBJECT_ID)
+  private Long subjectId;
+
+  public static final String SERIALIZED_NAME_STUDENT_EMAIL = "student_email";
+  @SerializedName(SERIALIZED_NAME_STUDENT_EMAIL)
+  private String studentEmail;
+
+  public static final String SERIALIZED_NAME_ID = "id";
+  @SerializedName(SERIALIZED_NAME_ID)
+  private Long id;
+
+
+  public EnrollmentList subjectId(Long subjectId) {
+    
+    this.subjectId = subjectId;
+    return this;
+  }
+
+   /**
+   * Get subjectId
+   * @return subjectId
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public Long getSubjectId() {
+    return subjectId;
+  }
+
+
+  public void setSubjectId(Long subjectId) {
+    this.subjectId = subjectId;
+  }
+
+
+  public EnrollmentList studentEmail(String studentEmail) {
+    
+    this.studentEmail = studentEmail;
+    return this;
+  }
+
+   /**
+   * Get studentEmail
+   * @return studentEmail
+  **/
+  @ApiModelProperty(required = true, value = "")
+
+  public String getStudentEmail() {
+    return studentEmail;
+  }
+
+
+  public void setStudentEmail(String studentEmail) {
+    this.studentEmail = studentEmail;
+  }
+
+
+  public EnrollmentList id(Long id) {
+    
+    this.id = id;
+    return this;
+  }
+
+   /**
+   * Get id
+   * @return id
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public Long getId() {
+    return id;
+  }
+
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -31,12 +119,15 @@ public class EnrollmentList extends Enrollment {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    EnrollmentList enrollmentList = (EnrollmentList) o;
+    return Objects.equals(this.subjectId, enrollmentList.subjectId) &&
+        Objects.equals(this.studentEmail, enrollmentList.studentEmail) &&
+        Objects.equals(this.id, enrollmentList.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(subjectId, studentEmail, id);
   }
 
 
@@ -44,7 +135,9 @@ public class EnrollmentList extends Enrollment {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class EnrollmentList {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
+    sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

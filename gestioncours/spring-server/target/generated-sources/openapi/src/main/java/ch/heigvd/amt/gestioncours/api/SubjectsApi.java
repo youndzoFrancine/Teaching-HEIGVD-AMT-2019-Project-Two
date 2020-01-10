@@ -27,7 +27,11 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-16T15:25:55.881+01:00[Europe/Berlin]")
+<<<<<<< HEAD
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
+=======
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -48,9 +52,22 @@ public interface SubjectsApi {
         method = RequestMethod.POST)
     default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
     }
-  
-  
+
+
+    @ApiOperation(value = "", nickname = "deleteSubject", notes = "delete a single subject on the ID", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 204, message = "subject deleted"),
+        @ApiResponse(code = 200, message = "unexpected error") })
+    @RequestMapping(value = "/subjects/{id}",
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> deleteSubject(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
     @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = SubjectList.class),

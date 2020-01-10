@@ -49,11 +49,11 @@ public class EnrollmentTest {
     }
 
     /**
-     * Test the property 'eMail'
+     * Test the property 'studentEmail'
      */
     @Test
-    public void eMailTest() {
-        // TODO: test eMail
+    public void studentEmailTest() {
+        // TODO: test studentEmail
     }
 
 }

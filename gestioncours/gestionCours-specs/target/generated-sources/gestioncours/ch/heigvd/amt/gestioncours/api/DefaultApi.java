@@ -29,6 +29,7 @@ import java.io.IOException;
 
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
 import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
+import ch.heigvd.amt.gestioncours.dto.Labo;
 import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 
@@ -176,6 +177,124 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
+     * Build call for createLabo
+     * @param labo  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createLaboCall(Labo labo, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = labo;
+
+        // create path and map variables
+        String localVarPath = "/Labo";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createLaboValidateBeforeCall(Labo labo, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'labo' is set
+        if (labo == null) {
+            throw new ApiException("Missing the required parameter 'labo' when calling createLabo(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createLaboCall(labo, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * create a Labo
+     * @param labo  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public void createLabo(Labo labo) throws ApiException {
+        createLaboWithHttpInfo(labo);
+    }
+
+    /**
+     * 
+     * create a Labo
+     * @param labo  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> createLaboWithHttpInfo(Labo labo) throws ApiException {
+        okhttp3.Call localVarCall = createLaboValidateBeforeCall(labo, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * create a Labo
+     * @param labo  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> created </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createLaboAsync(Labo labo, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createLaboValidateBeforeCall(labo, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createSubject
      * @param subject  (required)
      * @param _callback Callback for upload/download progress
@@ -294,24 +413,24 @@ public class DefaultApi {
         return localVarCall;
     }
     /**
-     * Build call for getEnrollments
-     * @param allEnrollemnts  (required)
+     * Build call for deleteEnrollment
+     * @param id  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnrollmentsCall(List<EnrollmentList> allEnrollemnts, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteEnrollmentCall(Integer id, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/enrollments"
-            .replaceAll("\\{" + "allEnrollemnts" + "\\}", localVarApiClient.escapeString(localVarApiClient.collectionPathParameterToString("csv", allEnrollemnts)));
+        String localVarPath = "/enrollments/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -333,19 +452,472 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteEnrollmentValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteEnrollment(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteEnrollmentCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * delete a single enrollment on the ID supplied
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteEnrollment(Integer id) throws ApiException {
+        deleteEnrollmentWithHttpInfo(id);
+    }
+
+    /**
+     * 
+     * delete a single enrollment on the ID supplied
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteEnrollmentWithHttpInfo(Integer id) throws ApiException {
+        okhttp3.Call localVarCall = deleteEnrollmentValidateBeforeCall(id, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * delete a single enrollment on the ID supplied
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> enrollment deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteEnrollmentAsync(Integer id, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteEnrollmentValidateBeforeCall(id, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSubject
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> subject deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSubjectCall(Integer id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/subjects/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSubjectValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling deleteSubject(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSubjectCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * delete a single subject on the ID
+     * @param id  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> subject deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSubject(Integer id) throws ApiException {
+        deleteSubjectWithHttpInfo(id);
+    }
+
+    /**
+     * 
+     * delete a single subject on the ID
+     * @param id  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> subject deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSubjectWithHttpInfo(Integer id) throws ApiException {
+        okhttp3.Call localVarCall = deleteSubjectValidateBeforeCall(id, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     *  (asynchronously)
+     * delete a single subject on the ID
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> subject deleted </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSubjectAsync(Integer id, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSubjectValidateBeforeCall(id, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for findEnrollmentById
+     * @param id ID of enrollment to fetch (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findEnrollmentByIdCall(Integer id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/enrollments/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
         return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getEnrollmentsValidateBeforeCall(List<EnrollmentList> allEnrollemnts, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call findEnrollmentByIdValidateBeforeCall(Integer id, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'allEnrollemnts' is set
-        if (allEnrollemnts == null) {
-            throw new ApiException("Missing the required parameter 'allEnrollemnts' when calling getEnrollments(Async)");
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling findEnrollmentById(Async)");
         }
         
 
-        okhttp3.Call localVarCall = getEnrollmentsCall(allEnrollemnts, _callback);
+        okhttp3.Call localVarCall = findEnrollmentByIdCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * Returns an enrollment based on a single ID
+     * @param id ID of enrollment to fetch (required)
+     * @return Enrollment
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Enrollment findEnrollmentById(Integer id) throws ApiException {
+        ApiResponse<Enrollment> localVarResp = findEnrollmentByIdWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * Returns an enrollment based on a single ID
+     * @param id ID of enrollment to fetch (required)
+     * @return ApiResponse&lt;Enrollment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Enrollment> findEnrollmentByIdWithHttpInfo(Integer id) throws ApiException {
+        okhttp3.Call localVarCall = findEnrollmentByIdValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<Enrollment>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * Returns an enrollment based on a single ID
+     * @param id ID of enrollment to fetch (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> enrollment response </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call findEnrollmentByIdAsync(Integer id, final ApiCallback<Enrollment> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = findEnrollmentByIdValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<Enrollment>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getASubject
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getASubjectCall(Long id, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/subjects/{id}"
+            .replaceAll("\\{" + "id" + "\\}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getASubjectValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getASubject(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = getASubjectCall(id, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * gets a single subject based on the ID supplied
+     * @param id  (required)
+     * @return SubjectList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public SubjectList getASubject(Long id) throws ApiException {
+        ApiResponse<SubjectList> localVarResp = getASubjectWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * gets a single subject based on the ID supplied
+     * @param id  (required)
+     * @return ApiResponse&lt;SubjectList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SubjectList> getASubjectWithHttpInfo(Long id) throws ApiException {
+        okhttp3.Call localVarCall = getASubjectValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<SubjectList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * gets a single subject based on the ID supplied
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> forbidden </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> not found </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getASubjectAsync(Long id, final ApiCallback<SubjectList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getASubjectValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<SubjectList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getEnrollments
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getEnrollmentsCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/enrollments";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getEnrollmentsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getEnrollmentsCall(_callback);
         return localVarCall;
 
     }
@@ -353,7 +925,7 @@ public class DefaultApi {
     /**
      * 
      * get the list of all enrollments
-     * @param allEnrollemnts  (required)
+     * @return List&lt;EnrollmentList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -362,15 +934,15 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public void getEnrollments(List<EnrollmentList> allEnrollemnts) throws ApiException {
-        getEnrollmentsWithHttpInfo(allEnrollemnts);
+    public List<EnrollmentList> getEnrollments() throws ApiException {
+        ApiResponse<List<EnrollmentList>> localVarResp = getEnrollmentsWithHttpInfo();
+        return localVarResp.getData();
     }
 
     /**
      * 
      * get the list of all enrollments
-     * @param allEnrollemnts  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;EnrollmentList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -379,15 +951,15 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getEnrollmentsWithHttpInfo(List<EnrollmentList> allEnrollemnts) throws ApiException {
-        okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(allEnrollemnts, null);
-        return localVarApiClient.execute(localVarCall);
+    public ApiResponse<List<EnrollmentList>> getEnrollmentsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<EnrollmentList>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * get the list of all enrollments
-     * @param allEnrollemnts  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -398,15 +970,120 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getEnrollmentsAsync(List<EnrollmentList> allEnrollemnts, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getEnrollmentsAsync(final ApiCallback<List<EnrollmentList>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(allEnrollemnts, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        okhttp3.Call localVarCall = getEnrollmentsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<EnrollmentList>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getLabos
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLabosCall(final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/Labo";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getLabosValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = getLabosCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * 
+     * get the list of all the Labo
+     * @return List&lt;Labo&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public List<Labo> getLabos() throws ApiException {
+        ApiResponse<List<Labo>> localVarResp = getLabosWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * 
+     * get the list of all the Labo
+     * @return ApiResponse&lt;List&lt;Labo&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<List<Labo>> getLabosWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getLabosValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<Labo>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     *  (asynchronously)
+     * get the list of all the Labo
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> success </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getLabosAsync(final ApiCallback<List<Labo>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getLabosValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<Labo>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getSubjects
-     * @param allSujects  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -417,12 +1094,11 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubjectsCall(List<SubjectList> allSujects, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubjectsCall(final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/subjects"
-            .replaceAll("\\{" + "allSujects" + "\\}", localVarApiClient.escapeString(localVarApiClient.collectionPathParameterToString("csv", allSujects)));
+        String localVarPath = "/subjects";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -430,7 +1106,7 @@ public class DefaultApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -448,15 +1124,10 @@ public class DefaultApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubjectsValidateBeforeCall(List<SubjectList> allSujects, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'allSujects' is set
-        if (allSujects == null) {
-            throw new ApiException("Missing the required parameter 'allSujects' when calling getSubjects(Async)");
-        }
+    private okhttp3.Call getSubjectsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = getSubjectsCall(allSujects, _callback);
+        okhttp3.Call localVarCall = getSubjectsCall(_callback);
         return localVarCall;
 
     }
@@ -464,7 +1135,7 @@ public class DefaultApi {
     /**
      * 
      * get the list of all subjects
-     * @param allSujects  (required)
+     * @return List&lt;SubjectList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -473,15 +1144,15 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public void getSubjects(List<SubjectList> allSujects) throws ApiException {
-        getSubjectsWithHttpInfo(allSujects);
+    public List<SubjectList> getSubjects() throws ApiException {
+        ApiResponse<List<SubjectList>> localVarResp = getSubjectsWithHttpInfo();
+        return localVarResp.getData();
     }
 
     /**
      * 
      * get the list of all subjects
-     * @param allSujects  (required)
-     * @return ApiResponse&lt;Void&gt;
+     * @return ApiResponse&lt;List&lt;SubjectList&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -490,15 +1161,15 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> getSubjectsWithHttpInfo(List<SubjectList> allSujects) throws ApiException {
-        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allSujects, null);
-        return localVarApiClient.execute(localVarCall);
+    public ApiResponse<List<SubjectList>> getSubjectsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<SubjectList>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      *  (asynchronously)
      * get the list of all subjects
-     * @param allSujects  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -509,10 +1180,11 @@ public class DefaultApi {
         <tr><td> 401 </td><td> unexpected error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubjectsAsync(List<SubjectList> allSujects, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call getSubjectsAsync(final ApiCallback<List<SubjectList>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(allSujects, _callback);
-        localVarApiClient.executeAsync(localVarCall, _callback);
+        okhttp3.Call localVarCall = getSubjectsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<SubjectList>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 }
