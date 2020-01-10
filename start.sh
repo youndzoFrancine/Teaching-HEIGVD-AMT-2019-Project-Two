@@ -9,4 +9,4 @@ docker-compose -f docker/topologie/docker-compose.yml --log-level ERROR up --bui
 sleep 60
 mvn -f authentication/spring-server/pom.xml  package
 cp authentication/spring-server/target/AuthenticationSpecifications-1.0.0.jar docker/images/authentication/
-docker-compose -f docker/topologie/docker-compose.yml --log-level ERROR up --build --force-recreate -d mysql  db_authentication backend-auth   phpmyadmin
+docker-compose -f docker/topologie/docker-compose.yml --log-level ERROR up --build --force-recreate -d mysql  db_authentication phpmyadmin backend-auth

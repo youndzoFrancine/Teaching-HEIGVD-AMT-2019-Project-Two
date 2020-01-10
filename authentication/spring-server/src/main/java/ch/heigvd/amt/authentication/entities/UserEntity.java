@@ -6,21 +6,24 @@ import java.io.Serializable;
 /**
  * Created by Crescence Yimnaing on 12/12/19.
  */
+
 @Entity
 public class UserEntity implements Serializable {
-
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "ROLE_NAME", nullable = false)
+    @Column(name = "email", nullable = false, unique= true)
     private String email;
-    private String firstname;
-    private String lastname;
-    private String password;
-    private String role;
 
-    public Long getId() { return id; }
+    @Column(name = "firstname", nullable = false)
+    private String firstname;
+
+    @Column(name = "lastname", nullable = false)
+    private String lastname;
+
+    @Column(name = "password", nullable = false)
+    private String password;
+    
+    private String role;
 
     public String getEmail() { return email; }
 

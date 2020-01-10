@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-12-28T10:55:49.690+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-07T14:17:36.472+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "login", description = "the login API")
@@ -37,14 +37,14 @@ public interface LoginApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "login", notes = "have access to ressources", response = Token.class, tags={ "allUsers", })
+    @ApiOperation(value = "", nickname = "authenticate", notes = "have access to ressources", response = Token.class, tags={ "allUsers", })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = Token.class) })
     @RequestMapping(value = "/login",
         produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    default ResponseEntity<Token> login(@ApiParam(value = ""  )  @Valid @RequestBody Credentials credentials) {
+    default ResponseEntity<Token> authenticate(@ApiParam(value = ""  )  @Valid @RequestBody Credentials credentials) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

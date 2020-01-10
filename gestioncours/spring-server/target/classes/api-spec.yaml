@@ -121,7 +121,11 @@ paths:
 
     get:
       description: Returns an enrollment based on a single ID
+<<<<<<< HEAD
       operationId: find enrollment by id
+=======
+      operationId: get enrollment by id
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
       parameters:
         - name: id
           in: path
@@ -138,7 +142,10 @@ paths:
                 $ref: '#/components/schemas/Enrollment'
         default:
           description: unexpected error
+<<<<<<< HEAD
 
+=======
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
     delete:
       description: delete a single enrollment on the ID supplied
       operationId: deleteEnrollment
@@ -224,12 +231,20 @@ components:
       type: object
       required:
         - subject_id
+<<<<<<< HEAD
         - student_email
+=======
+        - user_email
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
       properties:
         subject_id:
           type: integer
           format: int64
+<<<<<<< HEAD
         student_email:
+=======
+        user_email:
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
           type: string
     EnrollmentList:
       allOf:

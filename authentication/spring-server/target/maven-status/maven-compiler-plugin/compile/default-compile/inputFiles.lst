@@ -8,10 +8,12 @@ E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authenti
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\LoginApi.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\exceptions\ApiException.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\entities\UserEntity.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\endpoints\LoginApiController.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\User.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\RFC3339DateFormat.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\Credentials.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\exceptions\NotFoundException.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\ApiUtil.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\security\TokenServices.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\Swagger2SpringBoot.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\configuration\HomeController.java

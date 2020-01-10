@@ -1,6 +1,8 @@
 ch\heigvd\amt\authentication\api\util\ApiResponseMessage.class
 ch\heigvd\amt\authentication\repositories\UserRepository.class
+ch\heigvd\amt\authentication\security\TokenServices.class
 ch\heigvd\amt\authentication\Swagger2SpringBoot$ExitException.class
+ch\heigvd\amt\authentication\api\endpoints\LoginApiController.class
 ch\heigvd\amt\authentication\api\model\User.class
 ch\heigvd\amt\authentication\api\util\ApiOriginFilter.class
 ch\heigvd\amt\authentication\api\UsersApi.class

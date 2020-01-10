@@ -1,6 +1,6 @@
 use Users;
 
-INSERT INTO Users.UserEntity (email, firstname, lastname, password, role) 
+INSERT INTO Users.user_entity (email, firstname, lastname, password, role) 
 		VALUES  
 			('crescy.kamdem@heig-vd.ch', 'Crescy', 'Kamdem', '1234', 'admin'),
 			('francine.youndzo@heig-vd.ch', 'Francine', 'Youndzo', '5678', 'admin'),
