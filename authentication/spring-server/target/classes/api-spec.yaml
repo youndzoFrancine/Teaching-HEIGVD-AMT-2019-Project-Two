@@ -19,19 +19,17 @@ paths:
       tags:
         - allUsers
       description: have access to ressources
-      operationId: authenticate
+      operationId: login
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/Credentials'
       responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Token'
+        '201':
+          description: created
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
   /users:
     post:
       tags:

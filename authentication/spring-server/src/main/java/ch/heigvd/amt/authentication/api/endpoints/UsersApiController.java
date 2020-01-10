@@ -1,15 +1,16 @@
 package ch.heigvd.amt.authentication.api.endpoints;
 
 import ch.heigvd.amt.authentication.api.UsersApi;
-
 import ch.heigvd.amt.authentication.api.model.User;
+import ch.heigvd.amt.authentication.api.util.URIs;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping(URIs.CREATE_USER)
 public class UsersApiController implements UsersApi {
 
     private UserEntity toUserEntity(User user){
@@ -37,13 +39,13 @@ public class UsersApiController implements UsersApi {
         user.setFirstname(userEntity.getFirstname());
         user.setLastname(userEntity.getLastname());
         user.setRole(userEntity.getRole());
-        user.setPassword(userEntity.getPassword());
         return user;
     }
 
     @Autowired
     UserRepository userRepository;
 
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@ApiParam(value = "", required = true) @Valid @RequestBody User user) {
         UserEntity newUserEntity = toUserEntity(user);
         userRepository.save(newUserEntity);
