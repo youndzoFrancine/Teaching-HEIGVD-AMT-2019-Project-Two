@@ -1,16 +1,10 @@
 package ch.heigvd.amt.gestioncours.api.endpoints;
 
-import ch.heigvd.amt.gestioncours.api.ApiUtil;
-import ch.heigvd.amt.gestioncours.api.model.Enrollment;
 import ch.heigvd.amt.gestioncours.api.model.Labo;
-import ch.heigvd.amt.gestioncours.api.model.SubjectList;
-import ch.heigvd.amt.gestioncours.entities.EnrollmentEntity;
 import ch.heigvd.amt.gestioncours.entities.LaboEntity;
 import ch.heigvd.amt.gestioncours.repositories.LaboRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -41,10 +35,8 @@ public class LabosApiController {
         for (LaboEntity laboEntity : labosRepository.findAll()) {
             labos.add(toLabo(laboEntity));
         }
-
         return ResponseEntity.ok(labos);
     }
-
 
     private LaboEntity toLaboEntity(Labo labo) {
         LaboEntity entity = new LaboEntity();
