@@ -7,11 +7,20 @@
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/RFC3339DateFormat.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/ApiUtil.java
+<<<<<<< HEAD
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/configuration/HomeController.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiEntity.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/configuration/SwaggerDocumentationConfig.java
+=======
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/configuration/HomeController.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/configuration/SwaggerDocumentationConfig.java
+/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.java
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java
 /Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.java

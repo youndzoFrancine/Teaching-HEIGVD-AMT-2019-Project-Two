@@ -14,14 +14,23 @@ import javax.validation.constraints.*;
 /**
  * EnrollmentList
  */
+<<<<<<< HEAD
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
+=======
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
 
 public class EnrollmentList   {
   @JsonProperty("subject_id")
   private Long subjectId;
 
+<<<<<<< HEAD
   @JsonProperty("student_email")
   private String studentEmail;
+=======
+  @JsonProperty("user_email")
+  private String userEmail;
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
 
   @JsonProperty("id")
   private Long id;
@@ -47,25 +56,44 @@ public class EnrollmentList   {
     this.subjectId = subjectId;
   }
 
+<<<<<<< HEAD
   public EnrollmentList studentEmail(String studentEmail) {
     this.studentEmail = studentEmail;
+=======
+  public EnrollmentList userEmail(String userEmail) {
+    this.userEmail = userEmail;
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
     return this;
   }
 
   /**
+<<<<<<< HEAD
    * Get studentEmail
    * @return studentEmail
+=======
+   * Get userEmail
+   * @return userEmail
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
   */
   @ApiModelProperty(required = true, value = "")
   @NotNull
 
 
+<<<<<<< HEAD
   public String getStudentEmail() {
     return studentEmail;
   }
 
   public void setStudentEmail(String studentEmail) {
     this.studentEmail = studentEmail;
+=======
+  public String getUserEmail() {
+    return userEmail;
+  }
+
+  public void setUserEmail(String userEmail) {
+    this.userEmail = userEmail;
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
   }
 
   public EnrollmentList id(Long id) {
@@ -99,13 +127,21 @@ public class EnrollmentList   {
     }
     EnrollmentList enrollmentList = (EnrollmentList) o;
     return Objects.equals(this.subjectId, enrollmentList.subjectId) &&
+<<<<<<< HEAD
         Objects.equals(this.studentEmail, enrollmentList.studentEmail) &&
+=======
+        Objects.equals(this.userEmail, enrollmentList.userEmail) &&
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
         Objects.equals(this.id, enrollmentList.id);
   }
 
   @Override
   public int hashCode() {
+<<<<<<< HEAD
     return Objects.hash(subjectId, studentEmail, id);
+=======
+    return Objects.hash(subjectId, userEmail, id);
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
   }
 
   @Override
@@ -114,7 +150,11 @@ public class EnrollmentList   {
     sb.append("class EnrollmentList {\n");
     
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
+<<<<<<< HEAD
     sb.append("    studentEmail: ").append(toIndentedString(studentEmail)).append("\n");
+=======
+    sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
+>>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
