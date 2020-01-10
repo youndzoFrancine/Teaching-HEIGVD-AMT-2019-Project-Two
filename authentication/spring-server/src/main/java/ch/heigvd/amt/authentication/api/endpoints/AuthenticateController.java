@@ -19,6 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.nio.file.Paths;
 
 @RestController
 @RequestMapping(URIs.AUTH)
@@ -64,7 +70,7 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
         UserEntity user1 = new UserEntity();
 
 
-      /*  URL res = getClass().getClassLoader().getResource("data.utf8");
+       URL res = getClass().getClassLoader().getResource("data.utf8");
         try (FileInputStream f = new FileInputStream(Paths.get(res.toURI()).toString())){
 
             InputStreamReader fls = new InputStreamReader(f, "UTF-8");
@@ -80,16 +86,16 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
                     user.setLastname(str[2].replace("\\s", ""));
                     user.setPassword(str[3].replace("\\s", ""));
                     user.setRole(str[4].replace("\\s", ""));
-                    useRepository.save(user);
+                    userRepository.save(user);
                     line = reader.readLine();
                 }
-                System.out.println(useRepository.findByEmail("crescy.kamdem@heig-vd.ch"));
+                System.out.println(userRepository.findByEmail("crescy.kamdem@heig-vd.ch"));
             };
             return;
 
         } catch (IOException e) {
             e.printStackTrace();
-        } ;*/
+        } ;
     }
 
 }
