@@ -1,5 +1,7 @@
 package ch.heigvd.amt.authentication.entities;
 
+import ch.heigvd.amt.authentication.api.util.PasswordUtile;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -20,10 +22,17 @@ public class UserEntity implements Serializable {
     @Column(name = "lastname", nullable = false)
     private String lastname;
 
+    @Lob
     @Column(name = "password", nullable = false)
-    private String password;
+    private byte[] password;
     
     private String role;
+
+    @Lob
+    @Column(name = "salt", nullable = true)
+    private byte[] salt;
+
+    public byte[] getSalt() { return salt; }
 
     public String getEmail() { return email; }
 
@@ -41,8 +50,12 @@ public class UserEntity implements Serializable {
 
     public void setLastname(String lastname) { this.lastname = lastname; }
 
-    public String getPassword() { return password; }
+    public byte[] getPassword() { return password; }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        this.salt = PasswordUtile.generateSalt();
+        this.password = PasswordUtile.hashPassword(password, salt);
+
+    }
 
 }
