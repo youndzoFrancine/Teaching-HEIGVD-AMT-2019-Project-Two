@@ -1,24 +1,34 @@
 -------------------------------------------------------------------------------
 Test set: ch.heigvd.amt.gestioncours.spec.SpecificationTest
 -------------------------------------------------------------------------------
-Tests run: 19, Failures: 4, Errors: 0, Skipped: 5, Time elapsed: 1.751 sec <<< FAILURE!
-Then I receive a 201 status code(Scenario: create a enrollment)  Time elapsed: 0.004 sec  <<< FAILURE!
+Tests run: 25, Failures: 4, Errors: 2, Skipped: 8, Time elapsed: 29.967 sec <<< FAILURE!
+Then I receive a 201 status code(Scenario: create a enrollment)  Time elapsed: 0.011 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<201> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
 	at ✽.Then I receive a 201 status code(enrollment.feature:6)
 
-Scenario: create a enrollment  Time elapsed: 0.005 sec  <<< FAILURE!
+Scenario: create a enrollment  Time elapsed: 0.012 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<201> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
 	at ✽.Then I receive a 201 status code(enrollment.feature:6)
+
+When I delete the enrollment(Scenario: Delete enrollment)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.NullPointerException
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_delete_the_user(EnrollmentSteps.java:92)
+	at ✽.When I delete the enrollment(enrollment.feature:10)
+
+Scenario: Delete enrollment  Time elapsed: 0.001 sec  <<< ERROR!
+java.lang.NullPointerException
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_delete_the_user(EnrollmentSteps.java:92)
+	at ✽.When I delete the enrollment(enrollment.feature:10)
 
 Then I receive a 201 status code(Scenario: create a subject)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<201> but was:<0>
@@ -26,15 +36,15 @@ java.lang.AssertionError: expected:<201> but was:<0>
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
 	at ✽.Then I receive a 201 status code(subject.feature:9)
 
-Scenario: create a subject  Time elapsed: 0.001 sec  <<< FAILURE!
+Scenario: create a subject  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<201> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
 	at ✽.Then I receive a 201 status code(subject.feature:9)
 

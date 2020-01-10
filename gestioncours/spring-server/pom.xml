@@ -80,12 +80,18 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+=======
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
 <<<<<<< HEAD
 =======
             <version>1.4.200</version>
 >>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
+>>>>>>> master
         </dependency>
         <!--SpringFox dependencies -->
         <dependency>

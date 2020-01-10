@@ -1,4 +1,35 @@
 <<<<<<< HEAD
+ch\heigvd\amt\gestioncours\entities\EnrollmentEntity.class
+ch\heigvd\amt\gestioncours\api\EnrollmentsApi.class
+ch\heigvd\amt\gestioncours\api\model\User.class
+ch\heigvd\amt\gestioncours\api\util\ApiOriginFilter.class
+ch\heigvd\amt\gestioncours\repositories\LaboRepository.class
+ch\heigvd\amt\gestioncours\api\exceptions\NotFoundException.class
+ch\heigvd\amt\gestioncours\api\model\EnrollmentList.class
+ch\heigvd\amt\gestioncours\Swagger2SpringBoot$ExitException.class
+ch\heigvd\amt\gestioncours\api\endpoints\SubjectsApiController.class
+ch\heigvd\amt\gestioncours\configuration\SwaggerDocumentationConfig.class
+ch\heigvd\amt\gestioncours\api\SubjectsApi.class
+ch\heigvd\amt\gestioncours\api\LabosApi.class
+ch\heigvd\amt\gestioncours\RFC3339DateFormat.class
+ch\heigvd\amt\gestioncours\api\model\Labo.class
+ch\heigvd\amt\gestioncours\entities\LaboEntity.class
+ch\heigvd\amt\gestioncours\Swagger2SpringBoot.class
+ch\heigvd\amt\gestioncours\api\model\Subject.class
+ch\heigvd\amt\gestioncours\api\endpoints\EnrollmentsApiController.class
+ch\heigvd\amt\gestioncours\configuration\HomeController.class
+ch\heigvd\amt\gestioncours\entities\SubjectEntity.class
+ch\heigvd\amt\gestioncours\repositories\SubjectRepository.class
+ch\heigvd\amt\gestioncours\repositories\EnrollmentRepository.class
+ch\heigvd\amt\gestioncours\api\exceptions\ApiException.class
+ch\heigvd\amt\gestioncours\api\ApiUtil.class
+ch\heigvd\amt\gestioncours\api\util\ApiResponseMessage.class
+ch\heigvd\amt\gestioncours\api\model\SubjectListAllOf.class
+ch\heigvd\amt\gestioncours\api\endpoints\LabosApiEntity.class
+ch\heigvd\amt\gestioncours\api\model\SubjectList.class
+ch\heigvd\amt\gestioncours\api\model\Enrollment.class
+=======
+<<<<<<< HEAD
 ch/heigvd/amt/gestioncours/api/model/Enrollment.class
 ch/heigvd/amt/gestioncours/configuration/HomeController.class
 ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.class
@@ -51,3 +82,4 @@ ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.class
 ch/heigvd/amt/gestioncours/api/model/User.class
 ch/heigvd/amt/gestioncours/api/model/Subject.class
 >>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
+>>>>>>> master

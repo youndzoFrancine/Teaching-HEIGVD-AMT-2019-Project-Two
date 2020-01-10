@@ -2,7 +2,7 @@
 
 Authentication api
 - API version: 1.0.0-oas3
-  - Build date: 2020-01-06T10:46:59.014+01:00[Europe/Zurich]
+  - Build date: 2020-01-10T11:55:22.321+01:00[Europe/Berlin]
 
 An API for authentication
 

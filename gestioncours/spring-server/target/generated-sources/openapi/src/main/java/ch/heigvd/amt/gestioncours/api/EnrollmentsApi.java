@@ -28,10 +28,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 <<<<<<< HEAD
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-10T11:54:09.022+01:00[Europe/Berlin]")
+=======
+<<<<<<< HEAD
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-06T11:13:13.088+01:00[Europe/Zurich]")
 =======
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
 >>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
+>>>>>>> master
 
 @Validated
 @Api(value = "enrollments", description = "the enrollments API")
