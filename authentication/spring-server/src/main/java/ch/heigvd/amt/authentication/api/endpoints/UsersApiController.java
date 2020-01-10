@@ -47,11 +47,11 @@ public class UsersApiController implements UsersApi {
     public ResponseEntity<Void> createUser(@ApiParam(value = "", required = true) @Valid @RequestBody User user) {
         UserEntity newUserEntity = toUserEntity(user);
         userRepository.save(newUserEntity);
-        Long id = newUserEntity.getId();
+        String email = newUserEntity.getEmail();
 
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("{id}")
-                .buildAndExpand(newUserEntity.getId()).toUri();
+                .fromCurrentRequest().path("{email}")
+                .buildAndExpand(newUserEntity.getEmail()).toUri();
 
         return ResponseEntity.created(location).build();
     }
