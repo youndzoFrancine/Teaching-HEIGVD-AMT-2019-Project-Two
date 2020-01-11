@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-10T21:25:44.589+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-11T15:09:55.058+01:00[Europe/Berlin]")
 
 public class User   {
   @JsonProperty("email")
@@ -29,6 +29,9 @@ public class User   {
 
   @JsonProperty("role")
   private String role;
+
+  @JsonProperty("isBlock")
+  private Boolean isBlock;
 
   public User email(String email) {
     this.email = email;
@@ -130,6 +133,26 @@ public class User   {
     this.role = role;
   }
 
+  public User isBlock(Boolean isBlock) {
+    this.isBlock = isBlock;
+    return this;
+  }
+
+  /**
+   * Get isBlock
+   * @return isBlock
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Boolean getIsBlock() {
+    return isBlock;
+  }
+
+  public void setIsBlock(Boolean isBlock) {
+    this.isBlock = isBlock;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,12 +167,13 @@ public class User   {
         Objects.equals(this.firstname, user.firstname) &&
         Objects.equals(this.lastname, user.lastname) &&
         Objects.equals(this.password, user.password) &&
-        Objects.equals(this.role, user.role);
+        Objects.equals(this.role, user.role) &&
+        Objects.equals(this.isBlock, user.isBlock);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, firstname, lastname, password, role);
+    return Objects.hash(email, firstname, lastname, password, role, isBlock);
   }
 
   @Override
@@ -162,6 +186,7 @@ public class User   {
     sb.append("    lastname: ").append(toIndentedString(lastname)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
+    sb.append("    isBlock: ").append(toIndentedString(isBlock)).append("\n");
     sb.append("}");
     return sb.toString();
   }

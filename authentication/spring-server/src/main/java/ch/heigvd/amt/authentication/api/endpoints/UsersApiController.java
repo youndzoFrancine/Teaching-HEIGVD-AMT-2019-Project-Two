@@ -7,11 +7,9 @@ import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
@@ -54,16 +52,31 @@ public class UsersApiController implements UsersApi {
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("{email}")
                 .buildAndExpand(newUserEntity.getEmail()).toUri();
-
         return ResponseEntity.created(location).build();
     }
 
+    //@RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<User>> getUsers(){
         List<User> users = new ArrayList<>();
         for (UserEntity userEntity : userRepository.findAll()) {
             users.add(toUser(userEntity));
         }
         return ResponseEntity.ok(users);
+    }
+
+    @RequestMapping(value = "/{e_mail}/block", method = RequestMethod.PATCH)
+    public ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+            UserEntity userEntity = userRepository.findByEmail(eMail);
+            userEntity.setBlocked(false);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    @RequestMapping(value = "/{e_mail}/unblock", method = RequestMethod.PATCH)
+    public ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+        UserEntity userEntity = userRepository.findByEmail(eMail);
+        userEntity.setBlocked(true);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+
     }
 
 }

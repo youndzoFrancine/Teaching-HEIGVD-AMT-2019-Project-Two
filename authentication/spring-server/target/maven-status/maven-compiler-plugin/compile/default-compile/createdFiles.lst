@@ -2,7 +2,6 @@ ch\heigvd\amt\authentication\api\util\ApiResponseMessage.class
 ch\heigvd\amt\authentication\api\util\URIs.class
 ch\heigvd\amt\authentication\api\util\ApiOriginFilter.class
 ch\heigvd\amt\authentication\Swagger2SpringBoot.class
-ch\heigvd\amt\authentication\api\model\Token.class
 ch\heigvd\amt\authentication\configuration\HomeController.class
 ch\heigvd\amt\authentication\entities\UserEntity.class
 ch\heigvd\amt\authentication\api\endpoints\UsersApiController.class

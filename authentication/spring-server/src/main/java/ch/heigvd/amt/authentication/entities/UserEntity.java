@@ -28,11 +28,18 @@ public class UserEntity implements Serializable {
     
     private String role;
 
+    @Column(columnDefinition="tinyint(1) default 0")
+    private Boolean blocked ;
+
     @Lob
     @Column(name = "salt", nullable = true)
     private byte[] salt;
 
     public byte[] getSalt() { return salt; }
+
+    public Boolean getBlocked() { return blocked; }
+
+    public void setBlocked(Boolean blocked) { this.blocked = blocked; }
 
     public String getEmail() { return email; }
 

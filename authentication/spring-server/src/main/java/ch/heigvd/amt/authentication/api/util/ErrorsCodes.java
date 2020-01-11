@@ -14,7 +14,7 @@ public interface ErrorsCodes {
     String FIELD_UNIQUE_MESSAGE = "this field must be unique";
 
     String USER_DOES_NOT_EXIST = "4";
-    String USER_DOES_NOT_EXIST_MESSAGE = "application doesn't exist";
+    String USER_DOES_NOT_EXIST_MESSAGE = "user doesn't exist";
 
 
     String AUTHENTICATION_FAILED = "5";

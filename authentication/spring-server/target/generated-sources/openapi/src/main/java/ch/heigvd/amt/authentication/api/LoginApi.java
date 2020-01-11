@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-10T21:25:44.589+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-11T15:09:55.058+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "login", description = "the login API")
@@ -36,10 +36,10 @@ public interface LoginApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "login", notes = "have access to ressources", tags={ "allUsers", })
+    @ApiOperation(value = "", nickname = "login", notes = "have access to ressources", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 201, message = "created"),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/login",
         consumes = { "application/json" },
         method = RequestMethod.POST)

@@ -29,6 +29,7 @@ public class JWTutils {
         Date val = new Date(now.getTime() + validity);
         Claims claims = Jwts.claims().setSubject(userentity.getEmail());
         claims.put("role", userentity.getRole());
+        claims.put("isBocked", userentity.getBlocked());
 
         try {
             return Jwts.builder()
@@ -67,6 +68,10 @@ public class JWTutils {
     public static String getRole(String token){
 
         return (String) Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().get("role");
+    }
+
+    public static String getIsBlocked(String token){
+        return (String) Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().get("isBocked");
     }
 
 }

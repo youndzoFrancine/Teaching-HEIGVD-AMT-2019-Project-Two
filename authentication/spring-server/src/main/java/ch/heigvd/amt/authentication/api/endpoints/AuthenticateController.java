@@ -34,9 +34,7 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
     @Autowired
     private  UserRepository userRepository;
 
-    public AuthenticateController() {
-
-    }
+    public AuthenticateController() {}
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> login(@Valid @RequestBody Credentials credentials) {

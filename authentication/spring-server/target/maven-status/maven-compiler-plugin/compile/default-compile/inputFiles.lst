@@ -16,7 +16,6 @@ E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authenti
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\util\PasswordUtile.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\configuration\SwaggerDocumentationConfig.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\util\ApiOriginFilter.java
-E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\model\Token.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\api\util\ErrorDescription.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\authentication\api\LoginApi.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\authentication\spring-server\src\main\java\ch\heigvd\amt\authentication\entities\UserEntity.java
