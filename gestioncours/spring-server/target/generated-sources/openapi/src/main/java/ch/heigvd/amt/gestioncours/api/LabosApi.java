@@ -6,6 +6,7 @@
 package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.api.model.Labo;
+import ch.heigvd.amt.gestioncours.api.model.LaboList;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,8 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "labos", description = "the labos API")
@@ -52,14 +52,48 @@ public interface LabosApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getLabos", notes = "get the list of all Labos", response = Labo.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "", nickname = "deleteLabo", notes = "delete a single labo on the name supplied", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = Labo.class, responseContainer = "List"),
+        @ApiResponse(code = 204, message = "labo deleted"),
+        @ApiResponse(code = 200, message = "unexpected error") })
+    @RequestMapping(value = "/labos",
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> deleteLabo(@ApiParam(value = "",required=true) @PathVariable("name") String name) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "getLabos", notes = "get the list of all Labos", response = LaboList.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = LaboList.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "unexpected error") })
     @RequestMapping(value = "/labos",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<List<Labo>> getLabos() {
+    default ResponseEntity<List<LaboList>> getLabos() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "updateLabo", notes = "updates an existing labo", response = Labo.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = Labo.class),
+        @ApiResponse(code = 404, message = "labo not found") })
+    @RequestMapping(value = "/labos",
+        produces = { "application/json" }, 
+        method = RequestMethod.PUT)
+    default ResponseEntity<Labo> updateLabo(@ApiParam(value = "",required=true) @PathVariable("labo_name") String laboName,@ApiParam(value = "",required=true) @PathVariable("ponderation") Integer ponderation) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

@@ -12,7 +12,7 @@ paths:
   /subjects:
     post:
       operationId: createSubject
-      description: create a subject
+      description: create a new subject
       requestBody:
         required: true
         content:
@@ -42,6 +42,31 @@ paths:
                   $ref: '#/components/schemas/SubjectList'
         '401':
           description: unexpected error
+    put:
+      description: updates an existing subject
+      operationId: updateSubject
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The subject name
+        - name: credits_etcs
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: The subject credit_etcs
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
+        '404':
+          description: Subject not found
   /subjects/{id}:
     get:
       description: gets a single subject based on the ID supplied
@@ -68,9 +93,8 @@ paths:
           description: forbidden
         '404':
           description: not found
-
     delete:
-      description: delete a single subject on the ID
+      description: delete an existing subject base on the ID supplied
       operationId: deleteSubject
       parameters:
         - in: path
@@ -80,7 +104,7 @@ paths:
             type: integer
       responses:
         '204':
-          description: subject deleted
+          description: Subject deleted
         default:
           description: unexpected error
 
@@ -117,12 +141,36 @@ paths:
                   $ref: '#/components/schemas/EnrollmentList'
         '401':
           description: unexpected error
+    put:
+      description: updates an existing enrollment
+      operationId: updateEnrollment
+      parameters:
+        - name: user_email
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The enrollment name
+        - name: subject_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: The subject id
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        '404':
+          description: Enrollement not found
 
   /enrollments/{id}:
-
     get:
       description: Returns an enrollment based on a single ID
-      operationId: find enrollment by id
+      operationId: get enrollment by id
       parameters:
         - name: id
           in: path
@@ -139,7 +187,6 @@ paths:
                 $ref: '#/components/schemas/Enrollment'
         default:
           description: unexpected error
-
     delete:
       description: delete a single enrollment on the ID supplied
       operationId: deleteEnrollment
@@ -155,7 +202,7 @@ paths:
         default:
           description: unexpected error
 
-  /Labo:
+  /labos:
     post:
       operationId: createLabo
       description: create a Labo
@@ -175,7 +222,7 @@ paths:
         '404':
           description: not found
     get:
-      description: get the list of all the Labo
+      description: get the list of all Labos
       operationId: getLabos
       responses:
         '200':
@@ -188,7 +235,45 @@ paths:
                   $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
-
+    delete:
+      description: delete a single labo on the name supplied
+      operationId: deleteLabo
+      parameters:
+        - in: path
+          name: name
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: labo deleted
+        default:
+          description: unexpected error
+    put:
+      description: updates an existing labo
+      operationId: updateLabo
+      parameters:
+        - name: labo_name
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The labo name
+        - name: ponderation
+          in: path
+          required: true
+          schema:
+            type: integer
+            description: The ponderation of the labo
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Labo'
+        '404':
+          description: labo not found
 
 components:
   schemas:
@@ -225,12 +310,12 @@ components:
       type: object
       required:
         - subject_id
-        - student_email
+        - user_email
       properties:
         subject_id:
           type: integer
           format: int64
-        student_email:
+        user_email:
           type: string
     EnrollmentList:
       allOf:

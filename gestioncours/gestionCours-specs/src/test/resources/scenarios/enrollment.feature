@@ -10,7 +10,12 @@ Feature: Creation of enrollments
     When  I get a enrollment
     Then I receive  200 status code
 
-  Scenario: Delete enrollment
-    Given there exists a enrollment
+  Scenario: Delete an enrollment
+    Given there exists an enrollment to delete
     When I delete the enrollment
     Then I get a 'OK' response
+
+  Scenario: Update enrollment
+    Given there exists an enrollment to update
+    When I update the enrollment
+    Then I receive a 'SUCCESS' response
