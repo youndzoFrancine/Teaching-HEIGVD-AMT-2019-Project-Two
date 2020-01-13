@@ -2,7 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efd06093-e270-45db-9a77-e80a010702cc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_4_200.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +93,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber java.All Features in: test">
+  <component name="RunManager" selected="Spring Boot.Swagger2SpringBoot">
     <configuration name="All Features in: scenarios" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="1.2" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/../gestionCours-specs/src/test/resources/scenarios" />
@@ -209,6 +232,7 @@
       <workItem from="1578662563678" duration="1285000" />
       <workItem from="1578675042126" duration="114000" />
       <workItem from="1578675214047" duration="532000" />
+      <workItem from="1578906128135" duration="1577000" />
     </task>
     <servers />
   </component>
@@ -230,5 +254,55 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="simpleUML.UMLToolWindowPlugin">
+    <General>
+      <option name="birdViewUpdateDelay" value="2000" />
+      <option name="defaultFileLocation" value="file://$PROJECT_DIR$/.." />
+    </General>
+    <Classdiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="defaultFieldsExpanded" value="false" />
+      <option name="defaultContructorsExpanded" value="false" />
+      <option name="defaultMethodsExpanded" value="false" />
+      <option name="showParameters" value="true" />
+      <option name="showTooltip" value="true" />
+      <option name="showReturnValues" value="true" />
+      <option name="longModifier" value="true" />
+      <option name="implementsBehaviour" value="1" />
+      <option name="extendsBehaviour" value="1" />
+      <option name="compartmentBehaviour" value="1" />
+      <option name="interfaceBackgroundColor" value="-6494306" />
+      <option name="abstractClassBackgroundColor" value="-1580132" />
+      <option name="classBackgroundColor" value="-6508057" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="quickSourceLinkColor" value="-16776961" />
+      <option name="quickDiagramLinkColor" value="-8454144" />
+      <option name="drawDecorations" value="false" />
+      <option name="hideFieldList" value="" />
+      <option name="showFieldList" value="" />
+      <option name="hideConstructorList" value="" />
+      <option name="showConstructorList" value="" />
+      <option name="hideMethodList" value="" />
+      <option name="showMethodList" value="" />
+      <option name="minimumFigureSize" value="0,0" />
+    </Classdiagram>
+    <Dependencydiagram>
+      <option name="diagramTitleFont" value="SansSerif,1,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="0" />
+    </Dependencydiagram>
+    <Packagediagram>
+      <option name="diagramTitleFont" value="SansSerif,0,12" />
+      <option name="diagramFont" value="SansSerif,0,10" />
+      <option name="packageBackgroundColor" value="-4144960" />
+      <option name="diagramBackgroundColor" value="-1" />
+      <option name="useAntialiasedConnectors" value="true" />
+      <option name="packageNameCompressionLevel" value="2" />
+    </Packagediagram>
   </component>
 </project>
