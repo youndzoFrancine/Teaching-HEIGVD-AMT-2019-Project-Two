@@ -6,6 +6,7 @@
 package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.api.model.Enrollment;
+import ch.heigvd.amt.gestioncours.api.model.EnrollmentList;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,9 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-09T14:49:11.383+01:00[Europe/Zurich]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "enrollments", description = "the enrollments API")
@@ -64,6 +63,7 @@ public interface EnrollmentsApi {
 
     }
 
+
     @ApiOperation(value = "", nickname = "getEnrollmentById", notes = "Returns an enrollment based on a single ID", response = Enrollment.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "enrollment response", response = Enrollment.class),
@@ -86,6 +86,47 @@ public interface EnrollmentsApi {
     }
 
 
+    @ApiOperation(value = "", nickname = "getEnrollments", notes = "get the list of all enrollments", response = EnrollmentList.class, responseContainer = "List", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = EnrollmentList.class, responseContainer = "List"),
+        @ApiResponse(code = 401, message = "unexpected error") })
+    @RequestMapping(value = "/enrollments",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    default ResponseEntity<List<EnrollmentList>> getEnrollments() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "null";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
+    }
+
+
+    @ApiOperation(value = "", nickname = "updateEnrollment", notes = "updates an existing enrollment", response = Enrollment.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = Enrollment.class),
+        @ApiResponse(code = 404, message = "Enrollement not found") })
+    @RequestMapping(value = "/enrollments",
+        produces = { "application/json" }, 
+        method = RequestMethod.PUT)
+    default ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("user_email") String userEmail,@ApiParam(value = "",required=true) @PathVariable("subject_id") Integer subjectId) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"subject_id\" : 0, \"user_email\" : \"user_email\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
 
 }

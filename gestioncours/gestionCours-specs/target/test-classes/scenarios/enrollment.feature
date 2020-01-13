@@ -5,18 +5,17 @@ Feature: Creation of enrollments
     When I POST it to the /enrollments endpoint
     Then I receive a 201 status code
 
-<<<<<<< HEAD
-=======
   Scenario: Get an enrollment
     Given I  GET an existing enrollment
     When  I get a enrollment
     Then I receive  200 status code
 
-
-
-
->>>>>>> 63dd7b6021b3903ddab9bf1535649138ff826dc5
-  Scenario: Delete enrollment
-    Given there exists a enrollment
+  Scenario: Delete an enrollment
+    Given there exists an enrollment to delete
     When I delete the enrollment
     Then I get a 'OK' response
+
+  Scenario: Update enrollment
+    Given there exists an enrollment to update
+    When I update the enrollment
+    Then I receive a 'SUCCESS' response
