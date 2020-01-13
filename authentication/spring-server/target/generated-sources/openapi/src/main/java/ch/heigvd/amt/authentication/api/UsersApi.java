@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-07T14:17:36.472+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-11T15:09:55.058+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "users", description = "the users API")
@@ -36,10 +36,22 @@ public interface UsersApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "createUser", notes = "create a user", tags={ "adminAllow", })
+    @ApiOperation(value = "", nickname = "blockUser", notes = "the admin block a user", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success"),
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
+    @RequestMapping(value = "/users/{e_mail}/block",
+        method = RequestMethod.PATCH)
+    default ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "createUser", notes = "create a user", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 201, message = "created"),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/users",
         consumes = { "application/json" },
         method = RequestMethod.POST)
@@ -49,10 +61,10 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", tags={ "adminAllow", })
+    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success"),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/users/{e_mail}",
         method = RequestMethod.DELETE)
     default ResponseEntity<Void> deleteUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
@@ -61,18 +73,18 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = User.class, responseContainer = "List", tags={ "allUsers", })
+    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = User.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = User.class, responseContainer = "List"),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/users",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<List<User>> getUsers() {
+    default ResponseEntity<List<User>> getUsers(@ApiParam(value = "an authorization header" ,required=true) @RequestHeader(value="auth", required=true) String auth) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"email\" : \"email\", \"lastname\" : \"lastname\" }";
+                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"isBlock\" : true, \"email\" : \"email\", \"lastname\" : \"lastname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -83,10 +95,22 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, tags={ "rigthUser","adminAllow", })
+    @ApiOperation(value = "", nickname = "unblockUser", notes = "the admin block a user", tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success"),
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
+    @RequestMapping(value = "/users/{e_mail}/unblock",
+        method = RequestMethod.PATCH)
+    default ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = User.class),
-        @ApiResponse(code = 401, message = "Access token is missing or invalid") })
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/users/{e_mail}",
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
@@ -94,7 +118,7 @@ public interface UsersApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"email\" : \"email\", \"lastname\" : \"lastname\" }";
+                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"isBlock\" : true, \"email\" : \"email\", \"lastname\" : \"lastname\" }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
