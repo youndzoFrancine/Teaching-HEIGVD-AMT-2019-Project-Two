@@ -12,3 +12,13 @@ Feature: Creation of subjects
     Given I  GET an existing subject
     When  I get a subject
     Then I receive  200 status code
+
+  Scenario: Delete subject
+    Given there exists a subject to delte
+    When I DELETE the subject
+    Then I get a 'OK DELECTED' response
+
+  Scenario: Update subject
+    Given there exists subject to update
+    When I UPPDATE the subject
+    Then I get a 'SUCCESS UPDATED' response

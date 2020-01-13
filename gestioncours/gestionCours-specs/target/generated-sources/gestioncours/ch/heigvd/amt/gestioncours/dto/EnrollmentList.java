@@ -29,7 +29,7 @@ import java.io.IOException;
 /**
  * EnrollmentList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-10T11:55:22.321+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-01-06T16:54:31.093+01:00[Europe/Zurich]")
 public class EnrollmentList {
   public static final String SERIALIZED_NAME_SUBJECT_ID = "subject_id";
   @SerializedName(SERIALIZED_NAME_SUBJECT_ID)

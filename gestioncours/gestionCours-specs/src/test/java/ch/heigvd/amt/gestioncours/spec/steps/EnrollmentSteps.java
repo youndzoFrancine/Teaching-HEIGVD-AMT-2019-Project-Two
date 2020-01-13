@@ -68,7 +68,7 @@ public class EnrollmentSteps {
     }
 
     @Given("^there exists a enrollment$")
-    public void there_exists_a_user() throws Throwable {
+    public void there_exists_a_enrollment() throws Throwable {
         try {
             lastApiResponse = api.getEnrollmentsWithHttpInfo();
             lastApiCallThrewException = false;
@@ -87,7 +87,7 @@ public class EnrollmentSteps {
     }
 
     @When("^I delete the enrollment$")
-    public void i_delete_the_user() throws Throwable {
+    public void i_delete_the_enrollment() throws Throwable {
         try {
             Integer enrollmentId = existingEnrollment.getId().intValue();
             lastApiResponse = api.deleteEnrollmentWithHttpInfo(enrollmentId);
@@ -105,6 +105,48 @@ public class EnrollmentSteps {
 
     @Then("^I get a 'OK' response$")
     public void i_get_a_OK_response() throws Throwable {
+
+    }
+
+
+
+    @Given("^there exists an enrollment to update$")
+    public void there_exists_an_enrollment_to_update() throws Throwable {
+        try {
+            lastApiResponse = api.getEnrollmentsWithHttpInfo();
+            lastApiCallThrewException = false;
+            lastApiException = null;
+            lastStatusCode = lastApiResponse.getStatusCode();
+            List<EnrollmentList> enrollments = (List<EnrollmentList>)lastApiResponse.getData();
+            assertTrue(enrollments.size() > 0);
+            existingEnrollment = enrollments.get(0);
+        } catch (ApiException e) {
+            lastApiCallThrewException = true;
+            lastApiResponse = null;
+            lastApiException = e;
+            lastStatusCode = lastApiException.getCode();
+        }
+    }
+
+    @When("^I update the enrollment$")
+    public void i_update_the_enrollment() throws Throwable {
+        try {
+            Integer enrollmentId = existingEnrollment.getId().intValue();
+            lastApiResponse = api.getEnrollmentsWithHttpInfo();
+            lastApiCallThrewException = false;
+            lastApiException = null;
+            lastStatusCode = lastApiResponse.getStatusCode();
+        } catch (ApiException e) {
+            lastApiCallThrewException = true;
+            lastApiResponse = null;
+            lastApiException = e;
+            lastStatusCode = lastApiException.getCode();
+        }
+
+    }
+
+    @Then("^I receive a 'SUCCESS' response$")
+    public void i_receive_a_SUCCESS_response() throws Throwable {
 
     }
 

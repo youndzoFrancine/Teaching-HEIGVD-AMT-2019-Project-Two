@@ -1,107 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="25" failures="4" name="ch.heigvd.amt.gestioncours.spec.SpecificationTest" time="0.213" errors="2" skipped="8">
+<testsuite tests="19" failures="4" name="ch.heigvd.amt.gestioncours.spec.SpecificationTest" time="0.072" errors="0" skipped="5">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\bin"/>
-    <property name="java.vm.version" value="25.181-b13"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.144-b01"/>
+    <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="path.separator" value=";"/>
+    <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="user.script" value=""/>
     <property name="user.country" value="CH"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.os.patch.level" value=""/>
+    <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\gestionCours-specs"/>
-    <property name="java.runtime.version" value="1.8.0_181-b13"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\endorsed"/>
-    <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\MAINTE~1\AppData\Local\Temp\"/>
+    <property name="user.dir" value="/Users/youndzofrancine/Desktop/Gestion2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/gestionCours-specs"/>
+    <property name="java.runtime.version" value="1.8.0_144-b01"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/jg/bgvfgrnd57bcjr7_qtc70sw40000gn/T/"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="user.variant" value=""/>
-    <property name="os.name" value="Windows 10"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\plugins\maven\lib\maven-event-listener.jar"/>
-    <property name="classworlds.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\plugins\maven\lib\maven3\bin\m2.conf"/>
-    <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_181\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\MinGW\bin;C:\MinGW\msys\1.0\bin\;C:\Program Files\doxygen\bin;C:\Program Files\MiKTeX 2.9\miktex\bin\x64\;C:\PROGRA~2\ATT\Graphviz\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_181\bin;C:\Program Files\MySQL\MySQL Workbench 8.0 CE\;C:\Program Files (x86)\apache-maven-3.6.0-bin\apache-maven-3.6.0\bin;C:\Program Files\Git\cmd;C:\Program Files\Oracle\VirtualBox\;C:\VMs;C:\Program Files\PuTTY\;C:\Program Files (x86)\sbt\bin;C:\Program Files\PostgreSQL\9.6\bin;C:\Program Files\PostgreSQL\9.6\lib;C:\Program Files\nodejs\;C:\Program Files\Microsoft VS Code\bin;C:\Users\Maintenant Prêt\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\Maintenant Prêt\AppData\Local\Programs\Python\Python37-32\;C:\Users\Maintenant Prêt\AppData\Local\Microsoft\WindowsApps;C:\Users\Maintenant Prêt\AppData\Local\Markdown Monster;C:\Users\Maintenant Prêt\AppData\Local\Markdown Monster\Markdown Monster;C:\Program Files\Docker Toolbox;C:\Users\Maintenant Prêt\AppData\Roaming\npm;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
-    <property name="maven.conf" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\plugins\maven\lib\maven3/conf"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="maven.ext.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/youndzofrancine/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="maven.conf" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.0"/>
-    <property name="user.home" value="C:\Users\Maintenant Prêt"/>
-    <property name="user.timezone" value="Europe/Berlin"/>
-    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="os.version" value="10.14.6"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/youndzofrancine"/>
+    <property name="user.timezone" value="Europe/Zurich"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
-    <property name="user.name" value="Maintenant Prêt"/>
-    <property name="java.class.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\plugins\maven\lib\maven3\boot\plexus-classworlds-2.6.0.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\lib\idea_rt.jar"/>
-    <property name="idea.version2019.2.3" value="true"/>
+    <property name="user.name" value="youndzofrancine"/>
+    <property name="java.class.path" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar:/Applications/IntelliJ IDEA.app/Contents/lib/idea_rt.jar"/>
+    <property name="idea.version2019.2.2" value="true"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_181\jre"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version2019.2.3 clean install"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version2019.2.2 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fr"/>
-    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.vm.info" value="mixed mode"/>
-    <property name="java.version" value="1.8.0_181"/>
-    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext"/>
-    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\classes"/>
+    <property name="java.version" value="1.8.0_144"/>
+    <property name="java.ext.dirs" value="/Users/youndzofrancine/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.4\plugins\maven\lib\maven3"/>
-    <property name="file.separator" value="\"/>
+    <property name="maven.home" value="/Applications/IntelliJ IDEA.app/Contents/plugins/maven/lib/maven3"/>
+    <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="sun.desktop" value="windows"/>
-    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Scenario: create a enrollment" name="Given I have a enrollment payload" time="0.009"/>
-  <testcase classname="Scenario: create a enrollment" name="When I POST it to the /enrollments endpoint" time="0"/>
-  <testcase classname="Scenario: create a enrollment" name="Then I receive a 201 status code" time="0.011">
+  <testcase classname="Scenario: create a enrollment" name="Given I have a enrollment payload" time="0.004"/>
+  <testcase classname="Scenario: create a enrollment" name="When I POST it to the /enrollments endpoint" time="0.001"/>
+  <testcase classname="Scenario: create a enrollment" name="Then I receive a 201 status code" time="0.004">
     <failure message="expected:&lt;201&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;201&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
 	at ✽.Then I receive a 201 status code(enrollment.feature:6)
 </failure>
   </testcase>
-  <testcase classname="Scenario: create a enrollment" name="Scenario: create a enrollment" time="0.012">
+  <testcase classname="Scenario: create a enrollment" name="Scenario: create a enrollment" time="0.005">
     <failure message="expected:&lt;201&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;201&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
 	at ✽.Then I receive a 201 status code(enrollment.feature:6)
 </failure>
   </testcase>
-  <testcase classname="Scenario: Delete enrollment" name="Given there exists a enrollment" time="0"/>
-  <testcase classname="Scenario: Delete enrollment" name="When I delete the enrollment" time="0">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_delete_the_user(EnrollmentSteps.java:92)
-	at ✽.When I delete the enrollment(enrollment.feature:10)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Delete enrollment" name="Scenario: Delete enrollment" time="0.001">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_delete_the_user(EnrollmentSteps.java:92)
-	at ✽.When I delete the enrollment(enrollment.feature:10)
-</error>
-  </testcase>
-  <testcase classname="Scenario: Delete enrollment" name="Then I get a &apos;OK&apos; response" time="0.007">
-    <skipped/>
-  </testcase>
+  <testcase classname="Scenario: Delete user" name="Given there exists a user" time="0.001"/>
+  <testcase classname="Scenario: Delete user" name="When I delete the user" time="0"/>
+  <testcase classname="Scenario: Delete user" name="Then I get a &apos;OK&apos; response" time="0"/>
+  <testcase classname="Scenario: Delete user" name="Scenario: Delete user" time="0.001"/>
   <testcase classname="Scenario: create a subject" name="Given there is a Subjects server" time="0"/>
   <testcase classname="Scenario: create a subject" name="Given I have a subject payload" time="0"/>
   <testcase classname="Scenario: create a subject" name="When I POST it to the /subjects endpoint" time="0"/>
@@ -111,55 +100,49 @@
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
 	at ✽.Then I receive a 201 status code(subject.feature:9)
 </failure>
   </testcase>
-  <testcase classname="Scenario: create a subject" name="Scenario: create a subject" time="0.002">
+  <testcase classname="Scenario: create a subject" name="Scenario: create a subject" time="0.001">
     <failure message="expected:&lt;201&gt; but was:&lt;0&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;201&gt; but was:&lt;0&gt;
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
 	at org.junit.Assert.assertEquals(Assert.java:645)
 	at org.junit.Assert.assertEquals(Assert.java:631)
-	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:67)
+	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
 	at ✽.Then I receive a 201 status code(subject.feature:9)
 </failure>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="Given there is a Subjects server" time="0"/>
-  <testcase classname="Scenario: Get subject" name="Given I  GET an existing subject" time="0"/>
-  <testcase classname="Scenario: Get subject" name="When I get a subject" time="0.001"/>
-  <testcase classname="Scenario: Get subject" name="Then I receive  200 status code" time="0.031">
-    <skipped/>
-  </testcase>
-  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.032">
-    <skipped/>
-  </testcase>
-  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.032"/>
-  <testcase classname="Scenario: Get subject" name="Given I Set GET subject service api endpoint" time="0">
+  <testcase classname="Scenario: Get subject" name="Given I Set GET subject service api endpoint" time="0.007">
     <skipped/>
     <system-out>
-  Scenario: Get subject              &amp;#27;[90m# subject.feature:11&amp;#27;[0m
-    &amp;#27;[32mGiven &amp;#27;[0m&amp;#27;[32mI  GET an existing subject&amp;#27;[0m &amp;#27;[90m# SubjectSteps.i_GET_an_existing_subject()&amp;#27;[0m
-    &amp;#27;[32mWhen &amp;#27;[0m&amp;#27;[32mI get a subject&amp;#27;[0m             &amp;#27;[90m# SubjectSteps.i_get_a_subject()&amp;#27;[0m
-    &amp;#27;[33mThen &amp;#27;[0m&amp;#27;[33mI receive  &amp;#27;[0m&amp;#27;[33m&amp;#27;[1m200&amp;#27;[0m&amp;#27;[33m status code&amp;#27;[0m  &amp;#27;[90m# SubjectsCRUDSteps.i_receive_status_code(int)&amp;#27;[0m
-      &amp;#27;[31mcucumber.api.PendingException: TODO: implement me
-      	at ch.heigvd.amt.gestioncours.spec.steps.SubjectsCRUDSteps.i_receive_status_code(SubjectsCRUDSteps.java:64)
-      	at ?.Then I receive  200 status code(subject.feature:14)
+  Scenario: create a subject                 &amp;#27;[90m# subject.feature:6&amp;#27;[0m
+    &amp;#27;[32mGiven &amp;#27;[0m&amp;#27;[32mI have a subject payload&amp;#27;[0m           &amp;#27;[90m# SubjectSteps.i_have_a_subject_payload()&amp;#27;[0m
+    &amp;#27;[32mWhen &amp;#27;[0m&amp;#27;[32mI POST it to the /subjects endpoint&amp;#27;[0m &amp;#27;[90m# SubjectSteps.i_POST_it_to_the_subjects_endpoint()&amp;#27;[0m
+    &amp;#27;[31mThen &amp;#27;[0m&amp;#27;[31mI receive a &amp;#27;[0m&amp;#27;[31m&amp;#27;[1m201&amp;#27;[0m&amp;#27;[31m status code&amp;#27;[0m         &amp;#27;[90m# EnrollmentSteps.i_receive_a_status_code(int)&amp;#27;[0m
+      &amp;#27;[31mjava.lang.AssertionError: expected:&lt;201&gt; but was:&lt;0&gt;
+      	at org.junit.Assert.fail(Assert.java:88)
+      	at org.junit.Assert.failNotEquals(Assert.java:834)
+      	at org.junit.Assert.assertEquals(Assert.java:645)
+      	at org.junit.Assert.assertEquals(Assert.java:631)
+      	at ch.heigvd.amt.gestioncours.spec.steps.EnrollmentSteps.i_receive_a_status_code(EnrollmentSteps.java:62)
+      	at ✽.Then I receive a 201 status code(subject.feature:9)
       &amp;#27;[0m
 Feature: Test CRUD methods in subject
 </system-out>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="When I Set request HEADER" time="0">
+  <testcase classname="Scenario: Get subject" name="When I Set request HEADER" time="0.008">
     <skipped/>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="And Send GET HTTP request" time="0">
+  <testcase classname="Scenario: Get subject" name="And Send GET HTTP request" time="0.009">
     <skipped/>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="Then I receive  200 status code" time="0.024">
+  <testcase classname="Scenario: Get subject" name="Then I receive  200 status code" time="0.01">
     <skipped/>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.025">
+  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.01">
     <skipped/>
   </testcase>
-  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.025"/>
+  <testcase classname="Scenario: Get subject" name="Scenario: Get subject" time="0.01"/>
 </testsuite>
