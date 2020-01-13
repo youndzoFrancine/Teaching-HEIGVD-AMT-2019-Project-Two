@@ -51,7 +51,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
                 .buildAndExpand(newEnrollementEntity.getId()).toUri();
 
         return ResponseEntity.created(location).build();
-
     }
 
     /**
@@ -66,7 +65,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
              throw new EnrollmentNotFounExceptions();
         }
         return ResponseEntity.ok(toEnrollment(enrollmentEntity));
-
     }
 
     /**

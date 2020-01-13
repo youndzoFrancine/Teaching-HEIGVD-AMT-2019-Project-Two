@@ -1,10 +1,13 @@
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\entities\LaboEntity.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\util\ErrorDescription.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\model\EnrollmentList.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\SubjectsApi.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\util\ErrorsCodes.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\model\LaboListAllOf.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\LabosApi.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\repositories\LaboRepository.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\model\SubjectListAllOf.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\util\JWTutils.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\model\SubjectList.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\RFC3339DateFormat.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\endpoints\SubjectsApiController.java
@@ -26,6 +29,7 @@ E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestionc
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\endpoints\LabosApiController.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\target\generated-sources\openapi\src\main\java\ch\heigvd\amt\gestioncours\api\model\LaboList.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\exceptions\NotFoundException.java
+E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\util\URIs.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\api\exceptions\ApiException.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\configuration\HomeController.java
 E:\SEMESTRE V\AMT\PARTIE II\Projet\Teaching-HEIGVD-AMT-2019-Project-Two\gestioncours\spring-server\src\main\java\ch\heigvd\amt\gestioncours\repositories\SubjectRepository.java

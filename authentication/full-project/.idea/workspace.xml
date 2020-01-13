@@ -2,19 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba0d485-1a90-4435-ae94-9b89ea6c5694" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/src/main/resources/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Pair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/ApiKeyAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/ApiKeyAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBearerAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBearerAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Credentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/AuthenticateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/AuthenticateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/JWTutils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/JWTutils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spring-server/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/api-spec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/api-spec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/AuthenticateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/AuthenticateController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/util/JWTutils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/util/JWTutils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +85,7 @@
       <workItem from="1578686666971" duration="46000" />
       <workItem from="1578687207972" duration="27848000" />
       <workItem from="1578907866343" duration="3939000" />
+      <workItem from="1578921371145" duration="992000" />
     </task>
     <servers />
   </component>
