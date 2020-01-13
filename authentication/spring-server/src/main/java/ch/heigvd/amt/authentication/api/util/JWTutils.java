@@ -18,8 +18,8 @@ public class JWTutils {
     private static String SCHEMA = "Bearer";
     @Value("ISSUER")
     private static String ISSUER;
-    private static String SECRET_KEY = "cresy";
-    private static long validity=24*60*60;
+    private static String SECRET_KEY = "Crescy";
+    private static long validity=24*60*60*1000;
     private static JWTVerifier verifier;
 
     public static String generateToken (UserEntity userentity){
@@ -56,6 +56,7 @@ public class JWTutils {
             Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException ignored) {
+            ignored.printStackTrace();
         }
         return false;
     }

@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(URIs.CREATE_USER)
 public class UsersApiController implements UsersApi {
 
     private UserEntity toUserEntity(User user){
@@ -43,7 +42,6 @@ public class UsersApiController implements UsersApi {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> createUser(@ApiParam(value = "", required = true) @Valid @RequestBody User user) {
         UserEntity newUserEntity = toUserEntity(user);
         userRepository.save(newUserEntity);
@@ -55,8 +53,7 @@ public class UsersApiController implements UsersApi {
         return ResponseEntity.created(location).build();
     }
 
-    //@RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<User>> getUsers(){
+    public ResponseEntity<List<User>> getUsers(@ApiParam(value = "an authorization header" ,required=true) @RequestHeader(value="auth", required=true) String auth){
         List<User> users = new ArrayList<>();
         for (UserEntity userEntity : userRepository.findAll()) {
             users.add(toUser(userEntity));
@@ -64,14 +61,13 @@ public class UsersApiController implements UsersApi {
         return ResponseEntity.ok(users);
     }
 
-    @RequestMapping(value = "/{e_mail}/block", method = RequestMethod.PATCH)
+
     public ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
             UserEntity userEntity = userRepository.findByEmail(eMail);
             userEntity.setBlocked(false);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/{e_mail}/unblock", method = RequestMethod.PATCH)
     public ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
         UserEntity userEntity = userRepository.findByEmail(eMail);
         userEntity.setBlocked(true);

@@ -52,7 +52,6 @@ public class ApiOriginFilter implements Filter {
         }
 
         try {
-
             boolean jwt = JWTutils.verifyToken(token);
 
             // if token is not valid
