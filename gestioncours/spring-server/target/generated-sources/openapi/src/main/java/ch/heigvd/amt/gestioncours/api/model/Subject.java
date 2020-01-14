@@ -12,14 +12,37 @@ import javax.validation.constraints.*;
 /**
  * Subject
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 public class Subject   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("credits_etcs")
   private Long creditsEtcs;
+
+  public Subject id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public Subject name(String name) {
     this.name = name;
@@ -30,7 +53,8 @@ public class Subject   {
    * Get name
    * @return name
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public String getName() {
@@ -50,7 +74,8 @@ public class Subject   {
    * Get creditsEtcs
    * @return creditsEtcs
   */
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
 
 
   public Long getCreditsEtcs() {
@@ -71,13 +96,14 @@ public class Subject   {
       return false;
     }
     Subject subject = (Subject) o;
-    return Objects.equals(this.name, subject.name) &&
+    return Objects.equals(this.id, subject.id) &&
+        Objects.equals(this.name, subject.name) &&
         Objects.equals(this.creditsEtcs, subject.creditsEtcs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, creditsEtcs);
+    return Objects.hash(id, name, creditsEtcs);
   }
 
   @Override
@@ -85,6 +111,7 @@ public class Subject   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Subject {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    creditsEtcs: ").append(toIndentedString(creditsEtcs)).append("\n");
     sb.append("}");

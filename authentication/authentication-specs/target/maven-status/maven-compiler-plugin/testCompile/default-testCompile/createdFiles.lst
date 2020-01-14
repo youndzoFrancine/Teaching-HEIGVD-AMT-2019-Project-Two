@@ -1,0 +1,3 @@
+ch/heigvd/amt/authentication/spec/SpecificationTest.class
+ch/heigvd/amt/authentication/spec/steps/UserSteps.class
+ch/heigvd/amt/authentication/spec/helpers/Environment.class

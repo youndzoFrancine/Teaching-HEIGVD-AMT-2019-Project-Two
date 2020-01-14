@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "enrollments", description = "the enrollments API")
@@ -37,16 +37,27 @@ public interface EnrollmentsApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "createEnrollment", notes = "create an Enrollment", tags={  })
+    @ApiOperation(value = "", nickname = "createEnrollment", notes = "create an Enrollment", response = Enrollment.class, tags={  })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "enrollment response", response = Enrollment.class),
         @ApiResponse(code = 201, message = "created"),
         @ApiResponse(code = 401, message = "unexpected error"),
         @ApiResponse(code = 403, message = "forbidden"),
         @ApiResponse(code = 404, message = "not found") })
     @RequestMapping(value = "/enrollments",
+        produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    default ResponseEntity<Void> createEnrollment(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
+    default ResponseEntity<Enrollment> createEnrollment(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"subject_id\" : 6, \"user_email\" : \"user_email\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -75,7 +86,7 @@ public interface EnrollmentsApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"subject_id\" : 0, \"user_email\" : \"user_email\" }";
+                    String exampleString = "{ \"subject_id\" : 6, \"user_email\" : \"user_email\", \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -108,18 +119,22 @@ public interface EnrollmentsApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "updateEnrollment", notes = "updates an existing enrollment", response = Enrollment.class, tags={  })
+    @ApiOperation(value = "", nickname = "updateEnrollment", notes = "update an Enrollment", response = Enrollment.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = Enrollment.class),
-        @ApiResponse(code = 404, message = "Enrollement not found") })
-    @RequestMapping(value = "/enrollments",
+        @ApiResponse(code = 200, message = "enrollment response", response = Enrollment.class),
+        @ApiResponse(code = 201, message = "updated"),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
+    @RequestMapping(value = "/enrollments/{id}",
         produces = { "application/json" }, 
+        consumes = { "application/json" },
         method = RequestMethod.PUT)
-    default ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("user_email") String userEmail,@ApiParam(value = "",required=true) @PathVariable("subject_id") Integer subjectId) {
+    default ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"subject_id\" : 0, \"user_email\" : \"user_email\" }";
+                    String exampleString = "{ \"subject_id\" : 6, \"user_email\" : \"user_email\", \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

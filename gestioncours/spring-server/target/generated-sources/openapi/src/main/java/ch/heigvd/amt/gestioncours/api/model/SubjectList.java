@@ -14,57 +14,17 @@ import javax.validation.constraints.*;
 /**
  * SubjectList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 public class SubjectList   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("credits_etcs")
   private Long creditsEtcs;
-
-  @JsonProperty("id")
-  private Long id;
-
-  public SubjectList name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Get name
-   * @return name
-  */
-  @ApiModelProperty(value = "")
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public SubjectList creditsEtcs(Long creditsEtcs) {
-    this.creditsEtcs = creditsEtcs;
-    return this;
-  }
-
-  /**
-   * Get creditsEtcs
-   * @return creditsEtcs
-  */
-  @ApiModelProperty(value = "")
-
-
-  public Long getCreditsEtcs() {
-    return creditsEtcs;
-  }
-
-  public void setCreditsEtcs(Long creditsEtcs) {
-    this.creditsEtcs = creditsEtcs;
-  }
 
   public SubjectList id(Long id) {
     this.id = id;
@@ -86,6 +46,48 @@ public class SubjectList   {
     this.id = id;
   }
 
+  public SubjectList name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Get name
+   * @return name
+  */
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public SubjectList creditsEtcs(Long creditsEtcs) {
+    this.creditsEtcs = creditsEtcs;
+    return this;
+  }
+
+  /**
+   * Get creditsEtcs
+   * @return creditsEtcs
+  */
+  @ApiModelProperty(required = true, value = "")
+  @NotNull
+
+
+  public Long getCreditsEtcs() {
+    return creditsEtcs;
+  }
+
+  public void setCreditsEtcs(Long creditsEtcs) {
+    this.creditsEtcs = creditsEtcs;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,14 +98,14 @@ public class SubjectList   {
       return false;
     }
     SubjectList subjectList = (SubjectList) o;
-    return Objects.equals(this.name, subjectList.name) &&
-        Objects.equals(this.creditsEtcs, subjectList.creditsEtcs) &&
-        Objects.equals(this.id, subjectList.id);
+    return Objects.equals(this.id, subjectList.id) &&
+        Objects.equals(this.name, subjectList.name) &&
+        Objects.equals(this.creditsEtcs, subjectList.creditsEtcs);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, creditsEtcs, id);
+    return Objects.hash(id, name, creditsEtcs);
   }
 
   @Override
@@ -111,9 +113,9 @@ public class SubjectList   {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubjectList {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    creditsEtcs: ").append(toIndentedString(creditsEtcs)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

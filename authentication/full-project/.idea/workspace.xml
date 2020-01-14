@@ -2,95 +2,215 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba0d485-1a90-4435-ae94-9b89ea6c5694" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/SubjectSteps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/scenarios/enrollment.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/scenarios/subject.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/SubjectListAllOf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/SubjectListAllOf.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectListAllOfTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/repositories/EnrollmentRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/main/resources/api-spec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/authentication/spec/steps/UserSteps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/src/test/resources/scenarios/user.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/AuthenticationSpecification-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/.openapi-generator-ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/.openapi-generator/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/.openapi-generator/api-spec.yaml.sha256" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/api-spec.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/build.sbt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiCallback.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiClient$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiClient$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiClient$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiClient$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ApiResponse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/Configuration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/GzipRequestInterceptor$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/GzipRequestInterceptor$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/GzipRequestInterceptor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$ByteArrayAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$DateTimeTypeAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$DateTypeAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$LocalDateTypeAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON$SqlDateTypeAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/JSON.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/Pair.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ProgressRequestBody$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ProgressRequestBody.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ProgressResponseBody$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/ProgressResponseBody.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/StringUtil.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AdminAllowApi$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AdminAllowApi$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AdminAllowApi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AdminAllowApiTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApi$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApi$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApi$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApi$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/AllUsersApiTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/RigthUserApi$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/RigthUserApi$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/RigthUserApi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/api/RigthUserApiTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/auth/ApiKeyAuth.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/auth/Authentication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/auth/HttpBasicAuth.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/auth/HttpBearerAuth.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/Credentials.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/CredentialsTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/Token.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/TokenTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/ch/heigvd/amt/authentication/dto/UserTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/AdminAllowApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/AllUsersApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/Credentials.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/RigthUserApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/Token.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/docs/User.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/git_push.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/classes/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/cucumber/formatter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/cucumber/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/cucumber/jquery-1.8.2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/cucumber/report.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/cucumber/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/.openapi-generator-ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/.openapi-generator/VERSION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/.openapi-generator/api-spec.yaml.sha256" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/build.sbt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Configuration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/GzipRequestInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/JSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ProgressRequestBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ProgressResponseBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/StringUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/api/AdminAllowApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/api/AllUsersApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/api/RigthUserApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/ApiKeyAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/Authentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBasicAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBearerAuth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Credentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Token.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/AdminAllowApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/AllUsersApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/Credentials.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/RigthUserApi.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/Token.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/docs/User.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/git_push.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/api/AdminAllowApiTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/api/AllUsersApiTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/api/RigthUserApiTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/dto/CredentialsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/dto/TokenTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/src/test/java/ch/heigvd/amt/authentication/dto/UserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/surefire-reports/TEST-ch.heigvd.amt.authentication.spec.SpecificationTest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/surefire-reports/ch.heigvd.amt.authentication.spec.SpecificationTest.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/test-classes/ch/heigvd/amt/authentication/spec/SpecificationTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/test-classes/ch/heigvd/amt/authentication/spec/helpers/Environment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/test-classes/ch/heigvd/amt/authentication/spec/steps/UserSteps.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/test-classes/environment.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../authentication-specs/target/test-classes/scenarios/user.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/ShareSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/authenticationSpecification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/authenticationSpecification.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/src/main/resources/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/SpecificationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/authentication/spec/SpecificationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/helpers/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/authentication/spec/helpers/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/CreationSteps.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/test/resources/environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/src/test/resources/environment.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../authentication-specs/src/test/resources/scenarios/creation.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/META-INF/swagger-spring.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker/images/mysql/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/images/mysql/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker/topologie/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker/topologie/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/libraries/Maven__com_h2database_h2_1_4_200.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/helpers/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/helpers/Environment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/CreationSteps.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/environment.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/scenarios/creation.feature" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/api-spec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/api/DefaultApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/api/DefaultApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/api/DefaultApiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/api/DefaultApiTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/Enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/Enrollment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentListTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/EnrollmentTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/Subject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/SubjectList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/SubjectList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/SubjectListTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/SubjectListTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/classes/ch/heigvd/amt/gestioncours/dto/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/cucumber/formatter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/cucumber/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/cucumber/jquery-1.8.2.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/cucumber/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/cucumber/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/.openapi-generator/api-spec.yaml.sha256" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/.openapi-generator/api-spec.yaml.sha256" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/ApiException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/StringUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/api/DefaultApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/api/DefaultApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/auth/ApiKeyAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/auth/ApiKeyAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/auth/HttpBearerAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/auth/HttpBearerAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/EnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/EnrollmentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/SubjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/SubjectList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/ch/heigvd/amt/gestioncours/dto/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/DefaultApi.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/DefaultApi.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/Enrollment.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/Enrollment.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/EnrollmentList.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/EnrollmentList.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/Subject.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/Subject.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/SubjectList.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/SubjectList.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/User.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/docs/User.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/api/DefaultApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/api/DefaultApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentListTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/EnrollmentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectListTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/generated-sources/gestioncours/src/test/java/ch/heigvd/amt/gestioncours/dto/SubjectListTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/surefire-reports/TEST-ch.heigvd.amt.gestioncours.spec.SpecificationTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/surefire-reports/TEST-ch.heigvd.amt.gestioncours.spec.SpecificationTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/surefire-reports/ch.heigvd.amt.gestioncours.spec.SpecificationTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/surefire-reports/ch.heigvd.amt.gestioncours.spec.SpecificationTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/ch/heigvd/amt/gestioncours/spec/helpers/Environment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/ch/heigvd/amt/gestioncours/spec/helpers/Environment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/ch/heigvd/amt/gestioncours/spec/steps/CreationSteps.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/environment.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/environment.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/scenarios/creation.feature" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/LaboSteps.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/java/ch/heigvd/amt/gestioncours/spec/steps/LaboSteps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/scenarios/enrollment.feature" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/src/test/resources/scenarios/enrollment.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/gestionCours-specs/target/test-classes/ch/heigvd/amt/gestioncours/spec/steps/EnrollmentSteps.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/SubjectsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/SubjectsApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/LaboEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/LaboEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/SubjectEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/SubjectEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/resources/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/swagger-spring.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/LabosApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/LabosApi.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/SubjectsApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/SubjectsApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/SubjectsApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/endpoints/SubjectsApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Enrollment.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Enrollment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Labo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Labo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/LaboList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/LaboList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Subject.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/Subject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/SubjectList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/SubjectList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/api/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/entities/SubjectEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/entities/SubjectEntity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/.openapi-generator/api-spec.yaml.sha256" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/.openapi-generator/api-spec.yaml.sha256" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/gestionCoursSpecifications-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/gestionCoursSpecifications-1.0.0.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../start.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,11 +218,22 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1W0zITJT5GFGhnUolFnXXHT64sk" />
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -119,7 +250,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.Swagger2SpringBoot">
+    <configuration name="All Features in: test" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="1.2" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/../authentication-specs/src/test" />
+      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
+      <module name="authenticationSpecification" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvmSMFormatter --monochrome" />
+      <option name="SUGGESTED_NAME" value="All Features in: test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cucumber.api.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Swagger2SpringBoot" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="swagger-spring" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ch.heigvd.amt.authentication.Swagger2SpringBoot" />
@@ -127,6 +275,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Cucumber java.All Features in: test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -140,6 +293,7 @@
       <updated>1578301220282</updated>
       <workItem from="1578301225881" duration="712000" />
       <workItem from="1578302273752" duration="3000" />
+      <workItem from="1578922989049" duration="6100000" />
     </task>
     <servers />
   </component>

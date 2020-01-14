@@ -21,10 +21,7 @@ public class LaboSteps {
 
     EnrollmentList existingEnrollment;
 
-    private ApiResponse lastApiResponse;
-    private ApiException lastApiException;
-    private boolean lastApiCallThrewException;
-    private int lastStatusCode;
+
 
     public LaboSteps(Environment environment) {
         this.environment = environment;
@@ -41,15 +38,15 @@ public class LaboSteps {
     @When("^I POST it to the /labos endpoint$")
     public void i_POST_it_to_the_labos_endpoint() throws Throwable {
         try {
-            lastApiResponse = api.createLaboWithHttpInfo(labo);
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
+            environment.setLastApiResponse(api.createLaboWithHttpInfo(labo));
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
         } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
         }
     }
 

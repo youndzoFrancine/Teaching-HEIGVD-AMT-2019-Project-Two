@@ -12,14 +12,37 @@ import javax.validation.constraints.*;
 /**
  * Enrollment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 public class Enrollment   {
+  @JsonProperty("id")
+  private Long id;
+
   @JsonProperty("subject_id")
   private Long subjectId;
 
   @JsonProperty("user_email")
   private String userEmail;
+
+  public Enrollment id(Long id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * Get id
+   * @return id
+  */
+  @ApiModelProperty(value = "")
+
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public Enrollment subjectId(Long subjectId) {
     this.subjectId = subjectId;
@@ -73,13 +96,14 @@ public class Enrollment   {
       return false;
     }
     Enrollment enrollment = (Enrollment) o;
-    return Objects.equals(this.subjectId, enrollment.subjectId) &&
+    return Objects.equals(this.id, enrollment.id) &&
+        Objects.equals(this.subjectId, enrollment.subjectId) &&
         Objects.equals(this.userEmail, enrollment.userEmail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subjectId, userEmail);
+    return Objects.hash(id, subjectId, userEmail);
   }
 
   @Override
@@ -87,6 +111,7 @@ public class Enrollment   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Enrollment {\n");
     
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    subjectId: ").append(toIndentedString(subjectId)).append("\n");
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("}");

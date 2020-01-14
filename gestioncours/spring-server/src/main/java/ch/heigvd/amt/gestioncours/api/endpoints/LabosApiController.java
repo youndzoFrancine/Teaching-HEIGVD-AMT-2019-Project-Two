@@ -27,7 +27,7 @@ public class LabosApiController implements LabosApi {
     @Autowired
     LaboRepository labosRepository;
 
-    public ResponseEntity<Void> createLabo(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
+    public ResponseEntity<Labo> createLabo(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
         LaboEntity newLaboEntity = toLaboEntity(labo);
         labosRepository.save(newLaboEntity);
 

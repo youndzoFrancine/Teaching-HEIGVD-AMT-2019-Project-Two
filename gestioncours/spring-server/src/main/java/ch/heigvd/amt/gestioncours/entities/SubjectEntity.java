@@ -22,6 +22,10 @@ public class SubjectEntity implements Serializable {
 
     public String getName() { return name; }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getCredits_etcs() { return credits_etcs; }
 
     public void setName(String name) { this.name = name; }

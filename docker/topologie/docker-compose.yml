@@ -10,7 +10,7 @@ services:
          - MYSQL_PASSWORD=pswrd
          - MYSQL_ROOT_PASSWORD=root
         ports:
-         - "3306:3306"
+         - "3308:3306"
         init: true
 
     db_authentication:

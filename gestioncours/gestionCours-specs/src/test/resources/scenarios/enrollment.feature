@@ -4,6 +4,7 @@ Feature: Creation of enrollments
     Given I have a enrollment payload
     When I POST it to the /enrollments endpoint
     Then I receive a 201 status code
+    And  I get a url location
 
   Scenario: Get an enrollment
     Given I  GET an existing enrollment

@@ -22,11 +22,10 @@ ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.class
 ch/heigvd/amt/gestioncours/api/LabosApi.class
 ch/heigvd/amt/gestioncours/api/model/SubjectList.class
 ch/heigvd/amt/gestioncours/configuration/SwaggerDocumentationConfig.class
+ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFoundException.class
 ch/heigvd/amt/gestioncours/api/EnrollmentsApi.class
 ch/heigvd/amt/gestioncours/repositories/LaboRepository.class
 ch/heigvd/amt/gestioncours/api/model/Labo.class
 ch/heigvd/amt/gestioncours/repositories/SubjectRepository.class
-ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.class
-ch/heigvd/amt/gestioncours/api/model/User.class
 ch/heigvd/amt/gestioncours/api/model/Subject.class
 ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.class

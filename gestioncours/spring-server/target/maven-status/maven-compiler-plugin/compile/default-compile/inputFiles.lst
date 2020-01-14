@@ -2,7 +2,6 @@
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/ApiException.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/repositories/SubjectRepository.java
-/Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/repositories/EnrollmentRepository.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/EnrollmentEntity.java
@@ -21,8 +20,8 @@
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/entities/LaboEntity.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java
+/Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFoundException.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/LabosApiController.java
-/Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/EnrollmentNotFounExceptions.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/configuration/SwaggerDocumentationConfig.java
 /Users/youndzofrancine/Desktop/AMT2/Teaching-HEIGVD-AMT-2019-Project-Two/gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/exceptions/NotFoundException.java

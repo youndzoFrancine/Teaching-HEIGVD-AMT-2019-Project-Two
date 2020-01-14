@@ -35,24 +35,23 @@ public class SubjectsApiController implements SubjectsApi {
      * @param subject
      * @return
      */
-    public ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+    public ResponseEntity<Subject> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
 
         SubjectEntity newSubjectEntity = toSubjectEntity(subject);
-        subjectRepository.save(newSubjectEntity);
-        Long id = newSubjectEntity.getId();
+        SubjectEntity saveSubject = subjectRepository.save(newSubjectEntity);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(newSubjectEntity.getId()).toUri();
-        return ResponseEntity.created(location).build();
+                .buildAndExpand(saveSubject.getId()).toUri();
+        return ResponseEntity.created(location).body(toSubject(saveSubject));
     }
 
     /**
      *
      * @return
      */
-    public ResponseEntity<List<SubjectList>> getSubjects() {
-        List<SubjectList> subjects = new ArrayList<>();
+    public ResponseEntity<List<Subject>> getSubjects() {
+        List<Subject> subjects = new ArrayList<>();
         for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
             subjects.add(toSubject(subjectEntity));
         }
@@ -64,27 +63,31 @@ public class SubjectsApiController implements SubjectsApi {
      * @param id
      * @return
      */
-    public ResponseEntity<SubjectList> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+    public ResponseEntity<Subject> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
 
-        SubjectList subject =new SubjectList();
-        for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
-           if(subjectEntity.getId() == id){
-               subject = toSubject(subjectEntity);
-               break;
-           }
-        }
-        return ResponseEntity.ok(subject);
+        return ResponseEntity.ok(toSubject(subjectRepository.findById(id.longValue()).get()));
     }
+
 
     /**
      *
-     * @param name
-     * @param creditsEtcs
+     * @param id
+     * @param subject
      * @return
      */
-    public ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("name") String name,@ApiParam(value = "",required=true) @PathVariable("credits_etcs") Integer creditsEtcs) {
+    public ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+        Optional<SubjectEntity> subjectEntity = subjectRepository.findById(id.longValue());
+        if(!subjectEntity.isPresent()) {
+            return  ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        subjectEntity.get().setCredits_etcs(subject.getCreditsEtcs());
+        subjectEntity.get().setName(subject.getName());
+        SubjectEntity saveSubject = subjectRepository.save(subjectEntity.get());
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(saveSubject.getId()).toUri();
+        return ResponseEntity.created(location).body(toSubject(saveSubject));
 
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
 
@@ -121,8 +124,8 @@ public class SubjectsApiController implements SubjectsApi {
      * @param entity
      * @return
      */
-    private SubjectList toSubject(SubjectEntity entity) {
-        SubjectList subject = new SubjectList();
+    private Subject toSubject(SubjectEntity entity) {
+        Subject subject = new Subject();
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());
         subject.setId(entity.getId());

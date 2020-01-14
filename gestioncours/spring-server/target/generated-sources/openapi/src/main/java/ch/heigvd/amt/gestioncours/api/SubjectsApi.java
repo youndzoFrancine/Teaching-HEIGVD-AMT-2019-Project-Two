@@ -6,7 +6,6 @@
 package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.api.model.Subject;
-import ch.heigvd.amt.gestioncours.api.model.SubjectList;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -37,16 +36,27 @@ public interface SubjectsApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "createSubject", notes = "create a new subject", tags={  })
+    @ApiOperation(value = "", nickname = "createSubject", notes = "create a new subject", response = Subject.class, tags={  })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "Subject creation", response = Subject.class),
         @ApiResponse(code = 201, message = "created"),
         @ApiResponse(code = 401, message = "unexpected error"),
         @ApiResponse(code = 403, message = "forbidden"),
         @ApiResponse(code = 404, message = "not found") })
     @RequestMapping(value = "/subjects",
+        produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    default ResponseEntity<Void> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+    default ResponseEntity<Subject> createSubject(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -64,20 +74,20 @@ public interface SubjectsApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = SubjectList.class, tags={  })
+    @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = Subject.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = SubjectList.class),
+        @ApiResponse(code = 200, message = "success", response = Subject.class),
         @ApiResponse(code = 401, message = "unexpected error"),
         @ApiResponse(code = 403, message = "forbidden"),
         @ApiResponse(code = 404, message = "not found") })
     @RequestMapping(value = "/subjects/{id}",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<SubjectList> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
+    default ResponseEntity<Subject> getASubject(@Min(1L)@ApiParam(value = "",required=true) @PathVariable("id") Long id) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
+                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -88,18 +98,18 @@ public interface SubjectsApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getSubjects", notes = "get the list of all subjects", response = SubjectList.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "", nickname = "getSubjects", notes = "get the list of all subjects", response = Subject.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = SubjectList.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "success", response = Subject.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "unexpected error") })
     @RequestMapping(value = "/subjects",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<List<SubjectList>> getSubjects() {
+    default ResponseEntity<List<Subject>> getSubjects() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
+                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -117,11 +127,37 @@ public interface SubjectsApi {
     @RequestMapping(value = "/subjects",
         produces = { "application/json" }, 
         method = RequestMethod.PUT)
-    default ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("name") String name,@ApiParam(value = "",required=true) @PathVariable("credits_etcs") Integer creditsEtcs) {
+    default ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("subject_id") Integer subjectId,@ApiParam(value = "",required=true) @PathVariable("credits_etcs") Integer creditsEtcs) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"credits_etcs\" : 0, \"name\" : \"name\" }";
+                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "updateSubject", notes = "update a subject", response = Subject.class, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "subject response", response = Subject.class),
+        @ApiResponse(code = 201, message = "updated"),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
+    @RequestMapping(value = "/subjects/{id}",
+        produces = { "application/json" }, 
+        consumes = { "application/json" },
+        method = RequestMethod.PUT)
+    default ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Subject subject) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * SubjectListAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 public class SubjectListAllOf   {
   @JsonProperty("id")

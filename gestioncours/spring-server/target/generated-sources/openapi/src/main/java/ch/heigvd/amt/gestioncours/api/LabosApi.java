@@ -27,7 +27,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-12T22:24:42.945+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "labos", description = "the labos API")
@@ -37,16 +37,27 @@ public interface LabosApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "createLabo", notes = "create a Labo", tags={  })
+    @ApiOperation(value = "", nickname = "createLabo", notes = "create a Labo", response = Labo.class, tags={  })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "labo creation", response = Labo.class),
         @ApiResponse(code = 201, message = "created"),
         @ApiResponse(code = 401, message = "unexpected error"),
         @ApiResponse(code = 403, message = "forbidden"),
         @ApiResponse(code = 404, message = "not found") })
     @RequestMapping(value = "/labos",
+        produces = { "application/json" }, 
         consumes = { "application/json" },
         method = RequestMethod.POST)
-    default ResponseEntity<Void> createLabo(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
+    default ResponseEntity<Labo> createLabo(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"id\" : 0, \"ponderation\" : 6 }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -97,7 +108,7 @@ public interface LabosApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"ponderation\" : 0 }";
+                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"id\" : 0, \"ponderation\" : 6 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
