@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T13:54:16.727+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "subjects", description = "the subjects API")
@@ -76,7 +76,7 @@ public interface SubjectsApi {
 
     @ApiOperation(value = "", nickname = "getASubject", notes = "gets a single subject based on the ID supplied", response = Subject.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = Subject.class),
+        @ApiResponse(code = 201, message = "created", response = Subject.class),
         @ApiResponse(code = 401, message = "unexpected error"),
         @ApiResponse(code = 403, message = "forbidden"),
         @ApiResponse(code = 404, message = "not found") })
@@ -106,28 +106,6 @@ public interface SubjectsApi {
         produces = { "application/json" }, 
         method = RequestMethod.GET)
     default ResponseEntity<List<Subject>> getSubjects() {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"credits_etcs\" : 6, \"name\" : \"name\", \"id\" : 0 }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    @ApiOperation(value = "", nickname = "updateSubject", notes = "updates an existing subject", response = Subject.class, tags={  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = Subject.class),
-        @ApiResponse(code = 404, message = "Subject not found") })
-    @RequestMapping(value = "/subjects",
-        produces = { "application/json" }, 
-        method = RequestMethod.PUT)
-    default ResponseEntity<Subject> updateSubject(@ApiParam(value = "",required=true) @PathVariable("subject_id") Integer subjectId,@ApiParam(value = "",required=true) @PathVariable("credits_etcs") Integer creditsEtcs) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

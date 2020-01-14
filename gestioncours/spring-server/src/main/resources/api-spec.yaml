@@ -263,7 +263,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LaboList'
+                  $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
     delete:
@@ -281,30 +281,36 @@ paths:
         default:
           description: unexpected error
     put:
-      description: updates an existing labo
-      operationId: updateLabo
+      operationId: UpdateLabo
+      description: update an Labo
       parameters:
-        - name: labo_name
-          in: path
+        - in: path
+          name: laboName
           required: true
           schema:
             type: string
-            description: The labo name
-        - name: ponderation
-          in: path
-          required: true
-          schema:
-            type: integer
-            description: The ponderation of the labo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Labo'
       responses:
         '200':
-          description: success
+          description: Labo response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Labo'
+        '201':
+          description: updated
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
         '404':
-          description: labo not found
+          description: not found
+
 
 components:
   schemas:
@@ -358,14 +364,11 @@ components:
         - labo_name
         - ponderation
       properties:
-        id:
-          type: integer
-          format: int64
         labo_name:
           type: string
         ponderation:
           type: integer
-          format: int64
+          format: int32
     LaboList:
       allOf:
         - $ref: '#/components/schemas/Labo'

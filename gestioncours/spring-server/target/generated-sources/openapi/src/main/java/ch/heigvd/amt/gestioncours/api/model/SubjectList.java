@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * SubjectList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T13:54:16.727+01:00[Europe/Zurich]")
 
 public class SubjectList   {
   @JsonProperty("id")

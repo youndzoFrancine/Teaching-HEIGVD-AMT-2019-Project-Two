@@ -6,7 +6,6 @@
 package ch.heigvd.amt.gestioncours.api;
 
 import ch.heigvd.amt.gestioncours.api.model.Labo;
-import ch.heigvd.amt.gestioncours.api.model.LaboList;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T13:54:16.727+01:00[Europe/Zurich]")
 
 @Validated
 @Api(value = "labos", description = "the labos API")
@@ -52,7 +51,7 @@ public interface LabosApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"id\" : 0, \"ponderation\" : 6 }";
+                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"ponderation\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -75,18 +74,18 @@ public interface LabosApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "getLabos", notes = "get the list of all Labos", response = LaboList.class, responseContainer = "List", tags={  })
+    @ApiOperation(value = "", nickname = "getLabos", notes = "get the list of all Labos", response = Labo.class, responseContainer = "List", tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = LaboList.class, responseContainer = "List"),
+        @ApiResponse(code = 200, message = "success", response = Labo.class, responseContainer = "List"),
         @ApiResponse(code = 401, message = "unexpected error") })
     @RequestMapping(value = "/labos",
         produces = { "application/json" }, 
         method = RequestMethod.GET)
-    default ResponseEntity<List<LaboList>> getLabos() {
+    default ResponseEntity<List<Labo>> getLabos() {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "null";
+                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"ponderation\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
@@ -97,18 +96,22 @@ public interface LabosApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "updateLabo", notes = "updates an existing labo", response = Labo.class, tags={  })
+    @ApiOperation(value = "", nickname = "updateLabo", notes = "update an Labo", response = Labo.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = Labo.class),
-        @ApiResponse(code = 404, message = "labo not found") })
+        @ApiResponse(code = 200, message = "Labo response", response = Labo.class),
+        @ApiResponse(code = 201, message = "updated"),
+        @ApiResponse(code = 401, message = "unexpected error"),
+        @ApiResponse(code = 403, message = "forbidden"),
+        @ApiResponse(code = 404, message = "not found") })
     @RequestMapping(value = "/labos",
         produces = { "application/json" }, 
+        consumes = { "application/json" },
         method = RequestMethod.PUT)
-    default ResponseEntity<Labo> updateLabo(@ApiParam(value = "",required=true) @PathVariable("labo_name") String laboName,@ApiParam(value = "",required=true) @PathVariable("ponderation") Integer ponderation) {
+    default ResponseEntity<Labo> updateLabo(@ApiParam(value = "",required=true) @PathVariable("laboName") String laboName,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"id\" : 0, \"ponderation\" : 6 }";
+                    String exampleString = "{ \"labo_name\" : \"labo_name\", \"ponderation\" : 0 }";
                     ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }

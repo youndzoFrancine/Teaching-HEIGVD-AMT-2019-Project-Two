@@ -77,24 +77,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
 
     /**
-     * delete an existing enrollment
-     * @param id of the enrollment to delete
-     * @return
-     */
-    public ResponseEntity<Void> deleteEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
-        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
-
-        if (enrollmentEntity != null) {
-            enrollmentsRepository.delete(enrollmentEntity);
-            return new ResponseEntity(HttpStatus.OK);
-        } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }
-
-    }
-
-
-    /**
      *
      * @param id
      * @param enrollment
@@ -114,6 +96,23 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
                 .buildAndExpand(saveEnrollmentEntity.getId()).toUri();
 
         return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
+    }
+
+    /**
+     * delete an existing enrollment
+     * @param id of the enrollment to delete
+     * @return
+     */
+    public ResponseEntity<Void> deleteEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
+        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
+
+        if (enrollmentEntity != null) {
+            enrollmentsRepository.delete(enrollmentEntity);
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 

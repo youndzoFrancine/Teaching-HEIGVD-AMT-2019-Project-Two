@@ -12,37 +12,14 @@ import javax.validation.constraints.*;
 /**
  * Labo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T13:54:16.727+01:00[Europe/Zurich]")
 
 public class Labo   {
-  @JsonProperty("id")
-  private Long id;
-
   @JsonProperty("labo_name")
   private String laboName;
 
   @JsonProperty("ponderation")
-  private Long ponderation;
-
-  public Labo id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @ApiModelProperty(value = "")
-
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
+  private Integer ponderation;
 
   public Labo laboName(String laboName) {
     this.laboName = laboName;
@@ -65,7 +42,7 @@ public class Labo   {
     this.laboName = laboName;
   }
 
-  public Labo ponderation(Long ponderation) {
+  public Labo ponderation(Integer ponderation) {
     this.ponderation = ponderation;
     return this;
   }
@@ -78,11 +55,11 @@ public class Labo   {
   @NotNull
 
 
-  public Long getPonderation() {
+  public Integer getPonderation() {
     return ponderation;
   }
 
-  public void setPonderation(Long ponderation) {
+  public void setPonderation(Integer ponderation) {
     this.ponderation = ponderation;
   }
 
@@ -96,14 +73,13 @@ public class Labo   {
       return false;
     }
     Labo labo = (Labo) o;
-    return Objects.equals(this.id, labo.id) &&
-        Objects.equals(this.laboName, labo.laboName) &&
+    return Objects.equals(this.laboName, labo.laboName) &&
         Objects.equals(this.ponderation, labo.ponderation);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, laboName, ponderation);
+    return Objects.hash(laboName, ponderation);
   }
 
   @Override
@@ -111,7 +87,6 @@ public class Labo   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Labo {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    laboName: ").append(toIndentedString(laboName)).append("\n");
     sb.append("    ponderation: ").append(toIndentedString(ponderation)).append("\n");
     sb.append("}");

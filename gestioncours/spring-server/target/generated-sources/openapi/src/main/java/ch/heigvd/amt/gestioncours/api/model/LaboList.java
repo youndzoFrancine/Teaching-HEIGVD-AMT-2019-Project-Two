@@ -14,12 +14,9 @@ import javax.validation.constraints.*;
 /**
  * LaboList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T00:43:06.459+01:00[Europe/Zurich]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T13:54:16.727+01:00[Europe/Zurich]")
 
 public class LaboList   {
-  @JsonProperty("id")
-  private Long id;
-
   @JsonProperty("labo_name")
   private String laboName;
 
@@ -28,26 +25,6 @@ public class LaboList   {
 
   @JsonProperty("name")
   private String name;
-
-  public LaboList id(Long id) {
-    this.id = id;
-    return this;
-  }
-
-  /**
-   * Get id
-   * @return id
-  */
-  @ApiModelProperty(value = "")
-
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
 
   public LaboList laboName(String laboName) {
     this.laboName = laboName;
@@ -121,15 +98,14 @@ public class LaboList   {
       return false;
     }
     LaboList laboList = (LaboList) o;
-    return Objects.equals(this.id, laboList.id) &&
-        Objects.equals(this.laboName, laboList.laboName) &&
+    return Objects.equals(this.laboName, laboList.laboName) &&
         Objects.equals(this.ponderation, laboList.ponderation) &&
         Objects.equals(this.name, laboList.name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, laboName, ponderation, name);
+    return Objects.hash(laboName, ponderation, name);
   }
 
   @Override
@@ -137,7 +113,6 @@ public class LaboList   {
     StringBuilder sb = new StringBuilder();
     sb.append("class LaboList {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    laboName: ").append(toIndentedString(laboName)).append("\n");
     sb.append("    ponderation: ").append(toIndentedString(ponderation)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
