@@ -2,16 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba0d485-1a90-4435-ae94-9b89ea6c5694" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiException.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/ApiException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Pair.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/Pair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/StringUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/StringUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/ApiKeyAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/ApiKeyAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBearerAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/auth/HttpBearerAuth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/Credentials.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../authentication-specs/target/generated-sources/authentication/ch/heigvd/amt/authentication/dto/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/ResetPasswordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/UpdatePasswordController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/JWTutils.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/JWTutils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/PasswordUtile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/PasswordUtile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/URIs.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/URIs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/configuration/SwaggerDocumentationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/configuration/SwaggerDocumentationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/entities/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spring-server/src/main/resources/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/AuthenticationSpecifications-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/AuthenticationSpecifications-1.0.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/AuthenticationSpecifications-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/AuthenticationSpecifications-1.0.0.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/api-spec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/api-spec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/LoginApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/LoginApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/UsersApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/UsersApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/api/endpoints/UsersApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/configuration/SwaggerDocumentationConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/ch/heigvd/amt/authentication/configuration/SwaggerDocumentationConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/.openapi-generator/api-spec.yaml.sha256" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/.openapi-generator/api-spec.yaml.sha256" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/LoginApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/LoginApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/UsersApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/UsersApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/model/Credentials.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/model/Credentials.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/authentication/api/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/full-project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/Swagger2SpringBoot$ExitException.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/Swagger2SpringBoot$ExitException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../gestioncours/spring-server/target/classes/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +111,8 @@
       <workItem from="1578687207972" duration="27848000" />
       <workItem from="1578907866343" duration="3939000" />
       <workItem from="1578921371145" duration="992000" />
+      <workItem from="1579006750698" duration="1638000" />
+      <workItem from="1579008492104" duration="6666000" />
     </task>
     <servers />
   </component>
@@ -104,17 +131,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/authentication/api/util/ApiOriginFilter.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>

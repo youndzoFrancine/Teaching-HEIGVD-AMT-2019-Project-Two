@@ -20,8 +20,7 @@ import java.util.logging.Logger;
 public class ApiOriginFilter implements Filter {
     private static Logger LOG = Logger.getLogger(ApiOriginFilter.class.getName());
 
-    public ApiOriginFilter() {
-    }
+    public ApiOriginFilter() {}
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,

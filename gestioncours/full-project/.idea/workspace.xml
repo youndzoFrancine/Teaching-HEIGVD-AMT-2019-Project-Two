@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efd06093-e270-45db-9a77-e80a010702cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ErrorDescription.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ErrorsCodes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/JWTutils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/URIs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../authentication/full-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../authentication/full-project/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gestionCours-specs/src/test/resources/scenarios/labo.feature" beforeDir="false" afterPath="$PROJECT_DIR$/../gestionCours-specs/src/test/resources/scenarios/labo.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/endpoints/EnrollmentsApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/Swagger2SpringBoot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/src/main/java/ch/heigvd/amt/gestioncours/api/util/ApiOriginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/swagger-spring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/EnrollmentsApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/LabosApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/SubjectsApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/EnrollmentList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Labo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/LaboListAllOf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/SubjectListAllOf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/generated-sources/openapi/src/main/java/ch/heigvd/amt/gestioncours/api/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/gestionCoursSpecifications-1.0.0.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../spring-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -237,7 +212,7 @@
       <workItem from="1578675042126" duration="114000" />
       <workItem from="1578675214047" duration="532000" />
       <workItem from="1578906128135" duration="1685000" />
-      <workItem from="1578922464492" duration="6679000" />
+      <workItem from="1578922464492" duration="8940000" />
     </task>
     <servers />
   </component>

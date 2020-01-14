@@ -26,7 +26,7 @@ import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-11T15:09:55.058+01:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-01-14T15:21:16.587+01:00[Europe/Berlin]")
 
 @Validated
 @Api(value = "users", description = "the users API")
@@ -36,7 +36,9 @@ public interface UsersApi {
         return Optional.empty();
     }
 
-    @ApiOperation(value = "", nickname = "blockUser", notes = "the admin block a user", tags={  })
+    @ApiOperation(value = "", nickname = "blockUser", notes = "the admin block a user", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success"),
         @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
@@ -48,39 +50,17 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "createUser", notes = "create a user", tags={  })
+    @ApiOperation(value = "", nickname = "createUser", notes = "create a user", response = User.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "created"),
-        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
-    @RequestMapping(value = "/users",
-        consumes = { "application/json" },
-        method = RequestMethod.POST)
-    default ResponseEntity<Void> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", tags={  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success"),
-        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
-    @RequestMapping(value = "/users/{e_mail}",
-        method = RequestMethod.DELETE)
-    default ResponseEntity<Void> deleteUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = User.class, responseContainer = "List", tags={  })
-    @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "success", response = User.class, responseContainer = "List"),
+        @ApiResponse(code = 201, message = "created", response = User.class),
         @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
     @RequestMapping(value = "/users",
         produces = { "application/json" }, 
-        method = RequestMethod.GET)
-    default ResponseEntity<List<User>> getUsers(@ApiParam(value = "an authorization header" ,required=true) @RequestHeader(value="auth", required=true) String auth) {
+        consumes = { "application/json" },
+        method = RequestMethod.POST)
+    default ResponseEntity<User> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
@@ -95,7 +75,46 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "unblockUser", notes = "the admin block a user", tags={  })
+    @ApiOperation(value = "", nickname = "deleteUser", notes = "deletes a single user based on the e_mail supplied", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success"),
+        @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
+    @RequestMapping(value = "/users/{e_mail}",
+        method = RequestMethod.DELETE)
+    default ResponseEntity<Void> deleteUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "getUsers", notes = "get the list of users", response = User.class, responseContainer = "List", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
+    @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "success", response = User.class, responseContainer = "List") })
+    @RequestMapping(value = "/users",
+        produces = { "application/json" }, 
+        method = RequestMethod.GET)
+    default ResponseEntity<List<User>> getUsers() {
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"firstname\" : \"firstname\", \"password\" : \"password\", \"role\" : \"role\", \"isBlock\" : true, \"email\" : \"email\", \"lastname\" : \"lastname\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
+    }
+
+
+    @ApiOperation(value = "", nickname = "unblockUser", notes = "the admin block a user", authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success"),
         @ApiResponse(code = 401, message = "Access token is missing or is invalid") })
@@ -107,7 +126,9 @@ public interface UsersApi {
     }
 
 
-    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, tags={  })
+    @ApiOperation(value = "", nickname = "updateUser", notes = "updates a single user based on the e_mail supplied", response = User.class, authorizations = {
+        @Authorization(value = "bearerAuth")
+    }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "success", response = User.class),
         @ApiResponse(code = 401, message = "Access token is missing or is invalid") })

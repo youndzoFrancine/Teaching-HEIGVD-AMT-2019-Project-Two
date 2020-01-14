@@ -33,33 +33,40 @@ public class ApiOriginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
+        //recuperation de l'url
         String uri = request.getRequestURI().substring(request.getContextPath().length());
+        //recuperation du token
         String token = JWTutils.extractToken(request.getHeader("auth"));
-        System.out.println(token);
-
+        //urls de la documentation swagger utile pour les filtres
         boolean doc = uri.equals(URIs.DOCUMENTATION) ||
                 uri.equals(URIs.SWAGGER_HTML) ||
                 uri.startsWith(URIs.SWAGGER_UI_RESOURCES) ||
                 uri.startsWith(URIs.SWAGGER_RESOURCES) ||
                 uri.equals(URIs.V2_API_DOCS);
 
+        // reseigne si l'url recuperée est une url pour l'authentification
         boolean authRequest = uri.equals(URIs.AUTH);
+        // reseigne si l'url recuperée est une url pour bloqué ou debloqué les users
         boolean toBlock = uri.equals(URIs.BLOCK) || uri.equals(URIs.UNBLOCK);
 
+        //url de documentation swagger ou d'authentification sans token eistant: on forward la requete
         if(doc || (authRequest && token==null)){
             chain.doFilter(servletRequest, response);
             return;
         }
 
         try {
+            //verification du token
             boolean jwt = JWTutils.verifyToken(token);
 
             // if token is not valid
             if (!jwt) {
+                //requete d'authentification: on forward
                 if (authRequest) {
                     chain.doFilter(request, response);
                     return;
                 }
+                //jwt invalide et requete autre que l'authentification: erreur(token invalide)
                 sendError(response, HttpServletResponse.SC_UNAUTHORIZED, ErrorsCodes.JWT_INVALID,
                         ErrorsCodes.JWT_INVALID_MESSAGE);
                 return;
@@ -71,8 +78,6 @@ public class ApiOriginFilter implements Filter {
                 return;
             }
 
-            System.out.println("email  " + JWTutils.getEmail(token));
-
             //if a normal user try to have access to functions deserve to admin
             if((uri.equals(URIs.CREATE_USER) || toBlock) && !(JWTutils.getRole(token).equals("admin") )){
                 sendError(response, HttpServletResponse.SC_BAD_REQUEST, ErrorsCodes.NOT_AUTHORIZED,
@@ -80,21 +85,17 @@ public class ApiOriginFilter implements Filter {
                 return;
             }
 
-            System.out.println("role   " +JWTutils.getRole(token));
             servletRequest.setAttribute("email", JWTutils.getEmail(token));
             servletRequest.setAttribute("role", JWTutils.getRole(token));
             servletRequest.setAttribute("isBlocked", JWTutils.getIsBlocked(token));
-             //UserEntity user = userRepository.findByEmail(jwt.getSubject());
-             //servletRequest.setAttribute("User", user);
-
             chain.doFilter(request, response);
+
         } catch (JWTDecodeException exception) {
             LOG.log(Level.WARNING, "Invalid JWT format");
             sendError(response, HttpServletResponse.SC_UNAUTHORIZED, ErrorsCodes.INVALID_JWT_FORMAT,
                     ErrorsCodes.INVALID_JWT_FORMAT_MESSAGE);
         }
     }
-
 
     private void sendError(HttpServletResponse response, int status, String errorCode, String message) throws IOException {
         response.setStatus(status);
