@@ -67,7 +67,6 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         UserEntity user1 = new UserEntity();
 
-
        URL res = getClass().getClassLoader().getResource("data.utf8");
         try (FileInputStream f = new FileInputStream(Paths.get(res.toURI()).toString())){
 

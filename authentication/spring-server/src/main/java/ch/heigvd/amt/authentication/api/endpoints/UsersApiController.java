@@ -2,7 +2,6 @@ package ch.heigvd.amt.authentication.api.endpoints;
 
 import ch.heigvd.amt.authentication.api.UsersApi;
 import ch.heigvd.amt.authentication.api.model.User;
-import ch.heigvd.amt.authentication.api.util.URIs;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
@@ -18,9 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(URIs.CREATE_USER)
 public class UsersApiController implements UsersApi {
 
+    /**
+     * @Brief : convert a User to UserEntity
+     * @param user : user to convert
+     * @return : userEntity
+     */
     private UserEntity toUserEntity(User user){
         UserEntity entity = new UserEntity();
         entity.setFirstname(user.getFirstname());
@@ -31,6 +34,11 @@ public class UsersApiController implements UsersApi {
         return entity;
     }
 
+    /**
+     * @Brief : convert an UserEntity to User
+     * @param userEntity : userEntity to convert
+     * @return : user
+     */
     private User toUser(UserEntity userEntity) {
         User user = new User();
         user.setEmail(userEntity.getEmail());
@@ -43,19 +51,25 @@ public class UsersApiController implements UsersApi {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@ApiParam(value = "", required = true) @Valid @RequestBody User user) {
+    /**
+     *
+     * @param user : User to create
+     * @return
+     */
+    public ResponseEntity<User> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user){
         UserEntity newUserEntity = toUserEntity(user);
-        userRepository.save(newUserEntity);
-        String email = newUserEntity.getEmail();
+        UserEntity saveUserEntity = userRepository.save(newUserEntity);
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("{email}")
                 .buildAndExpand(newUserEntity.getEmail()).toUri();
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(toUser(saveUserEntity));
     }
 
-    //@RequestMapping(method = RequestMethod.GET)
+    /**
+     *
+     * @return : a list of all users in our databse
+     */
     public ResponseEntity<List<User>> getUsers(){
         List<User> users = new ArrayList<>();
         for (UserEntity userEntity : userRepository.findAll()) {
@@ -64,14 +78,22 @@ public class UsersApiController implements UsersApi {
         return ResponseEntity.ok(users);
     }
 
-    @RequestMapping(value = "/{e_mail}/block", method = RequestMethod.PATCH)
+    /**
+     *
+     * @param eMail : email of user to block
+     * @return
+     */
     public ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
             UserEntity userEntity = userRepository.findByEmail(eMail);
             userEntity.setBlocked(false);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/{e_mail}/unblock", method = RequestMethod.PATCH)
+    /**
+     *
+     * @param eMail
+     * @return
+     */
     public ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
         UserEntity userEntity = userRepository.findByEmail(eMail);
         userEntity.setBlocked(true);

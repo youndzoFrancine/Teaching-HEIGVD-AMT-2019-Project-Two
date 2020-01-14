@@ -17,10 +17,39 @@ paths:
             schema:
               $ref: '#/components/schemas/Credentials'
       responses:
-        '201':
-          description: created
+        '200':
+          description: success
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+  /reset_password:
+    post:
+      description: have access to ressources
+      operationId: forgot password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              description: The user e_mail
+      responses:
+        '201':
+          description: update
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /update_password:
+    post:
+      description: have access to ressources
+      operationId: reset password
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdatePswrd'
+      responses:
+          '201':
+            description: update
+          '401':
+            $ref: '#/components/responses/UnauthorizedError'
   /users:
     post:
       description: create a user
@@ -34,18 +63,17 @@ paths:
       responses:
         '201':
           description: created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
     get:
       description: get the list of users
       operationId: getUsers
-      parameters:
-        - name: auth
-          in: header
-          description: an authorization header
-          required: true
-          schema:
-            type: string
       responses:
         '200':
           description: success
@@ -55,8 +83,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
-        '401':
-          $ref: '#/components/responses/UnauthorizedError'
+      security:
+        -  bearerAuth: [ ]
   /users/{e_mail}:
     put:
       description: updates a single user based on the e_mail supplied
@@ -77,6 +105,8 @@ paths:
                 $ref: '#/components/schemas/User'
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
     delete:
       description: deletes a single user based on the e_mail supplied
       operationId: deleteUser
@@ -92,6 +122,8 @@ paths:
           description: success
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
   /users/{e_mail}/block:
     patch:
       description: the admin block a user
@@ -107,7 +139,9 @@ paths:
         '200':
           description: success
         '401':
-            $ref: '#/components/responses/UnauthorizedError'
+          $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
   /users/{e_mail}/unblock:
     patch:
       description: the admin block a user
@@ -121,10 +155,19 @@ paths:
             description: The user e_mail
       responses:
         '200':
-           description: success
+          description: success
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
+
 components:
+  securitySchemes:
+    bearerAuth:
+      description: "Give the token at each user"
+      type: "apiKey"
+      name: "Authorization"
+      in: "header"
   schemas:
     User:
       type: object
@@ -147,6 +190,15 @@ components:
         email:
           type: string
         password:
+          type: string
+    UpdatePswrd:
+      type: object
+      properties:
+        old_pswrd:
+          type: string
+        new_pswrd:
+          type: string
+        email:
           type: string
   responses:
     UnauthorizedError:
