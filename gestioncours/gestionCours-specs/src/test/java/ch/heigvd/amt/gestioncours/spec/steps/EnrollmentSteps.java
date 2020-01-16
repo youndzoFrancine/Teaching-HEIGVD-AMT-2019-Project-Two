@@ -22,7 +22,6 @@ public class EnrollmentSteps {
     private DefaultApi api;
 
     Enrollment enrollment;
-
     EnrollmentList existingEnrollment;
 
     private ApiResponse lastApiResponse;

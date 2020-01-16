@@ -4,6 +4,8 @@ package ch.heigvd.amt.gestioncours.entities;
  * francine youndzo
  */
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,14 +18,14 @@ public class EnrollmentEntity implements Serializable {
     @ManyToOne
     private SubjectEntity subject;
 
-    private String user_email;
+    private String email;
 
     public long getId() {
         return id;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getEmail() {
+        return email;
     }
 
     public SubjectEntity getSubject() {
@@ -38,7 +40,7 @@ public class EnrollmentEntity implements Serializable {
         this.id = id;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

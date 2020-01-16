@@ -4,19 +4,16 @@ package ch.heigvd.amt.gestioncours.entities;
  * francine Youndzo
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 public class LaboEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "laboName", unique= true, nullable=false)
     private String laboName;
-    private Long ponderation;
+    private Integer ponderation;
 
     public String getLaboName() {
         return laboName;
@@ -26,11 +23,11 @@ public class LaboEntity implements Serializable {
         this.laboName = laboName;
     }
 
-    public Long getPonderation() {
+    public Integer getPonderation() {
         return ponderation;
     }
 
-    public void setPonderation(Long ponderation) {
+    public void setPonderation(Integer ponderation) {
         this.ponderation = ponderation;
     }
 }

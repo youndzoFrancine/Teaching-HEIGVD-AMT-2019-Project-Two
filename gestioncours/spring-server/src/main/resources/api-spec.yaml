@@ -20,6 +20,12 @@ paths:
             schema:
               $ref: '#/components/schemas/Subject'
       responses:
+        '200':
+          description: Subject creation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
         '201':
           description: created
         '401':
@@ -39,34 +45,9 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/SubjectList'
+                  $ref: '#/components/schemas/Subject'
         '401':
           description: unexpected error
-    put:
-      description: updates an existing subject
-      operationId: updateSubject
-      parameters:
-        - name: name
-          in: path
-          required: true
-          schema:
-            type: string
-            description: The subject name
-        - name: credits_etcs
-          in: path
-          required: true
-          schema:
-            type: integer
-            description: The subject credit_etcs
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Subject'
-        '404':
-          description: Subject not found
   /subjects/{id}:
     get:
       description: gets a single subject based on the ID supplied
@@ -81,18 +62,49 @@ paths:
             minimum: 1
             description: The user ID
       responses:
-        '200':
-          description: success
+        '201':
+          description: created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SubjectList'
+                $ref: '#/components/schemas/Subject'
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+    put:
+      operationId: UpdateSubject
+      description: update a subject
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Subject'
+      responses:
+        '200':
+          description: subject response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
+        '201':
+          description: updated
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+
     delete:
       description: delete an existing subject base on the ID supplied
       operationId: deleteSubject
@@ -108,6 +120,7 @@ paths:
         default:
           description: unexpected error
 
+
   /enrollments:
     post:
       operationId: createEnrollment
@@ -119,6 +132,12 @@ paths:
             schema:
               $ref: '#/components/schemas/Enrollment'
       responses:
+        '200':
+          description: enrollment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
         '201':
           description: created
         '401':
@@ -141,31 +160,6 @@ paths:
                   $ref: '#/components/schemas/EnrollmentList'
         '401':
           description: unexpected error
-    put:
-      description: updates an existing enrollment
-      operationId: updateEnrollment
-      parameters:
-        - name: user_email
-          in: path
-          required: true
-          schema:
-            type: string
-            description: The enrollment name
-        - name: subject_id
-          in: path
-          required: true
-          schema:
-            type: integer
-            description: The subject id
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Enrollment'
-        '404':
-          description: Enrollement not found
 
   /enrollments/{id}:
     get:
@@ -201,6 +195,37 @@ paths:
           description: enrollment deleted
         default:
           description: unexpected error
+    put:
+      operationId: UpdateEnrollment
+      description: update an Enrollment
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enrollment'
+      responses:
+        '200':
+          description: enrollment response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        '201':
+          description: updated
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
+        '404':
+          description: not found
+
 
   /labos:
     post:
@@ -213,6 +238,12 @@ paths:
             schema:
               $ref: '#/components/schemas/Labo'
       responses:
+        '200':
+          description: labo creation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Labo'
         '201':
           description: created
         '401':
@@ -232,7 +263,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LaboList'
+                  $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
     delete:
@@ -250,36 +281,48 @@ paths:
         default:
           description: unexpected error
     put:
-      description: updates an existing labo
-      operationId: updateLabo
+      operationId: UpdateLabo
+      description: update an Labo
       parameters:
-        - name: labo_name
-          in: path
+        - in: path
+          name: laboName
           required: true
           schema:
             type: string
-            description: The labo name
-        - name: ponderation
-          in: path
-          required: true
-          schema:
-            type: integer
-            description: The ponderation of the labo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Labo'
       responses:
         '200':
-          description: success
+          description: Labo response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Labo'
+        '201':
+          description: updated
+        '401':
+          description: unexpected error
+        '403':
+          description: forbidden
         '404':
-          description: labo not found
+          description: not found
+
 
 components:
   schemas:
     Subject:
       type: object
+      required:
+        - name
+        - credits_etcs
       properties:
+        id:
+          type: integer
+          format: int64
         name:
           type: string
         credits_etcs:
@@ -293,25 +336,15 @@ components:
             id:
               type : integer
               format: int64
-    User:
-      type: object
-      properties:
-        e_mail:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        password:
-          type: string
-        user_role:
-          type: string
     Enrollment:
       type: object
       required:
         - subject_id
         - user_email
       properties:
+        id:
+          type: integer
+          format: int64
         subject_id:
           type: integer
           format: int64
@@ -335,7 +368,7 @@ components:
           type: string
         ponderation:
           type: integer
-          format: int64
+          format: int32
     LaboList:
       allOf:
         - $ref: '#/components/schemas/Labo'

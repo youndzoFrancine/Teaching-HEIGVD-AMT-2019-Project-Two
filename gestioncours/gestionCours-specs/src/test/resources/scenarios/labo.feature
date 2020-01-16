@@ -1,4 +1,3 @@
-
 Feature: Creation of Labo
 
   Scenario: create a labo
