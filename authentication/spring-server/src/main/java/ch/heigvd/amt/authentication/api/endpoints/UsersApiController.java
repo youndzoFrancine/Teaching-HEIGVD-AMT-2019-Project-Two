@@ -6,24 +6,22 @@ import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class UsersApiController implements UsersApi {
 
-    /**
-     * @Brief : convert a User to UserEntity
-     * @param user : user to convert
-     * @return : userEntity
-     */
     private UserEntity toUserEntity(User user){
         UserEntity entity = new UserEntity();
         entity.setFirstname(user.getFirstname());
@@ -34,12 +32,7 @@ public class UsersApiController implements UsersApi {
         return entity;
     }
 
-    /**
-     * @Brief : convert an UserEntity to User
-     * @param userEntity : userEntity to convert
-     * @return : user
-     */
-    private User toUser(UserEntity userEntity) {
+    private static User toUser(UserEntity userEntity) {
         User user = new User();
         user.setEmail(userEntity.getEmail());
         user.setFirstname(userEntity.getFirstname());
@@ -50,13 +43,10 @@ public class UsersApiController implements UsersApi {
 
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
-    /**
-     *
-     * @param user : User to create
-     * @return
-     */
-    public ResponseEntity<User> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user){
+    public ResponseEntity<User> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
         UserEntity newUserEntity = toUserEntity(user);
         UserEntity saveUserEntity = userRepository.save(newUserEntity);
 
@@ -66,39 +56,92 @@ public class UsersApiController implements UsersApi {
         return ResponseEntity.created(location).body(toUser(saveUserEntity));
     }
 
-    /**
-     *
-     * @return : a list of all users in our databse
-     */
-    public ResponseEntity<List<User>> getUsers(){
-        List<User> users = new ArrayList<>();
-        for (UserEntity userEntity : userRepository.findAll()) {
-            users.add(toUser(userEntity));
-        }
-        return ResponseEntity.ok(users);
+    public ResponseEntity<List<User>> getUsers(@ApiParam(value = "Page number", defaultValue = "1") @Valid @RequestParam(value = "page",
+            required = false, defaultValue="1") Integer page,@ApiParam(value = "number of elements per page", defaultValue = "20")
+            @Valid @RequestParam(value = "pageSize", required = false, defaultValue="20") Integer pageSize){
+        final StringBuilder linkHeader = new StringBuilder();
+
+        Long monbreTotalusers = userRepository.count();
+        Long NombrePageTotal = monbreTotalusers/pageSize +  ((monbreTotalusers%pageSize == 0 ) ? 0 : + 1);
+
+         if(page < NombrePageTotal - 1){
+             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Next", page, pageSize));
+         }
+
+         if(page > 0){
+              if(linkHeader.length()>0)
+                  linkHeader.append(",");
+             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Prev", page, pageSize));
+         }
+
+         if(page != 1){
+             if(linkHeader.length()>0)
+                 linkHeader.append(",");
+             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "first", page, pageSize));
+         }
+
+         if(page.longValue()!= NombrePageTotal) {
+             if (linkHeader.length() > 0)
+                 linkHeader.append(",");
+                         linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Last", page, pageSize));
+         }
+
+
+         List<User> users = userRepository.findAll(PageRequest.of(page -1, pageSize)).parallelStream().
+                 map(UsersApiController:: toUser).collect(Collectors.toList());
+
+        return ResponseEntity.ok()
+                              .header(HttpHeaders.LINK, linkHeader.toString())
+                              .body(users);
+
     }
 
-    /**
-     *
-     * @param eMail : email of user to block
-     * @return
-     */
-    public ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+    public  ResponseEntity<Void> blockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail)  {
             UserEntity userEntity = userRepository.findByEmail(eMail);
-            userEntity.setBlocked(false);
+            userEntity.setStatus("block");
+            userRepository.save(userEntity);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    /**
-     *
-     * @param eMail
-     * @return
-     */
-    public ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+
+    public ResponseEntity<Void> unblockUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail)  {
         UserEntity userEntity = userRepository.findByEmail(eMail);
-        userEntity.setBlocked(true);
+        userEntity.setStatus("unblock");
+        userRepository.save(userEntity);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
 
     }
+
+    public ResponseEntity<Void> deleteUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail) {
+
+        UserEntity userEntity = userRepository.findByEmail(eMail);
+        userRepository.delete(userEntity);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
+
+    public ResponseEntity<User> updateUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail,
+                                           @ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
+
+        UserEntity userEntity = userRepository.findByEmail(eMail);
+        userEntity.setEmail(user.getEmail());
+        userEntity.setFirstname(user.getFirstname());
+        userEntity.setLastname(user.getLastname());
+        UserEntity saveUserEntity = userRepository.save(userEntity);
+
+        URI location = ServletUriComponentsBuilder
+                .fromCurrentRequest().path("{email}")
+                .buildAndExpand(userEntity.getEmail()).toUri();
+
+        return ResponseEntity.created(location).body(toUser(saveUserEntity));
+
+    }
+
+
+    public static String createLinkHeader(final String uri, final String rel, final int page, final int size) {
+        return String.format("<%s?page=%d&pageSize=%d>; rel=\"%s\"", uri, page, size, rel);
+    }
+
+
+
 
 }

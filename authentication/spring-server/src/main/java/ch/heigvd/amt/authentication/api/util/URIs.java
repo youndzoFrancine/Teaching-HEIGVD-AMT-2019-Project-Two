@@ -8,6 +8,9 @@ public interface URIs {
     String V2_API_DOCS = "/api-docs";
     String DOCUMENTATION = "/";
     String CREATE_USER = "/users";
-    String BLOCK = "/users/{e_mail}/block";
-    String UNBLOCK = "/users/{e_mail}/unblock";
+    String GET_USERS = "/users/users";
+    String BLOCK = "/users/block/";
+    String UNBLOCK = "/users/unblock/";
+    String FORGOT_PASSWORD = "/forgotPassword";
+    String RESET_PASSWORD = "/resetPassword";
 }
