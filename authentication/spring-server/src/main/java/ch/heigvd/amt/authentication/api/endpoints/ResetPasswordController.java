@@ -37,8 +37,9 @@ public class ResetPasswordController implements ResetPasswordApi {
                 .toString();
 
         if(user != null){
-            emailService.sendMail(user.getEmail(), "Complete Password Reset!", "To connect to your account you can use the code:"+
-                    generatedString + "as the new password");
+            emailService.sendMail(user.getEmail(), "Complete Password Reset!", "To connect to your account you can use the code: "+
+                    generatedString + " as the new password");
+            user.setPassword(generatedString);
             userRepository.save(user);
             return ResponseEntity.ok().build();
         }
