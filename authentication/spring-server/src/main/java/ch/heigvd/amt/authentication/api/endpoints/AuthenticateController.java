@@ -4,20 +4,19 @@ import ch.heigvd.amt.authentication.api.LoginApi;
 import ch.heigvd.amt.authentication.api.exceptions.AuthenticationFailedException;
 import ch.heigvd.amt.authentication.api.exceptions.UserDoesNotExistException;
 import ch.heigvd.amt.authentication.api.model.Credentials;
-import ch.heigvd.amt.authentication.api.util.JWTutils;
-import ch.heigvd.amt.authentication.api.util.PasswordUtile;
-import ch.heigvd.amt.authentication.api.util.URIs;
+import ch.heigvd.amt.authentication.api.util.*;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -27,35 +26,26 @@ import java.net.URL;
 import java.nio.file.Paths;
 
 @RestController
-@RequestMapping(URIs.AUTH)
-
 public class AuthenticateController implements LoginApi, ApplicationRunner {
 
     @Autowired
     private  UserRepository userRepository;
+    @Autowired
+    HttpServletRequest httpServletRequest;
 
     public AuthenticateController() {}
 
-    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Void> login(@Valid @RequestBody Credentials credentials) {
-        UserEntity user1 = new UserEntity();
-        user1.setLastname("Joseph");
-        user1.setFirstname("kamdem");
-        user1.setEmail("kj@gmail.com");
-        user1.setPassword("12345");
-        user1.setRole("admin");
-        userRepository.save(user1);
-        System.out.println(userRepository);
         UserEntity user = userRepository.findByEmail(credentials.getEmail());
-        System.out.println(userRepository.findByEmail(credentials.getEmail()));
         if(user==null){
             throw new UserDoesNotExistException();
         }
-
+        if(user.getStatus().equals("block")){
+            return  ResponseEntity.status(HttpServletResponse.SC_UNAUTHORIZED).build();
+        }
         if(!PasswordUtile.isPasswordValid(credentials.getPassword(), user.getPassword(), user.getSalt())){
             throw new AuthenticationFailedException();
         }
-        System.out.println(JWTutils.generateToken(user));
 
         return ResponseEntity
                 .ok()
@@ -66,6 +56,7 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         UserEntity user1 = new UserEntity();
+
 
        URL res = getClass().getClassLoader().getResource("data.utf8");
         try (FileInputStream f = new FileInputStream(Paths.get(res.toURI()).toString())){
@@ -95,4 +86,12 @@ public class AuthenticateController implements LoginApi, ApplicationRunner {
         } ;
     }
 
+
+    private void sendError(HttpServletResponse response, int status, String errorCode, String message) throws IOException {
+        response.setStatus(status);
+        response.setHeader("Content-Type", "application/json");
+
+        ObjectMapper mapper = new ObjectMapper();
+        response.getWriter().write(mapper.writeValueAsString(new ErrorDescription(errorCode, message)));
+    }
 }

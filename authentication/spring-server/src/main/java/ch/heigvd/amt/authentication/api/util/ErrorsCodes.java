@@ -33,6 +33,9 @@ public interface ErrorsCodes {
     String INVALID_JWT_FORMAT_MESSAGE = "invalid JWT format";
 
     String NOT_AUTHORIZED = "9";
-    String NOT_AUTHORIZED_MESSAGE = "only admin can create user";
+    String NOT_AUTHORIZED_MESSAGE = "allow only to admins";
+
+    String IS_NOT_PERMISSION = "10";
+    String IS_NOT_PERMISSION_MESSAGE = "your compte is blocked";
 
 }

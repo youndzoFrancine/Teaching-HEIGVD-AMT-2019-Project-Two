@@ -42,7 +42,7 @@ public class EnrollmentSteps {
     @Given("^I have a enrollment payload$")
     public void i_have_a_enrollment_payload() throws Throwable {
         enrollment = new ch.heigvd.amt.gestioncours.dto.Enrollment();
-        enrollment.setStudentEmail("olivier@heig-vd.ch");
+        enrollment.setUserEmail("olivier@heig-vd.ch");
         enrollment.setSubjectId(2L);
     }
 
@@ -106,8 +106,6 @@ public class EnrollmentSteps {
     public void i_get_a_OK_response() throws Throwable {
 
     }
-
-
 
     @Given("^there exists an enrollment to update$")
     public void there_exists_an_enrollment_to_update() throws Throwable {
