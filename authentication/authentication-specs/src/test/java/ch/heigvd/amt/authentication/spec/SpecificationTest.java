@@ -1,4 +1,4 @@
-package ch.heigvd.amt.gestioncours.spec;
+package ch.heigvd.amt.authentication.spec;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

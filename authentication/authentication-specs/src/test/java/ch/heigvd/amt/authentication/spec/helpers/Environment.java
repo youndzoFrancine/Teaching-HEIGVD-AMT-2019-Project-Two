@@ -1,8 +1,8 @@
-package ch.heigvd.amt.gestioncours.spec.helpers;
+package ch.heigvd.amt.authentication.spec.helpers;
 
 
 
-import ch.heigvd.amt.gestioncours.api.DefaultApi;
+import ch.heigvd.amt.authentication.api.DefaultApi;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -17,7 +17,7 @@ public class Environment {
     public Environment() throws IOException {
         Properties properties = new Properties();
         properties.load(this.getClass().getClassLoader().getResourceAsStream("environment.properties"));
-        String url = properties.getProperty("io.avalia.fruits.server.url");
+        String url = properties.getProperty("ch.heigvd.amt.gestionCours.server.url");
         api.getApiClient().setBasePath(url);
 
     }
