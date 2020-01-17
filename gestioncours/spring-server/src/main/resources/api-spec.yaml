@@ -104,7 +104,6 @@ paths:
           description: forbidden
         '404':
           description: not found
-
     delete:
       description: delete an existing subject base on the ID supplied
       operationId: deleteSubject
@@ -119,7 +118,6 @@ paths:
           description: Subject deleted
         default:
           description: unexpected error
-
 
   /enrollments:
     post:
@@ -225,8 +223,6 @@ paths:
           description: forbidden
         '404':
           description: not found
-
-
   /labos:
     post:
       operationId: createLabo

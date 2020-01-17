@@ -115,7 +115,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
     }
 
-
     /**
      * convert an enrollment to an entity
      * @param enrollment to convert
