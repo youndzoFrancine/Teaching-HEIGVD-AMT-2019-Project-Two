@@ -20,23 +20,38 @@ paths:
             schema:
               $ref: '#/components/schemas/Subject'
       responses:
-        '200':
-          description: Subject creation
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Subject'
-        '201':
-          description: created
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
     get:
       description: get the list of all subjects
       operationId: getSubjects
+      parameters:
+        - in: query
+          name: page
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: number of elements per page
+          required: false
+          schema:
+            type: integer
+            default: 20
       responses:
         '200':
           description: success
@@ -46,8 +61,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Subject'
+          links:
+            NextLink:
+              $ref: '#/components/links/PaginateAllSubjects'
+            LastLink:
+              $ref: '#/components/links/PaginateAllSubjects'
+            FirstLink:
+              $ref: '#/components/links/PaginateAllSubjects'
+            PrevLink:
+              $ref: '#/components/links/PaginateAllSubjects'
         '401':
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
   /subjects/{id}:
     get:
       description: gets a single subject based on the ID supplied
@@ -62,8 +88,8 @@ paths:
             minimum: 1
             description: The user ID
       responses:
-        '201':
-          description: created
+        '200':
+          description: success
           content:
             application/json:
               schema:
@@ -74,6 +100,8 @@ paths:
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
     put:
       operationId: UpdateSubject
       description: update a subject
@@ -90,20 +118,20 @@ paths:
             schema:
               $ref: '#/components/schemas/Subject'
       responses:
-        '200':
-          description: subject response
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Subject'
-        '201':
-          description: updated
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
     delete:
       description: delete an existing subject base on the ID supplied
       operationId: deleteSubject
@@ -114,10 +142,12 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
-          description: Subject deleted
+        '200':
+          description: success
         default:
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
 
   /enrollments:
     post:
@@ -130,23 +160,38 @@ paths:
             schema:
               $ref: '#/components/schemas/Enrollment'
       responses:
-        '200':
-          description: enrollment response
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Enrollment'
-        '201':
-          description: created
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
     get:
       description: get the list of all enrollments
       operationId: getEnrollments
+      parameters:
+        - in: query
+          name: page
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: number of elements per page
+          required: false
+          schema:
+            type: integer
+            default: 20
       responses:
         '200':
           description: success
@@ -156,8 +201,19 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/EnrollmentList'
+          links:
+            NextLink:
+              $ref: '#/components/links/PaginateAllEnrollments'
+            LastLink:
+              $ref: '#/components/links/PaginateAllEnrollments'
+            FirstLink:
+              $ref: '#/components/links/PaginateAllEnrollments'
+            PrevLink:
+              $ref: '#/components/links/PaginateAllEnrollments'
         '401':
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
 
   /enrollments/{id}:
     get:
@@ -172,13 +228,16 @@ paths:
             type: integer
       responses:
         '200':
-          description: enrollment response
+          description: success
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Enrollment'
         default:
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
+
     delete:
       description: delete a single enrollment on the ID supplied
       operationId: deleteEnrollment
@@ -189,10 +248,13 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
-          description: enrollment deleted
+        '200':
+          description: success
         default:
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
+
     put:
       operationId: UpdateEnrollment
       description: update an Enrollment
@@ -209,20 +271,20 @@ paths:
             schema:
               $ref: '#/components/schemas/Enrollment'
       responses:
-        '200':
-          description: enrollment response
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Enrollment'
-        '201':
-          description: updated
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
   /labos:
     post:
       operationId: createLabo
@@ -234,20 +296,21 @@ paths:
             schema:
               $ref: '#/components/schemas/Labo'
       responses:
-        '200':
-          description: labo creation
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Labo'
-        '201':
-          description: created
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
+      security:
+        - bearerAuth: [ ]
+
     get:
       description: get the list of all Labos
       operationId: getLabos
@@ -262,6 +325,8 @@ paths:
                   $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
     delete:
       description: delete a single labo on the name supplied
       operationId: deleteLabo
@@ -272,10 +337,12 @@ paths:
           schema:
             type: string
       responses:
-        '204':
-          description: labo deleted
+        '200':
+          description: success
         default:
           description: unexpected error
+      security:
+        - bearerAuth: [ ]
     put:
       operationId: UpdateLabo
       description: update an Labo
@@ -292,23 +359,42 @@ paths:
             schema:
               $ref: '#/components/schemas/Labo'
       responses:
-        '200':
-          description: Labo response
+        '201':
+          description: created
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Labo'
-        '201':
-          description: updated
         '401':
           description: unexpected error
         '403':
           description: forbidden
         '404':
           description: not found
-
-
+      security:
+        - bearerAuth: [ ]
 components:
+  securitySchemes:
+    bearerAuth:
+      description: "Give the token at each user"
+      type: apiKey
+      name: Authorization
+      in: header
+  links:
+    PaginateAllEnrollments:
+      description: >
+        This link with grab another set of Enrollments
+      operationId: getEnrollments
+      parameters:
+        page: '$request.path.page'
+        pageSize: '$request.path.page'
+    PaginateAllSubjects:
+      description: >
+        This link with grab another set of Subjects
+      operationId: getAllSubjects
+      parameters:
+        page: '$request.path.page'
+        pageSize: '$request.path.page'
   schemas:
     Subject:
       type: object

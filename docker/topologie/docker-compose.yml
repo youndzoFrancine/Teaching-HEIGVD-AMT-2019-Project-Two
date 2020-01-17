@@ -1,6 +1,7 @@
 version: '2.2'
 
 services:
+
     mysql:
         build:
           context: ../images/mysql
@@ -33,11 +34,11 @@ services:
         environment:
             spring_profiles_active: docker
             
-    phpmyadmin:
-        build: ../images/phpmyadmin
-        environment:
-          - MYSQL_ROOT_PASSWORD=pswrd
+    backend-gestioncours:
+        build: ../images/gestioncours
         ports:
-          - "6060:80"
-        links:
-          - mysql:db
+         - "8087:8080"
+        restart: unless-stopped
+        environment:
+            spring_profiles_active: docker
+     

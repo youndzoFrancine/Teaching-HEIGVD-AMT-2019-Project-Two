@@ -71,8 +71,6 @@ public class ApiOriginFilter implements Filter {
                 return;
             }
 
-
-
             //if a normal user try to have access to functions deserve to admin
             if( admin && !(JWTutils.getRole(token).equals("admin") )){
                 sendError(response, HttpServletResponse.SC_BAD_REQUEST, ErrorsCodes.NOT_AUTHORIZED,

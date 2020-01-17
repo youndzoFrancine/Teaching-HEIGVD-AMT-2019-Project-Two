@@ -32,9 +32,9 @@ public class ApiOriginFilter implements Filter {
                 uri.equals(URIs.SWAGGER_HTML) ||
                 uri.startsWith(URIs.SWAGGER_UI_RESOURCES) ||
                 uri.startsWith(URIs.SWAGGER_RESOURCES) ||
-                uri.equals(URIs.V2_API_DOCS);
+                uri.equals(URIs.V2_API_DOCS) || uri.equals(URIs.CREATE_SUBJECT);
 
-        boolean admin = uri.equals(URIs.CREATE_LABO) || uri.equals(URIs.CREATE_SUBJECT) ||
+        boolean admin = uri.equals(URIs.CREATE_LABO)  /*|| uri.equals(URIs.CREATE_SUBJECT) */ ||
                         uri.startsWith(URIs.UPDATE_LABO) || uri.startsWith(URIs.UPDATE_SUBJECT);
 
         if(doc){
