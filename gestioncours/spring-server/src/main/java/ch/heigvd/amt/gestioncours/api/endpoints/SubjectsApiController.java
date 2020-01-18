@@ -8,19 +8,24 @@ import ch.heigvd.amt.gestioncours.repositories.LaboRepository;
 import ch.heigvd.amt.gestioncours.repositories.SubjectRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class SubjectsApiController implements SubjectsApi {
@@ -30,6 +35,8 @@ public class SubjectsApiController implements SubjectsApi {
 
     @Autowired
     LaboRepository laboRepository;
+    HttpServletRequest httpServletRequest;
+
 
     /**
      *
@@ -49,14 +56,57 @@ public class SubjectsApiController implements SubjectsApi {
 
     /**
      *
+     * @param uri
+     * @param rel
+     * @param page
+     * @param size
      * @return
      */
-    public ResponseEntity<List<Subject>> getSubjects() {
-        List<Subject> subjects = new ArrayList<>();
-        for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
-            subjects.add(toSubject(subjectEntity));
+    public static String createLinkHeader(final String uri, final String rel, final int page, final int size) {
+        return String.format("<%s?page=%d&pageSize=%d>; rel=\"%s\"", uri, page, size, rel);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ResponseEntity<List<Subject>> getSubjects(@ApiParam(value = "Page number", defaultValue = "1")
+                @Valid @RequestParam(value = "page", required = false, defaultValue="1") Integer page,
+                @ApiParam(value = "number of elements per page", defaultValue = "20")
+                @Valid @RequestParam(value = "pageSize", required = false, defaultValue="20") Integer pageSize)  {
+
+        final StringBuilder linkHeader = new StringBuilder();
+
+        Long monbreTotalSubjects = subjectRepository.count();
+        Long NombrePageTotal = monbreTotalSubjects/pageSize +  ((monbreTotalSubjects%pageSize == 0 ) ? 0 : + 1);
+
+        if(page < NombrePageTotal - 1){
+            linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Next", page, pageSize));
         }
-        return ResponseEntity.ok(subjects);
+
+        if(page > 0){
+            if(linkHeader.length()>0)
+                linkHeader.append(",");
+            linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Prev", page, pageSize));
+        }
+
+        if(page != 1){
+            if(linkHeader.length()>0)
+                linkHeader.append(",");
+            linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "first", page, pageSize));
+        }
+
+        if(page.longValue()!= NombrePageTotal) {
+            if (linkHeader.length() > 0)
+                linkHeader.append(",");
+            linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Last", page, pageSize));
+        }
+
+        List<Subject> subjects = subjectRepository.findAll(PageRequest.of(page-1, pageSize)).parallelStream().
+                map(SubjectsApiController:: toSubject).collect(Collectors.toList());
+
+
+        return ResponseEntity.ok().header(HttpHeaders.LINK, linkHeader.toString()).body(subjects);
     }
 
     /**
@@ -126,7 +176,7 @@ public class SubjectsApiController implements SubjectsApi {
      * @param entity
      * @return
      */
-    private Subject toSubject(SubjectEntity entity) {
+    private static Subject toSubject(SubjectEntity entity) {
         Subject subject = new Subject();
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());

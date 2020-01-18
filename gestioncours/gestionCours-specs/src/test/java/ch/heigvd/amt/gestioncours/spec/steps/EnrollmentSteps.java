@@ -98,8 +98,6 @@ public class EnrollmentSteps {
 
     }
 
-
-
     @Given("^there exists an enrollment to update$")
     public void there_exists_an_enrollment_to_update() throws Throwable {
         try {

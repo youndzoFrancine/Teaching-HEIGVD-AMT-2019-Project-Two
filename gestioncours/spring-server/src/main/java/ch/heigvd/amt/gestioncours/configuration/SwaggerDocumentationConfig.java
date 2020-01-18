@@ -2,13 +2,15 @@ package ch.heigvd.amt.gestioncours.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.ApiKey;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+
+import java.util.Arrays;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-26T19:36:34.802Z")
 
@@ -25,6 +27,7 @@ public class SwaggerDocumentationConfig {
             .version("0.1.0")
             .contact(new Contact("","", ""))
             .build();
+
     }
 
     @Bean
@@ -35,7 +38,12 @@ public class SwaggerDocumentationConfig {
                     .build()
                 .directModelSubstitute(org.joda.time.LocalDate.class, java.sql.Date.class)
                 .directModelSubstitute(org.joda.time.DateTime.class, java.util.Date.class)
-                .apiInfo(apiInfo());
+                .apiInfo(apiInfo())
+                .securitySchemes(Arrays.asList(apiKey()));
+    }
+
+    private ApiKey apiKey() {
+        return new ApiKey("bearerAuth", "Authorization", "header");
     }
 
 }

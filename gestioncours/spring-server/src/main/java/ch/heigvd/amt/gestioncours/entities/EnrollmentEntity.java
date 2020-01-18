@@ -4,7 +4,7 @@ package ch.heigvd.amt.gestioncours.entities;
  * francine youndzo
  */
 
-import jdk.nashorn.internal.objects.annotations.Getter;
+
 
 import javax.persistence.*;
 import java.io.Serializable;

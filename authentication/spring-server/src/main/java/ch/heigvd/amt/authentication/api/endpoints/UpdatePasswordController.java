@@ -1,11 +1,11 @@
 package ch.heigvd.amt.authentication.api.endpoints;
 
+
 import ch.heigvd.amt.authentication.api.UpdatePasswordApi;
 import ch.heigvd.amt.authentication.api.exceptions.AuthenticationFailedException;
 import ch.heigvd.amt.authentication.api.exceptions.UserDoesNotExistException;
-import ch.heigvd.amt.authentication.api.model.UpdatePswrd;
+import ch.heigvd.amt.authentication.api.model.ResetPwrd;
 import ch.heigvd.amt.authentication.api.util.PasswordUtile;
-import ch.heigvd.amt.authentication.api.util.URIs;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
@@ -22,17 +22,18 @@ public class UpdatePasswordController implements UpdatePasswordApi {
     @Autowired
     UserRepository userRepository;
 
-    public ResponseEntity<Void> resetPassword(@ApiParam(value = "") @Valid @RequestBody UpdatePswrd updatePswrd) {
+    public ResponseEntity<Void> resetPassword(@ApiParam(value = ""  )  @Valid @RequestBody ResetPwrd resetPwrd) {
 
-        UserEntity user = userRepository.findByEmail(updatePswrd.getOldPswrd());
-        if (user != null) {
-            if (!(PasswordUtile.isPasswordValid(updatePswrd.getOldPswrd(), user.getPassword(), user.getSalt()))) {
+        UserEntity user = userRepository.findByEmail(resetPwrd.getEmail());
+
+        if(user != null){
+            if(!(PasswordUtile.isPasswordValid(resetPwrd.getOldPswrd(), user.getPassword(), user.getSalt()))){
                 throw new AuthenticationFailedException();
             }
-            user.setPassword(updatePswrd.getNewPswrd());
+            user.setPassword(resetPwrd.getNewPswrd());
             userRepository.save(user);
-            return ResponseEntity.accepted().build();
+            return  ResponseEntity.accepted().build();
         }
-        throw new UserDoesNotExistException();
+      throw new UserDoesNotExistException();
     }
 }

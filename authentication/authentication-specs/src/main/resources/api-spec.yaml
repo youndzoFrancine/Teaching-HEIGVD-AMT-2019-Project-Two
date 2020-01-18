@@ -50,6 +50,37 @@ paths:
           description: update
         '401':
           $ref: '#/components/responses/UnauthorizedError'
+  /reset_password:
+    post:
+      description: have access to ressources
+      operationId: forgot password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+              description: The user e_mail
+      responses:
+        '201':
+          description: update
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+  /update_password:
+    post:
+      description: have access to ressources
+      operationId: reset password
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPwrd'
+      responses:
+        '201':
+          description: update
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+      security:
+        - bearerAuth: [ ]
   /users:
     post:
       description: create a user
@@ -70,10 +101,26 @@ paths:
         '401':
           $ref: '#/components/responses/UnauthorizedError'
       security:
-        - bearerAuth: [ ]
+        -  bearerAuth: [ ]
+
     get:
       description: get the list of users
       operationId: getUsers
+      parameters:
+        - in: query
+          name: page
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+        - in: query
+          name: pageSize
+          description: number of elements per page
+          required: false
+          schema:
+            type: integer
+            default: 20
       responses:
         '200':
           description: success
@@ -83,6 +130,16 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User'
+          links:
+            NextLink:
+              $ref: '#/components/links/PaginateUserAll'
+            LastLink:
+              $ref: '#/components/links/PaginateUserAll'
+            FirstLink:
+              $ref: '#/components/links/PaginateUserAll'
+            PrevLink:
+              $ref: '#/components/links/PaginateUserAll'
+
       security:
         -  bearerAuth: [ ]
   /users/{e_mail}:
@@ -96,6 +153,12 @@ paths:
           schema:
             type: string
             description: The user e_mail
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
       responses:
         '200':
           description: success
@@ -124,7 +187,8 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
       security:
         - bearerAuth: [ ]
-  /users/{e_mail}/block:
+  /users/block/{e_mail}:
+
     patch:
       description: the admin block a user
       operationId: blockUser
@@ -142,7 +206,8 @@ paths:
           $ref: '#/components/responses/UnauthorizedError'
       security:
         - bearerAuth: [ ]
-  /users/{e_mail}/unblock:
+  /users/unblock/{e_mail}:
+
     patch:
       description: the admin block a user
       operationId: unblockUser
@@ -165,9 +230,17 @@ components:
   securitySchemes:
     bearerAuth:
       description: "Give the token at each user"
-      type: "apiKey"
-      name: "Authorization"
-      in: "header"
+      type: apiKey
+      name: Authorization
+      in: header
+  links:
+    PaginateUserAll:
+      description: >
+        This link with grab another set of users
+      operationId: getAllUsers
+      parameters:
+        page: '$request.path.page'
+        pageSize: '$request.path.page'
   schemas:
     User:
       type: object
@@ -184,6 +257,7 @@ components:
           type: string
         isBlock:
           type: boolean
+
     Credentials:
       type: object
       properties:
@@ -191,7 +265,8 @@ components:
           type: string
         password:
           type: string
-    UpdatePswrd:
+
+    ResetPwrd:
       type: object
       properties:
         old_pswrd:

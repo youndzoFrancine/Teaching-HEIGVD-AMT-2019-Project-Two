@@ -21,10 +21,8 @@ import java.util.Properties;
 
 @Configuration
 public class SwaggerDocumentationConfig {
-
     @Autowired
     private Environment env;
-
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("Authentication API")
@@ -46,9 +44,10 @@ public class SwaggerDocumentationConfig {
                 .directModelSubstitute(org.joda.time.LocalDate.class, java.sql.Date.class)
                 .directModelSubstitute(org.joda.time.DateTime.class, java.util.Date.class)
                 .apiInfo(apiInfo())
-                //gere la sécurite
                 .securitySchemes(Arrays.asList(apiKey()));
     }
+
+
 
     private ApiKey apiKey() {
         return new ApiKey("bearerAuth", "Authorization", "header");
@@ -72,5 +71,4 @@ public class SwaggerDocumentationConfig {
         mailSender.setJavaMailProperties(javaMailProperties);
         return mailSender;
     }
-
 }
