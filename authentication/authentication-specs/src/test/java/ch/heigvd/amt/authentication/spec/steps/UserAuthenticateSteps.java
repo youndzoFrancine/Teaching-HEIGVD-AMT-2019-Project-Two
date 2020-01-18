@@ -8,7 +8,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class UserLoggingSteps {
+public class UserAuthenticateSteps {
     private Environment environment;
     private DefaultApi api;
     User user;
@@ -17,14 +17,14 @@ public class UserLoggingSteps {
 
 
 
-    public UserLoggingSteps(Environment environment) {
+    public UserAuthenticateSteps(Environment environment) {
         this.environment = environment;
         this.api = environment.getApi();
     }
 
     @Given("^I am at the /authenticate page$")
     public void i_am_at_the_authenticate_page() throws Throwable {
-    environment.getApi().createUserWithHttpInfo(user).;
+   // environment.getApi().createUserWithHttpInfo(user)
     }
 
 

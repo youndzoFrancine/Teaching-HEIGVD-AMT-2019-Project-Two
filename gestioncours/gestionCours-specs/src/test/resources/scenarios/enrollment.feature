@@ -11,12 +11,17 @@ Feature: Creation of enrollments
     When  I get a enrollment
     Then I receive  200 status code
 
+  Scenario: get list of enrollment
+    When I do a GET on the /enrollments endpoint
+    Then I receive a 200 status code
+    And the payload is a non-empty list
+
   Scenario: Delete an enrollment
     Given there exists an enrollment to delete
-    When I delete the enrollment
-    Then I get a 'OK' response
+    When I send a DELETE on the /enrollments endpoints
+    Then I receive a 200 status code
 
   Scenario: Update enrollment
     Given there exists an enrollment to update
-    When I update the enrollment
-    Then I receive a 'SUCCESS' response
+    When I send a UPDATE on the /enrollments endpoint
+    Then I receive a 200 status code

@@ -12,14 +12,16 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+
 public class LaboSteps {
 
     private Environment environment;
     private DefaultApi api;
 
     Labo labo;
-
-    EnrollmentList existingEnrollment;
 
 
 
@@ -32,7 +34,7 @@ public class LaboSteps {
     public void i_have_a_labo_payload() throws Throwable {
         labo = new ch.heigvd.amt.gestioncours.dto.Labo();
         labo.setLaboName("Docker");
-        labo.setPonderation(4L);
+        //labo.setPonderation(4L);
     }
 
     @When("^I POST it to the /labos endpoint$")
@@ -60,18 +62,39 @@ public class LaboSteps {
 
     }
 
-    @Then("^I receive  (\\d+) status code$")
-    public void i_receive_status_code(int arg1) throws Throwable {
-
-    }
 
     @Given("^there exists an labo to delete$")
     public void there_exists_an_labo_to_delete() throws Throwable {
+            try {
+                environment.setLastApiResponse(api.getEnrollmentsWithHttpInfo());
+                environment.setLastApiCallThrewException(false);
+                environment.setLastApiException(null);
+                environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+                List<EnrollmentList> enrollments = (List<EnrollmentList>)environment.getLastApiResponse().getData();
+                assertTrue(labo.getLaboName()!= null);
+            } catch (ApiException e) {
+                environment.setLastApiCallThrewException(true);
+                environment.setLastApiException(null);
+                environment.setLastApiException(e);
+                environment.setLastStatusCode(environment.getLastApiException().getCode());
+            }
 
     }
 
     @When("^I DELETE the labo$")
     public void i_DELETE_the_labo() throws Throwable {
+        try {
+           // environment.setLastApiResponse(api.deleteLaboWithHttpInfo(labo.getLaboName()));
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+        } catch (ApiException e) {
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
+        }
+
 
     }
 

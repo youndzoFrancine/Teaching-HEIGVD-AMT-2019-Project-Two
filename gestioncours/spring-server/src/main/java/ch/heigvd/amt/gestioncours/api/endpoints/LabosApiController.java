@@ -33,8 +33,8 @@ public class LabosApiController implements LabosApi {
         LaboEntity newLaboEntity = toLaboEntity(labo); //convertir la dto en entité
         LaboEntity saveLaboEntity = labosRepository.save(newLaboEntity); //on persiste
         URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{laboName}")
-                .buildAndExpand(saveLaboEntity.getLaboName()).toUri(); //on le stocke dans le header
+                .fromCurrentRequest().path("/{id}")
+                .buildAndExpand(saveLaboEntity.getId()).toUri(); //on le stocke dans le header
 
         return ResponseEntity.created(location).body(toLabo(saveLaboEntity));
 
@@ -42,11 +42,17 @@ public class LabosApiController implements LabosApi {
 
     /**
      *
-     * @param name
+     * @param id
      * @return
      */
-    public ResponseEntity<Void> deleteLabo(@ApiParam(value = "",required=true) @PathVariable("name") String name) {
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+    public ResponseEntity<Void> deleteLabo(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
+        LaboEntity laboEntity = labosRepository.findById(id.longValue()).get();
+        if (laboEntity != null) {
+            labosRepository.delete(laboEntity);
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
 
     }
     /**
@@ -63,23 +69,24 @@ public class LabosApiController implements LabosApi {
 
     /**
      *
-     * @param laboName
+     * @param id
      * @param labo
      * @return
      */
-    public ResponseEntity<Labo> updateLabo(@ApiParam(value = "",required=true) @PathVariable("laboName") String laboName,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
+    public ResponseEntity<Labo> updateLabo(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,
+                                           @ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
 
-        LaboEntity laboEntity = labosRepository.findByLaboName(laboName);
-        LaboEntity saveLaboEntity = labosRepository.save(laboEntity); //on stocke l'objet persisté
+        LaboEntity laboEntity = labosRepository.findById(id.longValue()).get();
 
-       if(laboEntity != null){
+        if(laboEntity != null){//recupere l'objet aavnt de mettre à jour
             laboEntity.setLaboName(labo.getLaboName());
             laboEntity.setPonderation(labo.getPonderation());
         }
+        LaboEntity saveLaboEntity = labosRepository.save(laboEntity); //on stocke l'objet persisté
 
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(saveLaboEntity.getLaboName()).toUri();
+                .buildAndExpand(saveLaboEntity.getId()).toUri();
 
         return ResponseEntity.created(location).body(toLabo(saveLaboEntity));
 
@@ -106,8 +113,11 @@ public class LabosApiController implements LabosApi {
 
     private Labo toLabo(LaboEntity entity) {
         Labo labo = new Labo();
+        labo.setId(entity.getId());
         labo.setLaboName(entity.getLaboName());
         labo.setPonderation(entity.getPonderation());
+
+
         return labo;
     }
 

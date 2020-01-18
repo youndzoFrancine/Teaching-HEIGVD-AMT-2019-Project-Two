@@ -67,22 +67,23 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * get the list of all the enrollment that exist
      * @return
      */
-    public ResponseEntity<List<EnrollmentList>> getEnrollments() {
-        List<EnrollmentList> enrollments = new ArrayList<>();
+    public ResponseEntity<List<Enrollment>> getEnrollments() {
+        List<Enrollment> enrollments = new ArrayList<>();
         for (EnrollmentEntity enrollmentEntity : enrollmentsRepository.findAll()) {
-            enrollments.add(toEnrollentList(enrollmentEntity));
+            enrollments.add(toEnrollment(enrollmentEntity));
         }
         return ResponseEntity.ok(enrollments);
     }
 
 
     /**
-     *
-     * @param id
+     * Modification d'un enrollment
+     * @param id de l'enrollment à modifier   
      * @param enrollment
      * @return
      */
-    public ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
+    public ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,
+                                                       @ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
 
         EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
 
@@ -139,23 +140,9 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      */
     private Enrollment toEnrollment(EnrollmentEntity entity) {
         Enrollment enrollment = new Enrollment();
-
-        enrollment.setSubjectId(entity.getSubject().getId());
-        enrollment.setUserEmail(entity.getEmail());
-        return enrollment;
-    }
-
-    /**
-     *
-     * @param entity
-     * @return
-     */
-    private EnrollmentList toEnrollentList(EnrollmentEntity entity) {
-        EnrollmentList enrollment = new EnrollmentList();
         enrollment.setId(entity.getId());
         enrollment.setSubjectId(entity.getSubject().getId());
         enrollment.setUserEmail(entity.getEmail());
         return enrollment;
     }
-
 }

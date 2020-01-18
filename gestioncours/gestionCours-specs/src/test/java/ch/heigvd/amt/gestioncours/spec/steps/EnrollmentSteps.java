@@ -54,10 +54,7 @@ public class EnrollmentSteps {
             }
     }
 
-    @Then("^I receive a (\\d+) status code$")
-    public void i_receive_a_status_code(int arg1) throws Throwable {
-        assertEquals(arg1, environment.getLastStatusCode());
-    }
+
 
     @Given("^there exists a enrollment$")
     public void there_exists_a_enrollment() throws Throwable {
