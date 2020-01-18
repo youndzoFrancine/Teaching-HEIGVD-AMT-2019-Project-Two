@@ -8,6 +8,7 @@ import ch.heigvd.amt.gestioncours.dto.Subject;
 import ch.heigvd.amt.gestioncours.dto.SubjectList;
 import ch.heigvd.amt.gestioncours.spec.helpers.Environment;
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -57,6 +58,16 @@ public class SubjectSteps {
             lastStatusCode = lastApiException.getCode();
         }
     }
+    @And("^the request body is$")
+    public void the_request_body_is(String arg1) throws Throwable {
+
+    }
+
+    @Then("^the response body contains$")
+    public void the_response_body_contains(String arg1) throws Throwable {
+
+    }
+
 
     @Given("^I  GET an existing subject$")
     public void i_GET_an_existing_subject() throws Throwable {
@@ -88,8 +99,21 @@ public class SubjectSteps {
         }
     }
 
+    @When("^I send a GET on the /subjects endpoints$")
+    public void i_send_a_GET_on_the_subjects_endpoints() throws Throwable {
 
-    @Given("^there exists a subject to delte$")
+    }
+
+    @Then("^the payload is a non-empty list$")
+    public void the_payload_is_a_non_empty_list() throws Throwable {
+        subject = new ch.heigvd.amt.gestioncours.dto.Subject();
+        subject.setName("AMT");
+        subject.setCreditsEtcs(10L);
+
+
+    }
+
+    @Given("^there exists a subject to delete$")
     public void there_exists_a_subject_to_delte() throws Throwable {
         try {
             lastApiResponse = api.getSubjectsWithHttpInfo();
@@ -107,11 +131,11 @@ public class SubjectSteps {
         }
     }
 
-    @When("^I DELETE the subject$")
-    public void i_DELETE_the_subject() throws Throwable {
+    @When("^I send a DELETE the subject$")
+    public void i_send_a_DELETE_the_subject() throws Throwable {
         try {
             Integer subjectId = existingSubject.getId().intValue();
-            lastApiResponse = api.deleteEnrollmentWithHttpInfo(subjectId);
+            lastApiResponse = api.deleteSubjectWithHttpInfo(subjectId);
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -121,9 +145,9 @@ public class SubjectSteps {
             lastApiException = e;
             lastStatusCode = lastApiException.getCode();
         }
-    }
 
-    @Then("^I get a 'OK DELECTED' response$")
+    }
+   @Then("^I get a 'OK DELECTED' response$")
     public void i_get_a_OK_DELECTED_response() throws Throwable {
 
     }
@@ -146,8 +170,9 @@ public class SubjectSteps {
         }
     }
 
-    @When("^I UPPDATE the subject$")
-    public void i_UPPDATE_the_subject() throws Throwable { ;
+    @When("^I send a UPDATE the subject$")
+    public void i_send_a_UPDATE_the_subject() throws Throwable {
+
     }
 
 

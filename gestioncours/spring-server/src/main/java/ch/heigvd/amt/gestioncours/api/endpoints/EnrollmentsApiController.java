@@ -23,6 +23,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -86,6 +87,7 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * get the list of all the enrollment that exist
      * @return
      */
+
     public ResponseEntity<List<Enrollment>> getEnrollments(@ApiParam(value = "Page number", defaultValue = "1")
             @Valid @RequestParam(value = "page", required = false, defaultValue="1") Integer page,
                                                            @ApiParam(value = "number of elements per page", defaultValue = "20") @Valid @RequestParam(value = "pageSize",
@@ -98,6 +100,7 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
         if(page < NombrePageTotal - 1){
             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Next", page, pageSize));
+
         }
 
         if(page > 0){
@@ -127,12 +130,13 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
 
     /**
-     *
-     * @param id
+     * Modification d'un enrollment
+     * @param id de l'enrollment à modifier   
      * @param enrollment
      * @return
      */
-    public ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
+    public ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,
+                                                       @ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
 
         EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
 
@@ -188,23 +192,9 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      */
     private static Enrollment toEnrollment(EnrollmentEntity entity) {
         Enrollment enrollment = new Enrollment();
-
-        enrollment.setSubjectId(entity.getSubject().getId());
-        enrollment.setUserEmail(entity.getEmail());
-        return enrollment;
-    }
-
-    /**
-     *
-     * @param entity
-     * @return
-     */
-    private EnrollmentList toEnrollentList(EnrollmentEntity entity) {
-        EnrollmentList enrollment = new EnrollmentList();
         enrollment.setId(entity.getId());
         enrollment.setSubjectId(entity.getSubject().getId());
         enrollment.setUserEmail(entity.getEmail());
         return enrollment;
     }
-
 }

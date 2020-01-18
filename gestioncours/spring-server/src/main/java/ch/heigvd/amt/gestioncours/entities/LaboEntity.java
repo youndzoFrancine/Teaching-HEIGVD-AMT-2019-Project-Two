@@ -11,9 +11,20 @@ import java.io.Serializable;
 public class LaboEntity implements Serializable {
 
     @Id
-    @Column(name= "laboName", unique= true, nullable=false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long id;
     private String laboName;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     private Integer ponderation;
+
 
     public String getLaboName() {
         return laboName;

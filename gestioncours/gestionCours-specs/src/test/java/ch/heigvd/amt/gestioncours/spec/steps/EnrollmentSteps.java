@@ -6,9 +6,6 @@ import ch.heigvd.amt.gestioncours.api.DefaultApi;
 import ch.heigvd.amt.gestioncours.dto.Enrollment;
 import ch.heigvd.amt.gestioncours.dto.EnrollmentList;
 import ch.heigvd.amt.gestioncours.spec.helpers.Environment;
-import cucumber.runtime.CucumberException;
-import org.apache.http.HttpStatus;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -23,11 +20,6 @@ public class EnrollmentSteps {
 
     Enrollment enrollment;
     EnrollmentList existingEnrollment;
-
-    private ApiResponse lastApiResponse;
-    private ApiException lastApiException;
-    private boolean lastApiCallThrewException;
-    private int lastStatusCode;
 
     public EnrollmentSteps(Environment environment) {
         this.environment = environment;
@@ -48,39 +40,37 @@ public class EnrollmentSteps {
 
     @When("^I POST it to the /enrollments endpoint$")
     public void i_POST_it_to_the_enrollments_endpoint() throws Throwable {
-        try {
-            lastApiResponse = api.createEnrollmentWithHttpInfo(enrollment);
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
-        } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
-        }
+
+            try {
+                environment.setLastApiResponse(api.createEnrollmentWithHttpInfo(enrollment));
+                environment.setLastApiCallThrewException(false);
+                environment.setLastApiException(null);
+                environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+            } catch (ApiException e) {
+                environment.setLastApiCallThrewException(true);
+                environment.setLastApiException(null);
+                environment.setLastApiException(e);
+                environment.setLastStatusCode(environment.getLastApiException().getCode());
+            }
     }
 
-    @Then("^I receive a (\\d+) status code$")
-    public void i_receive_a_status_code(int arg1) throws Throwable {
-        assertEquals(arg1, lastStatusCode);
-    }
+
 
     @Given("^there exists a enrollment$")
     public void there_exists_a_enrollment() throws Throwable {
         try {
-            lastApiResponse = api.getEnrollmentsWithHttpInfo();
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
-            List<EnrollmentList> enrollments = (List<EnrollmentList>)lastApiResponse.getData();
+            environment.setLastApiResponse(api.getEnrollmentsWithHttpInfo());
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+            List<EnrollmentList> enrollments = (List<EnrollmentList>)environment.getLastApiResponse().getData();
             assertTrue(enrollments.size() > 0);
             existingEnrollment = enrollments.get(0);
         } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
         }
 
     }
@@ -89,61 +79,66 @@ public class EnrollmentSteps {
     public void i_delete_the_enrollment() throws Throwable {
         try {
             Integer enrollmentId = existingEnrollment.getId().intValue();
-            lastApiResponse = api.deleteEnrollmentWithHttpInfo(enrollmentId);
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
+            environment.setLastApiResponse(api.deleteEnrollmentWithHttpInfo(enrollmentId));
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
         } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
         }
 
     }
 
     @Then("^I get a 'OK' response$")
     public void i_get_a_OK_response() throws Throwable {
+        System.out.println("Delete ok");
 
     }
 
     @Given("^there exists an enrollment to update$")
     public void there_exists_an_enrollment_to_update() throws Throwable {
         try {
-            lastApiResponse = api.getEnrollmentsWithHttpInfo();
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
-            List<EnrollmentList> enrollments = (List<EnrollmentList>)lastApiResponse.getData();
+            environment.setLastApiResponse(api.getEnrollmentsWithHttpInfo());
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+            List<EnrollmentList> enrollments = (List<EnrollmentList>)environment.getLastApiResponse().getData();
             assertTrue(enrollments.size() > 0);
             existingEnrollment = enrollments.get(0);
         } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
         }
+
     }
+
 
     @When("^I update the enrollment$")
     public void i_update_the_enrollment() throws Throwable {
         try {
             Integer enrollmentId = existingEnrollment.getId().intValue();
-            lastApiResponse = api.getEnrollmentsWithHttpInfo();
-            lastApiCallThrewException = false;
-            lastApiException = null;
-            lastStatusCode = lastApiResponse.getStatusCode();
+            //environment.setLastApiResponse(api.updateEnrollmentWithHttpInfo(enrollment.setUserEmail("francinegheig"),enrollment.setSubjectId(3L));
+            environment.setLastApiResponse(api.getEnrollmentsWithHttpInfo());
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
         } catch (ApiException e) {
-            lastApiCallThrewException = true;
-            lastApiResponse = null;
-            lastApiException = e;
-            lastStatusCode = lastApiException.getCode();
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
         }
 
     }
 
     @Then("^I receive a 'SUCCESS' response$")
     public void i_receive_a_SUCCESS_response() throws Throwable {
+    System.out.println("Update ok");
 
     }
 

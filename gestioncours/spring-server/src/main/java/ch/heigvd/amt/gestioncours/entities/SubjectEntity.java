@@ -1,9 +1,6 @@
 package ch.heigvd.amt.gestioncours.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,6 +14,17 @@ public class SubjectEntity implements Serializable {
     private long id;
     private String name;
     private long credits_etcs;
+
+    @ManyToOne
+    private LaboEntity labo;
+
+    public LaboEntity getLabo() {
+        return labo;
+    }
+
+    public void setLabo(LaboEntity labo) {
+        this.labo = labo;
+    }
 
     public long getId() { return id; }
 
