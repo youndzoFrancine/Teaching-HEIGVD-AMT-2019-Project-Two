@@ -23,8 +23,6 @@ public class LaboSteps {
 
     Labo labo;
 
-
-
     public LaboSteps(Environment environment) {
         this.environment = environment;
         this.api = environment.getApi();
@@ -34,7 +32,7 @@ public class LaboSteps {
     public void i_have_a_labo_payload() throws Throwable {
         labo = new ch.heigvd.amt.gestioncours.dto.Labo();
         labo.setLaboName("Docker");
-        //labo.setPonderation(4L);
+        labo.setPonderation(4);
     }
 
     @When("^I POST it to the /labos endpoint$")
@@ -84,7 +82,7 @@ public class LaboSteps {
     @When("^I DELETE the labo$")
     public void i_DELETE_the_labo() throws Throwable {
         try {
-           // environment.setLastApiResponse(api.deleteLaboWithHttpInfo(labo.getLaboName()));
+            environment.setLastApiResponse(api.deleteLaboWithHttpInfo(labo.getId().intValue()));
             environment.setLastApiCallThrewException(false);
             environment.setLastApiException(null);
             environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
