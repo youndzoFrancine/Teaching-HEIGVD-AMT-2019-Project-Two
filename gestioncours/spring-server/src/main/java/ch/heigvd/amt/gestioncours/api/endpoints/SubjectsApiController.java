@@ -6,6 +6,7 @@ import ch.heigvd.amt.gestioncours.entities.SubjectEntity;
 import ch.heigvd.amt.gestioncours.repositories.SubjectRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class SubjectsApiController implements SubjectsApi {
@@ -96,11 +98,10 @@ public class SubjectsApiController implements SubjectsApi {
             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Last", page, pageSize));
         }
 
+        List<Subject> subjects = subjectRepository.findAll(PageRequest.of(page-1, pageSize)).parallelStream().
+                map(SubjectsApiController:: toSubject).collect(Collectors.toList());
 
-        List<Subject> subjects = new ArrayList<>();
-        for (SubjectEntity subjectEntity : subjectRepository.findAll()) {
-            subjects.add(toSubject(subjectEntity));
-        }
+
         return ResponseEntity.ok().header(HttpHeaders.LINK, linkHeader.toString()).body(subjects);
     }
 
@@ -170,7 +171,7 @@ public class SubjectsApiController implements SubjectsApi {
      * @param entity
      * @return
      */
-    private Subject toSubject(SubjectEntity entity) {
+    private static Subject toSubject(SubjectEntity entity) {
         Subject subject = new Subject();
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());

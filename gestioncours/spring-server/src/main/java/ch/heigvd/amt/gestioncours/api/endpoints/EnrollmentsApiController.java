@@ -10,6 +10,7 @@ import ch.heigvd.amt.gestioncours.repositories.EnrollmentRepository;
 import ch.heigvd.amt.gestioncours.repositories.SubjectRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 public class EnrollmentsApiController implements EnrollmentsApi  {
@@ -85,9 +86,9 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * get the list of all the enrollment that exist
      * @return
      */
-    public ResponseEntity<List<EnrollmentList>> getEnrollments(@ApiParam(value = "Page number", defaultValue = "1")
+    public ResponseEntity<List<Enrollment>> getEnrollments(@ApiParam(value = "Page number", defaultValue = "1")
             @Valid @RequestParam(value = "page", required = false, defaultValue="1") Integer page,
-            @ApiParam(value = "number of elements per page", defaultValue = "20") @Valid @RequestParam(value = "pageSize",
+                                                           @ApiParam(value = "number of elements per page", defaultValue = "20") @Valid @RequestParam(value = "pageSize",
                         required = false, defaultValue="20") Integer pageSize) {
 
         final StringBuilder linkHeader = new StringBuilder();
@@ -117,10 +118,10 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Last", page, pageSize));
         }
 
-        List<EnrollmentList> enrollments = new ArrayList<>();
-        for (EnrollmentEntity enrollmentEntity : enrollmentsRepository.findAll()) {
-            enrollments.add(toEnrollentList(enrollmentEntity));
-        }
+        List<Enrollment> enrollments = enrollmentsRepository.findAll(PageRequest.of(page-1, pageSize)).parallelStream().
+                map(EnrollmentsApiController::toEnrollment).collect(Collectors.toList());
+
+
         return ResponseEntity.ok().header(HttpHeaders.LINK, linkHeader.toString()).body(enrollments);
     }
 
@@ -185,7 +186,7 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * @param entity
      * @return an enrollement
      */
-    private Enrollment toEnrollment(EnrollmentEntity entity) {
+    private static Enrollment toEnrollment(EnrollmentEntity entity) {
         Enrollment enrollment = new Enrollment();
 
         enrollment.setSubjectId(entity.getSubject().getId());

@@ -200,7 +200,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/EnrollmentList'
+                  $ref: '#/components/schemas/Enrollment'
           links:
             NextLink:
               $ref: '#/components/links/PaginateAllEnrollments'

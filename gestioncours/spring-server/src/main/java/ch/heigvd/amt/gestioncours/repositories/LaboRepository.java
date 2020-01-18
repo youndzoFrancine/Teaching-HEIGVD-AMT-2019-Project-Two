@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface LaboRepository extends CrudRepository<LaboEntity, String> {
     public LaboEntity findByLaboName(String laboName);
+
 }

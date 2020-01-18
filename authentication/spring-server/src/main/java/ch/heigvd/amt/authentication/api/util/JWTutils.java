@@ -19,7 +19,7 @@ public class JWTutils {
     @Value("ISSUER")
     private static String ISSUER;
     private static String SECRET_KEY = "cresy";
-    private static long validity=24*60*60;
+    private static long validity=24*60*60*1000;
     private static JWTVerifier verifier;
 
     public static String generateToken (UserEntity userentity){
