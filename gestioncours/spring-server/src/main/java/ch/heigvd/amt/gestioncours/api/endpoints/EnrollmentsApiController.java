@@ -65,7 +65,8 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
             return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
         }
 
-        return  new ResponseEntity<>(HttpStatus.CONFLICT);r
+        return  new ResponseEntity<>(HttpStatus.CONFLICT);
+
     }
 
     /**
@@ -178,8 +179,8 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
     }
 
     /**
-     * delete an existing enrollment
-     * @param id of the enrollment to delete
+     *
+     * @param nameSubject of the enrollment to delete
      * @return
      */
     public ResponseEntity<Void> deleteEnrollment(@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "nameSubject", required = true) String nameSubject)  {
