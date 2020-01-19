@@ -166,7 +166,6 @@ public class SubjectsApiController implements SubjectsApi {
         SubjectEntity entity = new SubjectEntity();
         entity.setName(subject.getName());
         entity.setCredits_etcs(subject.getCreditsEtcs());
-        entity.setLaboEntity(laboRepository.findById(subject.getLaboId()));
         return entity;
     }
 

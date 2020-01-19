@@ -176,6 +176,12 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
         return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
     }
+
+    /**
+     *
+     * @param nameSubject of the enrollment to delete
+     * @return
+     */
     public ResponseEntity<Void> deleteEnrollment(@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "nameSubject", required = true) String nameSubject)  {
         String mail = httpServletRequest.getAttribute("email").toString();
         SubjectEntity subjectEntity = subjectRepository.findByName(nameSubject);
