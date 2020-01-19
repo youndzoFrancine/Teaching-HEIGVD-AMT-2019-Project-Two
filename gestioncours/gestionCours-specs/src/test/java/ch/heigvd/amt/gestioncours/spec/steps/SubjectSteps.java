@@ -101,6 +101,17 @@ public class SubjectSteps {
 
     @When("^I send a GET on the /subjects endpoints$")
     public void i_send_a_GET_on_the_subjects_endpoints() throws Throwable {
+        try {
+            lastApiResponse = api.getSubjectsWithHttpInfo();
+            lastApiCallThrewException = false;
+            lastApiException = null;
+            lastStatusCode = lastApiResponse.getStatusCode();
+        } catch (ApiException e) {
+            lastApiCallThrewException = true;
+            lastApiResponse = null;
+            lastApiException = e;
+            lastStatusCode = lastApiException.getCode();
+        }
 
     }
 
@@ -145,10 +156,6 @@ public class SubjectSteps {
             lastApiException = e;
             lastStatusCode = lastApiException.getCode();
         }
-
-    }
-   @Then("^I get a 'OK DELECTED' response$")
-    public void i_get_a_OK_DELECTED_response() throws Throwable {
 
     }
 

@@ -53,7 +53,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
                 .buildAndExpand(saveEnrollmentEntity.getId()).toUri();
 
         return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
-
     }
 
     /**
@@ -183,7 +182,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
         return entity;
     }
-
 
     /**
      * convert and entity to an enrollment
