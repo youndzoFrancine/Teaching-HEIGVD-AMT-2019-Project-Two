@@ -1,4 +1,4 @@
-package ch.heigvd.amt.gestioncours.api.util;
+package ch.heigvd.amt.gestioncours.api.errors;
 
 public class ErrorDescription {
 

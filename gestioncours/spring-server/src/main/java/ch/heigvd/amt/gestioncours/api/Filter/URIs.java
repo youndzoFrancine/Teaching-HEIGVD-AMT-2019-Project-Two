@@ -1,4 +1,4 @@
-package ch.heigvd.amt.gestioncours.api.util;
+package ch.heigvd.amt.gestioncours.api.Filter;
 
 public interface URIs {
 
@@ -11,4 +11,5 @@ public interface URIs {
     String CREATE_LABO = "/labos";
     String UPDATE_SUBJECT = "/subjects/put/";
     String UPDATE_LABO = "/labos/put/";
+   // String GET_ENROLLEMENTs =
 }

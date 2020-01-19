@@ -1,4 +1,4 @@
-package ch.heigvd.amt.authentication.api.util;
+package ch.heigvd.amt.authentication.api.errors;
 
 public interface ErrorsCodes {
     String FIELD_REQUIRED = "0";

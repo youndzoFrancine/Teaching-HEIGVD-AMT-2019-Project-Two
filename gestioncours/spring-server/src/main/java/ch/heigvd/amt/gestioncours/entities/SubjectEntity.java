@@ -1,9 +1,9 @@
 package ch.heigvd.amt.gestioncours.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -18,7 +18,19 @@ public class SubjectEntity implements Serializable {
     private String name;
     private long credits_etcs;
 
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private LaboEntity laboEntity;
+
     public long getId() { return id; }
+
+    public void setLaboEntity(LaboEntity laboEntity) {
+        this.laboEntity = laboEntity;
+    }
+
+    public LaboEntity getLaboEntity() {
+        return laboEntity;
+    }
 
     public String getName() { return name; }
 

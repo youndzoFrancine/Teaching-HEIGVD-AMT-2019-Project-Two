@@ -1,5 +1,9 @@
 package ch.heigvd.amt.authentication.api.util;
 
+import ch.heigvd.amt.authentication.api.errors.ErrorDescription;
+import ch.heigvd.amt.authentication.api.errors.ErrorsCodes;
+import ch.heigvd.amt.authentication.api.filter.AuthenticationFilter;
+import ch.heigvd.amt.authentication.api.filter.URIs;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,6 +20,7 @@ import java.util.logging.Logger;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-26T19:36:34.802Z")
 @Component
 public class ApiOriginFilter implements Filter {
+
     private static Logger LOG = Logger.getLogger(ApiOriginFilter.class.getName());
 
     UserRepository userRepository;
@@ -34,16 +39,20 @@ public class ApiOriginFilter implements Filter {
 
         String uri = request.getRequestURI().substring(request.getContextPath().length());
         String token = JWTutils.extractToken(request.getHeader("Authorization"));
+
+        System.out.println(uri);
         boolean doc = uri.equals(URIs.DOCUMENTATION) ||
                 uri.equals(URIs.SWAGGER_HTML) ||
                 uri.startsWith(URIs.SWAGGER_UI_RESOURCES) ||
                 uri.startsWith(URIs.SWAGGER_RESOURCES) ||
                 uri.equals(URIs.V2_API_DOCS)  ||
-                    uri.equals(URIs.FORGOT_PASSWORD)||
-                    uri.equals(URIs.RESET_PASSWORD);
+                uri.equals(URIs.FORGOT_PASSWORD)||
+                uri.equals(URIs.RESET_PASSWORD)||
+                uri.contentEquals(URIs.GET_USERS);
 
         boolean authRequest = uri.equals(URIs.AUTH);
-        boolean admin = uri.startsWith(URIs.BLOCK) || uri.startsWith(URIs.UNBLOCK) || uri.equals(URIs.CREATE_USER);
+
+        boolean admin = uri.startsWith(URIs.BLOCK) ||  uri.startsWith(URIs.UNBLOCK) || uri.equals(URIs.CREATE_USER);
 
         if(doc || (authRequest && token==null)){
             chain.doFilter(servletRequest, response);
@@ -102,6 +111,7 @@ public class ApiOriginFilter implements Filter {
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(new ErrorDescription(errorCode, message)));
     }
+
     @Override
     public void destroy() {
     }

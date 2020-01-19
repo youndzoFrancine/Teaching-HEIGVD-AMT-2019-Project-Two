@@ -1,7 +1,10 @@
 package ch.heigvd.amt.authentication.api.endpoints;
 
 import ch.heigvd.amt.authentication.api.UsersApi;
+import ch.heigvd.amt.authentication.api.exceptions.UserDoesNotExistException;
 import ch.heigvd.amt.authentication.api.model.User;
+import ch.heigvd.amt.authentication.api.model.UserMin;
+import ch.heigvd.amt.authentication.api.util.UserUtils;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;
@@ -10,7 +13,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,41 +28,15 @@ import java.util.stream.Collectors;
 @RestController
 public class UsersApiController implements UsersApi {
 
-    private UserEntity toUserEntity(User user){
-        UserEntity entity = new UserEntity();
-        entity.setFirstname(user.getFirstname());
-        entity.setLastname(user.getLastname());
-        entity.setPassword(user.getPassword());
-        entity.setEmail(user.getEmail());
-        entity.setRole(user.getRole());
-        return entity;
-    }
 
-    private static User toUser(UserEntity userEntity) {
-        User user = new User();
-        user.setEmail(userEntity.getEmail());
-        user.setFirstname(userEntity.getFirstname());
-        user.setLastname(userEntity.getLastname());
-        user.setRole(userEntity.getRole());
-        return user;
-    }
 
     @Autowired
     UserRepository userRepository;
     @Autowired
     HttpServletRequest httpServletRequest;
 
-    public ResponseEntity<User> createUser(@ApiParam(value = "" ,required=true )  @Valid @RequestBody User user) {
-        UserEntity newUserEntity = toUserEntity(user);
-        UserEntity saveUserEntity = userRepository.save(newUserEntity);
 
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("{email}")
-                .buildAndExpand(newUserEntity.getEmail()).toUri();
-        return ResponseEntity.created(location).body(toUser(saveUserEntity));
-    }
-
-    public ResponseEntity<List<User>> getUsers(@ApiParam(value = "Page number", defaultValue = "1") @Valid @RequestParam(value = "page",
+    public ResponseEntity<List<UserMin>> getUsers(@ApiParam(value = "Page number", defaultValue = "1") @Valid @RequestParam(value = "page",
             required = false, defaultValue="1") Integer page,@ApiParam(value = "number of elements per page", defaultValue = "20")
             @Valid @RequestParam(value = "pageSize", required = false, defaultValue="20") Integer pageSize){
         final StringBuilder linkHeader = new StringBuilder();
@@ -87,8 +67,8 @@ public class UsersApiController implements UsersApi {
          }
 
 
-         List<User> users = userRepository.findAll(PageRequest.of(page -1, pageSize)).parallelStream().
-                 map(UsersApiController:: toUser).collect(Collectors.toList());
+         List<UserMin> users = userRepository.findAll(PageRequest.of(page -1, pageSize)).parallelStream().
+                 map(UserUtils::toUserMin).collect(Collectors.toList());
 
         return ResponseEntity.ok()
                               .header(HttpHeaders.LINK, linkHeader.toString())
@@ -100,7 +80,7 @@ public class UsersApiController implements UsersApi {
             UserEntity userEntity = userRepository.findByEmail(eMail);
             userEntity.setStatus("block");
             userRepository.save(userEntity);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
@@ -108,7 +88,7 @@ public class UsersApiController implements UsersApi {
         UserEntity userEntity = userRepository.findByEmail(eMail);
         userEntity.setStatus("unblock");
         userRepository.save(userEntity);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.OK);
 
     }
 
@@ -116,7 +96,7 @@ public class UsersApiController implements UsersApi {
 
         UserEntity userEntity = userRepository.findByEmail(eMail);
         userRepository.delete(userEntity);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     public ResponseEntity<User> updateUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail,
@@ -132,10 +112,39 @@ public class UsersApiController implements UsersApi {
                 .fromCurrentRequest().path("{email}")
                 .buildAndExpand(userEntity.getEmail()).toUri();
 
-        return ResponseEntity.created(location).body(toUser(saveUserEntity));
+        return ResponseEntity.created(location).body(UserUtils.toUser(saveUserEntity));
 
     }
+   public  ResponseEntity<UserMin> updateUser(@ApiParam(value = "",required=true) @PathVariable("e_mail") String eMail,@ApiParam(value = "" ,required=true )  @Valid @RequestBody UserMin userMin) {
 
+        UserEntity user = userRepository.findByEmail(eMail);
+
+        if(user != null){
+
+            if(userMin.getFirstname() != null && !userMin.getFirstname().equals(user.getFirstname())){
+
+                user.setFirstname(userMin.getFirstname());
+            }
+
+            if(userMin.getLastname() != null && !userMin.getLastname().equals(user.getLastname())){
+
+                user.setLastname(userMin.getLastname());
+            }
+
+            if(userMin.getRole() != null && !userMin.getRole().equals(user.getRole())){
+
+                user.setRole(userMin.getRole());
+            }
+            userRepository.save(user);
+
+            URI location = ServletUriComponentsBuilder
+                    .fromCurrentRequest().path("{email}")
+                    .buildAndExpand(user.getEmail()).toUri();
+
+            return ResponseEntity.created(location).body(UserUtils.toUserMin(user));
+        }
+        throw new UserDoesNotExistException();
+    }
 
     public static String createLinkHeader(final String uri, final String rel, final int page, final int size) {
         return String.format("<%s?page=%d&pageSize=%d>; rel=\"%s\"", uri, page, size, rel);

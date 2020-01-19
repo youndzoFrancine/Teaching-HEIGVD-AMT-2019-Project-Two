@@ -1,4 +1,4 @@
-package ch.heigvd.amt.authentication.api.util;
+package ch.heigvd.amt.authentication.api.filter;
 
 public interface URIs {
 
@@ -8,8 +8,8 @@ public interface URIs {
     String SWAGGER_RESOURCES = "/swagger-resources";
     String V2_API_DOCS = "/api-docs";
     String DOCUMENTATION = "/";
-    String CREATE_USER = "/users";
-    String GET_USERS = "/users/users";
+    String CREATE_USER = "/register";
+    String GET_USERS = "/users";
     String BLOCK = "/users/block/";
     String UNBLOCK = "/users/unblock/";
     String FORGOT_PASSWORD = "/reset_password";

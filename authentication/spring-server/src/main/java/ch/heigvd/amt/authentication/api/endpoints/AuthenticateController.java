@@ -1,6 +1,7 @@
 package ch.heigvd.amt.authentication.api.endpoints;
 
 import ch.heigvd.amt.authentication.api.LoginApi;
+import ch.heigvd.amt.authentication.api.errors.ErrorDescription;
 import ch.heigvd.amt.authentication.api.exceptions.AuthenticationFailedException;
 import ch.heigvd.amt.authentication.api.exceptions.UserDoesNotExistException;
 import ch.heigvd.amt.authentication.api.model.Credentials;
