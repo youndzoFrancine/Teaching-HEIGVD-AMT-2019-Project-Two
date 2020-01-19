@@ -67,7 +67,7 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
 
         return  new ResponseEntity<>(HttpStatus.CONFLICT);
     }
-    
+
     /**
      *
      * @param uri
