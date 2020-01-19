@@ -4,10 +4,10 @@ Objectives
 
 The objectives of this project is to design, specify, implement and validate 2 RESTful APIs (you can think of them as 2 "micro-services"), using a set of technologies that build upon or complement Java EE standards. Namely, the goal is to use:
 
-    Spring Boot, Spring Data, Spring MVC and Spring Data for the implementation of the endpoints and of the persistence;
-    Swagger (Open API) to create a formal documentation of the REST APIs (this formal documentation has to be used in the development cycle);
-    JSON Web Tokens (JWT) to secure the RESTful endpoints;
-    CucumberJVM to implement BDD tests.
+    - Spring Boot, Spring Data, Spring MVC and Spring Data for the implementation of the endpoints and of the persistence;
+    - Swagger (Open API) to create a formal documentation of the REST APIs (this formal documentation has to be used in the development cycle);
+    - JSON Web Tokens (JWT) to secure the RESTful endpoints;
+    - CucumberJVM to implement BDD tests.
 
 Functional requirements
 
