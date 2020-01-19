@@ -1,5 +1,7 @@
 package ch.heigvd.amt.gestioncours.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,17 +18,19 @@ public class SubjectEntity implements Serializable {
     private long credits_etcs;
 
     @ManyToOne
-    private LaboEntity labo;
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private LaboEntity laboEntity;
 
-    public LaboEntity getLabo() {
-        return labo;
-    }
-
-    public void setLabo(LaboEntity labo) {
-        this.labo = labo;
-    }
 
     public long getId() { return id; }
+
+    public void setLaboEntity(LaboEntity laboEntity) {
+        this.laboEntity = laboEntity;
+    }
+
+    public LaboEntity getLaboEntity() {
+        return laboEntity;
+    }
 
     public String getName() { return name; }
 

@@ -34,12 +34,11 @@ public class JWTutils {
         return false;
     }
 
-    public static String getEmail(String token){
-        String str = "role";
+    public static String getRole(String token){
         return (String) Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().get("role");
     }
 
-    public static String getRole(String token){
+    public static String getEmail(String token){
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
     }
 

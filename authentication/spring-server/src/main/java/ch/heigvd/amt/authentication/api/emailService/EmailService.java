@@ -1,4 +1,4 @@
-package ch.heigvd.amt.authentication.api.util;
+package ch.heigvd.amt.authentication.api.emailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

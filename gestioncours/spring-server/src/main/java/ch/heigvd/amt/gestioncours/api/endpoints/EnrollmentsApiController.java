@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,13 +47,25 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * @return
      */
     public ResponseEntity<Enrollment> createEnrollment(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
-        EnrollmentEntity newEnrollementEntity = toEnrollmentEntity(enrollment);
-        EnrollmentEntity saveEnrollmentEntity = enrollmentsRepository.save(newEnrollementEntity);//JPA ME RENVOIT L'OBJET PERSISTE
-        URI location = ServletUriComponentsBuilder
-                .fromCurrentRequest().path("/{id}")
-                .buildAndExpand(saveEnrollmentEntity.getId()).toUri();
+        SubjectEntity subjectEntity = subjectRepository.findByid(enrollment.getSubjectId());
 
-        return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
+        System.out.println("name" + subjectEntity.getName());
+        String mail = httpServletRequest.getAttribute("email").toString();
+
+        EnrollmentEntity newEnrollementEntity = enrollmentsRepository.findByEmailAndAndSubject(mail, subjectEntity);
+
+        if(newEnrollementEntity==null) {
+
+            newEnrollementEntity = toEnrollmentEntity(enrollment);
+            newEnrollementEntity.setEmail(mail);
+            EnrollmentEntity saveEnrollmentEntity = enrollmentsRepository.save(newEnrollementEntity);//JPA ME RENVOIT L'OBJET PERSISTE
+            URI location = ServletUriComponentsBuilder
+                    .fromCurrentRequest().path("/{id}")
+                    .buildAndExpand(saveEnrollmentEntity.getId()).toUri();
+            return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
+        }
+
+        return  new ResponseEntity<>(HttpStatus.CONFLICT);r
     }
 
     /**
@@ -87,12 +100,16 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * @return
      */
 
-    public ResponseEntity<List<Enrollment>> getEnrollments(@ApiParam(value = "Page number", defaultValue = "1")
+    public ResponseEntity<List<EnrollmentList>> getEnrollments(@ApiParam(value = "Page number", defaultValue = "1")
             @Valid @RequestParam(value = "page", required = false, defaultValue="1") Integer page,
                                                            @ApiParam(value = "number of elements per page", defaultValue = "20") @Valid @RequestParam(value = "pageSize",
                         required = false, defaultValue="20") Integer pageSize) {
 
         final StringBuilder linkHeader = new StringBuilder();
+
+        String admin = httpServletRequest.getAttribute("role").toString();
+        String mail = httpServletRequest.getAttribute("email").toString();
+
 
         Long monbreTotalEnrollments = enrollmentsRepository.count();
         Long NombrePageTotal = monbreTotalEnrollments/pageSize +  ((monbreTotalEnrollments%pageSize == 0 ) ? 0 : + 1);
@@ -120,9 +137,17 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
             linkHeader.append(createLinkHeader(httpServletRequest.getRequestURI(), "Last", page, pageSize));
         }
 
-        List<Enrollment> enrollments = enrollmentsRepository.findAll(PageRequest.of(page-1, pageSize)).parallelStream().
-                map(EnrollmentsApiController::toEnrollment).collect(Collectors.toList());
+        List<EnrollmentList> enrollments;
 
+        if(admin.equals("admin")) {
+
+             enrollments = enrollmentsRepository.findAll(PageRequest.of(page - 1, pageSize)).parallelStream().
+                    map(EnrollmentsApiController::toEnrollentList).collect(Collectors.toList());
+        }
+        else{
+                        enrollments = enrollmentsRepository.findAllByEmail(PageRequest.of(page - 1, pageSize), mail ).parallelStream().
+                    map(EnrollmentsApiController::toEnrollentList).collect(Collectors.toList());
+        }
 
         return ResponseEntity.ok().header(HttpHeaders.LINK, linkHeader.toString()).body(enrollments);
     }
@@ -137,10 +162,11 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
     public ResponseEntity<Enrollment> updateEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id,
                                                        @ApiParam(value = "" ,required=true )  @Valid @RequestBody Enrollment enrollment) {
 
-        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
 
+        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
+        String mail = httpServletRequest.getAttribute("email").toString();
         if(enrollmentEntity != null){
-            enrollmentEntity.setEmail(enrollment.getUserEmail());
+            enrollmentEntity.setEmail(mail);
             enrollmentEntity.getSubject().setId(enrollment.getSubjectId()); //
         }
         EnrollmentEntity saveEnrollmentEntity = enrollmentsRepository.save(enrollmentEntity);//JPA ME RENVOIT L'OBJET PERSISTE
@@ -156,11 +182,11 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      * @param id of the enrollment to delete
      * @return
      */
-    public ResponseEntity<Void> deleteEnrollment(@ApiParam(value = "",required=true) @PathVariable("id") Integer id) {
-        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
-
-        if (enrollmentEntity != null) {
-            enrollmentsRepository.delete(enrollmentEntity);
+    public ResponseEntity<Void> deleteEnrollment(@NotNull @ApiParam(value = "", required = true) @Valid @RequestParam(value = "nameSubject", required = true) String nameSubject)  {
+        String mail = httpServletRequest.getAttribute("email").toString();
+        SubjectEntity subjectEntity = subjectRepository.findByName(nameSubject);
+        if (subjectEntity != null && (enrollmentsRepository.findByEmailAndAndSubject(mail, subjectEntity))!=null) {
+            enrollmentsRepository.deleteByEmailAndAndSubject(mail, subjectEntity);
             return new ResponseEntity(HttpStatus.OK);
         } else {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -175,8 +201,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      */
     private EnrollmentEntity toEnrollmentEntity(Enrollment enrollment) {
         EnrollmentEntity entity = new EnrollmentEntity();
-        entity.setEmail(enrollment.getUserEmail());
-
         Optional<SubjectEntity> subject = subjectRepository.findById(enrollment.getSubjectId());
         entity.setSubject(subject.get());
 
@@ -190,9 +214,21 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
      */
     private static Enrollment toEnrollment(EnrollmentEntity entity) {
         Enrollment enrollment = new Enrollment();
+        enrollment.setSubjectId(entity.getSubject().getId());
+        return enrollment;
+    }
+
+    /**
+     *
+     * @param entity
+     * @return
+     */
+    private static EnrollmentList toEnrollentList(EnrollmentEntity entity) {
+        EnrollmentList enrollment = new EnrollmentList();
         enrollment.setId(entity.getId());
         enrollment.setSubjectId(entity.getSubject().getId());
-        enrollment.setUserEmail(entity.getEmail());
+        enrollment.setEmail(entity.getEmail());
+        enrollment.setName(entity.getSubject().getName());
         return enrollment;
     }
 }

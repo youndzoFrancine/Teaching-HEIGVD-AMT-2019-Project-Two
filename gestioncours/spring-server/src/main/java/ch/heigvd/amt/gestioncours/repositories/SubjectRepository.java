@@ -1,5 +1,6 @@
 package ch.heigvd.amt.gestioncours.repositories;
 
+import ch.heigvd.amt.gestioncours.entities.LaboEntity;
 import ch.heigvd.amt.gestioncours.entities.SubjectEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
@@ -13,5 +14,8 @@ import java.util.List;
 public interface SubjectRepository extends CrudRepository<SubjectEntity, Long>{
 
     SubjectEntity findByName(@Param("name") String name);
+
+     SubjectEntity findByid(Long id);
     List<SubjectEntity> findAll(Pageable pageable);
+    SubjectEntity findByLaboEntity(LaboEntity laboEntity);
 }

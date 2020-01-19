@@ -1,7 +1,7 @@
 package ch.heigvd.amt.authentication.api.endpoints;
 
 import ch.heigvd.amt.authentication.api.ResetPasswordApi;
-import ch.heigvd.amt.authentication.api.util.EmailService;
+import ch.heigvd.amt.authentication.api.emailService.EmailService;
 import ch.heigvd.amt.authentication.entities.UserEntity;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import io.swagger.annotations.ApiParam;

@@ -32,7 +32,7 @@ public class UpdatePasswordController implements UpdatePasswordApi {
             }
             user.setPassword(resetPwrd.getNewPswrd());
             userRepository.save(user);
-            return  ResponseEntity.accepted().build();
+            return  ResponseEntity.ok().build();
         }
       throw new UserDoesNotExistException();
     }

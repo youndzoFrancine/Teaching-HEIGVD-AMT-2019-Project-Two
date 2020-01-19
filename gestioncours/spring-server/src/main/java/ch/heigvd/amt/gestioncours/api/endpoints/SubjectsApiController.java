@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -180,8 +179,6 @@ public class SubjectsApiController implements SubjectsApi {
         Subject subject = new Subject();
         subject.setCreditsEtcs(entity.getCredits_etcs());
         subject.setName(entity.getName());
-        subject.setId(entity.getId());
-        subject.setLaboId(entity.getLabo().getId());
         return subject;
     }
 
