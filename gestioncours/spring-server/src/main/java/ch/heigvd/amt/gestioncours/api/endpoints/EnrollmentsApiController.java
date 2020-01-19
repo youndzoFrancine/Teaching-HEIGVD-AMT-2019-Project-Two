@@ -65,7 +65,7 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
             return ResponseEntity.created(location).body(toEnrollment(saveEnrollmentEntity));
         }
 
-        return  new ResponseEntity<>(HttpStatus.CONFLICT);r
+        return  new ResponseEntity<>(HttpStatus.CONFLICT);
     }
 
     /**

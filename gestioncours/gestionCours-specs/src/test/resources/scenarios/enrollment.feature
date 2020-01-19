@@ -7,8 +7,8 @@ Feature: Creation of enrollments
 
   Scenario: Get an enrollment
     Given I  GET an existing enrollment
-    When  I get a enrollment
-    Then I receive  '200' status code
+    When  I GET a enrollment
+    Then I receive a '200' status code
 
   Scenario: get list of enrollment
     When I do a GET on the /enrollments endpoint
