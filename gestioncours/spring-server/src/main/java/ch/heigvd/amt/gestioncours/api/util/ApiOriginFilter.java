@@ -1,13 +1,11 @@
 package ch.heigvd.amt.gestioncours.api.util;
 
-
-import ch.heigvd.amt.gestioncours.api.Filter.GestioncoursFilter;
-import ch.heigvd.amt.gestioncours.api.Filter.URIs;
 import ch.heigvd.amt.gestioncours.api.errors.ErrorDescription;
 import ch.heigvd.amt.gestioncours.api.errors.ErrorsCodes;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +19,8 @@ public class ApiOriginFilter implements Filter {
 
     private static Logger LOG = Logger.getLogger(ApiOriginFilter.class.getName());
     public ApiOriginFilter() {}
+
+
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
@@ -36,10 +36,10 @@ public class ApiOriginFilter implements Filter {
                 uri.equals(URIs.SWAGGER_HTML) ||
                 uri.startsWith(URIs.SWAGGER_UI_RESOURCES) ||
                 uri.startsWith(URIs.SWAGGER_RESOURCES) ||
-                uri.equals(URIs.V2_API_DOCS) || uri.equals(URIs.CREATE_SUBJECT);
+                uri.equals(URIs.V2_API_DOCS) ;
 
         boolean admin = uri.equals(URIs.CREATE_LABO)  /*|| uri.equals(URIs.CREATE_SUBJECT) */ ||
-                uri.startsWith(URIs.UPDATE_LABO) || uri.startsWith(URIs.UPDATE_SUBJECT);
+                uri.startsWith(URIs.UPDATE_LABO) || uri.equals(URIs.UPDATE_SUBJECT);
 
         if(doc){
             chain.doFilter(servletRequest, response);
