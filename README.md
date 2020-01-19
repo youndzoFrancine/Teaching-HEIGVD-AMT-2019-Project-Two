@@ -24,7 +24,11 @@ Nous avons implemeté deux projets Spring Boot, chacun produisant un fichier .ja
 
 ## Starter le projet
 
-Le point de départ du projet se trouve à la racine. il s'agit du script **start.sh** qui nous permet d'automatiser le lancement de l'application. En l'exécutant à l aide de la commande `./start.sh`.....
+
+Pour stater le projet il faut le cloner au préalable. Le point de départ du projet se trouve à la racine. il s'agit du script **start.sh** qui nous permet d'automatiser le lancement de l'application. En l'exécutant à l aide de la commande **`./start.sh`**. L'ensemble de l'architecture tourne derriére un reverse-proxy implementé avec **traefik**. 
+NB : Nous avons utilisé docker-machine d'ou l'adresse 192.168.99.100 et non localhost.
+
+[lien]()
 
 
 ## Documentation 
