@@ -17,11 +17,14 @@ public class ShareSteps {
         this.api = environment.getApi();
     }
 
-    @Then("^I receive a (\\d+) status code$")
+    @Then("^I receive  a '(\\d+)' status code$")
     public void i_receive_a_status_code(int expectedStatusCode) throws Throwable {
+
         if (environment.isLastApiCallThrewException()) {
             assertEquals(expectedStatusCode, environment.getLastApiException().getCode());
         } else {
             assertEquals(expectedStatusCode, environment.getLastApiResponse().getStatusCode());
         }    }
+
+
 }

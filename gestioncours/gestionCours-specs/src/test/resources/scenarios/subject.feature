@@ -22,19 +22,19 @@ Feature: Creation of subjects
   Scenario: Get subject
     Given I  GET an existing subject
     When  I get a subject
-    Then I receive  200 status code
+    Then I receive  a '200' status code
 
   Scenario: get list of subject
     When I send a GET on the /subjects endpoints
-    Then I receive a 200 status code
+    Then I receive a '200' status code
     And the payload is a non-empty list
 
   Scenario: Delete subject
     Given there exists a subject to delete
     When I send a DELETE the subject
-    Then I receive a 200 status code
+    Then I receive a '200' status code
 
   Scenario: Update subject
     Given there exists subject to update
     When I send a UPDATE the subject
-    Then I receive a 200 status code
+    Then I receive a '200' status code

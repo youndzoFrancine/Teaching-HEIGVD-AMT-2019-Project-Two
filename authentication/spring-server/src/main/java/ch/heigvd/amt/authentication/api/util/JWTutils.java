@@ -61,7 +61,6 @@ public class JWTutils {
     }
 
     public static String getEmail(String token){
-        String str = "role";
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
     }
 

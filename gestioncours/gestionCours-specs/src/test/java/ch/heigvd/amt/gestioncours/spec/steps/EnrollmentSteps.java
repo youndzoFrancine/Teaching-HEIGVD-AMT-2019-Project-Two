@@ -54,8 +54,6 @@ public class EnrollmentSteps {
             }
     }
 
-
-
     @Given("^there exists a enrollment$")
     public void there_exists_a_enrollment() throws Throwable {
         try {
@@ -92,11 +90,6 @@ public class EnrollmentSteps {
 
     }
 
-    @Then("^I get a 'OK' response$")
-    public void i_get_a_OK_response() throws Throwable {
-        System.out.println("Delete ok");
-
-    }
 
     @Given("^there exists an enrollment to update$")
     public void there_exists_an_enrollment_to_update() throws Throwable {
@@ -136,10 +129,5 @@ public class EnrollmentSteps {
 
     }
 
-    @Then("^I receive a 'SUCCESS' response$")
-    public void i_receive_a_SUCCESS_response() throws Throwable {
-    System.out.println("Update ok");
-
-    }
 
 }
