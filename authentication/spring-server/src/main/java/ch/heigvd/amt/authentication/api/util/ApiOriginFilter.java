@@ -2,8 +2,6 @@ package ch.heigvd.amt.authentication.api.util;
 
 import ch.heigvd.amt.authentication.api.errors.ErrorDescription;
 import ch.heigvd.amt.authentication.api.errors.ErrorsCodes;
-import ch.heigvd.amt.authentication.api.filter.AuthenticationFilter;
-import ch.heigvd.amt.authentication.api.filter.URIs;
 import ch.heigvd.amt.authentication.repositories.UserRepository;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -46,9 +44,7 @@ public class ApiOriginFilter implements Filter {
                 uri.startsWith(URIs.SWAGGER_UI_RESOURCES) ||
                 uri.startsWith(URIs.SWAGGER_RESOURCES) ||
                 uri.equals(URIs.V2_API_DOCS)  ||
-                uri.equals(URIs.FORGOT_PASSWORD)||
-                uri.equals(URIs.RESET_PASSWORD)||
-                uri.contentEquals(URIs.GET_USERS);
+                uri.equals(URIs.FORGOT_PASSWORD);
 
         boolean authRequest = uri.equals(URIs.AUTH);
 
@@ -60,7 +56,6 @@ public class ApiOriginFilter implements Filter {
         }
 
         try {
-
             boolean jwt = JWTutils.verifyToken(token);
 
             // if token is not valid

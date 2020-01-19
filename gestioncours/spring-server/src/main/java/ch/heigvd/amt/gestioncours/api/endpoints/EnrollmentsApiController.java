@@ -66,22 +66,6 @@ public class EnrollmentsApiController implements EnrollmentsApi  {
         }
 
         return  new ResponseEntity<>(HttpStatus.CONFLICT);
-
-    }
-
-    /**
-     * get an enrollment base on the id supplied
-     * @param id of the enrollment
-     * @return
-     */
-    public ResponseEntity<Enrollment> getEnrollmentById(@ApiParam(value = "ID of enrollment to fetch",required=true) @PathVariable("id") Integer id) {
-
-        EnrollmentEntity enrollmentEntity = enrollmentsRepository.findById(id.longValue()).get();
-            if(enrollmentEntity == null){
-             throw new EnrollmentNotFoundException();
-        }
-        return ResponseEntity.ok(toEnrollment(enrollmentEntity));
-
     }
 
     /**
