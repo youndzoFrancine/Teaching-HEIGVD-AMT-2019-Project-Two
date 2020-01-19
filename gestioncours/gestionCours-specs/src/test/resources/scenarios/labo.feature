@@ -1,33 +1,28 @@
-Feature: Creation of Labo
+Feature: Creation of labos
+
+  Background:
+    Given there is a Labos server
 
   Scenario: create a labo
-    Given I have a labo payload
+    Given I have a labo  payload
     When I POST it to the /labos endpoint
-    And the request body is
-      """
-        {
-        "Labo_name": "lab1",
-        "ponderation": 3,
-        }
-      """
     Then I receive a '201' status code
 
   Scenario: Get a labo
-    Given I  GET an existing labo
-    When  I GET a labo
-    Then I receive a '200' status code
+    Given I  get an existing labo
+    When  I send a GET to the /labos endpoints
+    Then I receive  '200' status code
 
-  Scenario: get list of labo
-    When I do a GET on the /labos endpoint
+  Scenario: get a list of all the subjects
+    When I send a GET to the /labos endpoints
     Then I receive a '200' status code
-    And the payload is a non-empty list
 
   Scenario: Delete labo
-    Given there exists an labo to delete
-    When I send DELETE on the /labos endpoint
-    Then Then I receive a '200' status code
+    Given there exists a labo to delete
+    When I send a DELETE to the /labos endpoints
+    Then I receive a '200' status code
 
   Scenario: Update labo
-    Given there exists an labo to update
-    When I send an UPDATE on the /labo endpoint
-    Then I receive a '201' status code
+    Given I have a labo payload
+    When I send a UPDATE to the /labos endpoints
+    Then I receive a '200' status code

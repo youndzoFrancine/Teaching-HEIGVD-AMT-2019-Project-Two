@@ -24,7 +24,8 @@ public class ShareSteps {
             assertEquals(expectedStatusCode, environment.getLastApiException().getCode());
         } else {
             assertEquals(expectedStatusCode, environment.getLastApiResponse().getStatusCode());
-        }    }
+        }
+    }
 
 
 }
