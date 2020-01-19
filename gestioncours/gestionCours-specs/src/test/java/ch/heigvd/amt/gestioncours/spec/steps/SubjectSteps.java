@@ -29,6 +29,7 @@ public class SubjectSteps {
     private boolean lastApiCallThrewException;
     private int lastStatusCode;
 
+
     public SubjectSteps(Environment environment) {
         this.environment = environment;
         this.api = environment.getApi();
@@ -47,7 +48,9 @@ public class SubjectSteps {
     @When("^I POST it to the /subjects endpoint$")
     public void i_POST_it_to_the_subjects_endpoint() throws Throwable {
         try {
+            System.out.println("titi");
             lastApiResponse = api.createSubjectWithHttpInfo(subject);
+            System.out.println("toto");
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -58,21 +61,37 @@ public class SubjectSteps {
             lastStatusCode = lastApiException.getCode();
         }
     }
-    @And("^the request body is$")
-    public void the_request_body_is(String arg1) throws Throwable {
+   /* @When("^I CREATE it to the /subjects endpoint$")
+    public void i_CREATE_it_to_the_subjects_endpoint() throws Throwable {
+        subject = new ch.heigvd.amt.gestioncours.dto.Subject();
+        subject.setName("AMT");
+        subject.setCreditsEtcs(10L);
+        Subject subjectCreated = api.createSubject(subject);
+        subjectCreated.getName();
 
     }
+*/
 
-    @Then("^the response body contains$")
-    public void the_response_body_contains(String arg1) throws Throwable {
+    @Then("^the name is \"([^\"]*)\"$")
+    public void the_name_is(String arg1) throws Throwable {
+        assertEquals(arg1,((Subject)lastApiResponse.getData()).getName());
+    }
 
+    @Then("^the credits_etcs is (.+)$")
+    public void the_credits_etcs_is(int arg1) throws Throwable {
+        assertEquals(arg1,((Subject)lastApiResponse.getData()).getCreditsEtcs().intValue());
     }
 
 
     @Given("^I  GET an existing subject$")
     public void i_GET_an_existing_subject() throws Throwable {
         try {
-            lastApiResponse = api.getSubjectsWithHttpInfo();
+
+            subject = new ch.heigvd.amt.gestioncours.dto.Subject();
+            subject.setName("AMT");
+            subject.setCreditsEtcs(10L);
+            Integer subjectId = existingSubject.getId().intValue();
+            lastApiResponse = api.getASubjectWithHttpInfo(subjectId.longValue());
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -87,7 +106,8 @@ public class SubjectSteps {
     @When("^I get a subject$")
     public void i_get_a_subject() throws Throwable {
         try {
-            lastApiResponse = api.getSubjectsWithHttpInfo();
+            Integer subjectId = existingSubject.getId().intValue();
+            lastApiResponse = api.getASubjectWithHttpInfo(subjectId.longValue());
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -102,7 +122,7 @@ public class SubjectSteps {
     @When("^I send a GET on the /subjects endpoints$")
     public void i_send_a_GET_on_the_subjects_endpoints() throws Throwable {
         try {
-            lastApiResponse = api.getSubjectsWithHttpInfo();
+            lastApiResponse = api.getSubjectsWithHttpInfo(1,12);
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -125,9 +145,13 @@ public class SubjectSteps {
     }
 
     @Given("^there exists a subject to delete$")
-    public void there_exists_a_subject_to_delte() throws Throwable {
+    public void there_exists_a_subject_to_delete() throws Throwable {
         try {
-            lastApiResponse = api.getSubjectsWithHttpInfo();
+            subject = new ch.heigvd.amt.gestioncours.dto.Subject();
+            subject.setName("AMT");
+            subject.setCreditsEtcs(10L);
+            Integer subjectId = existingSubject.getId().intValue();
+            lastApiResponse = api.getASubjectWithHttpInfo(subjectId.longValue());
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -142,8 +166,8 @@ public class SubjectSteps {
         }
     }
 
-    @When("^I send a DELETE the subject$")
-    public void i_send_a_DELETE_the_subject() throws Throwable {
+    @When("^I send a DELETE the /subjects/'id' endpoint$")
+    public void i_send_a_DELETE_the_subjects_id_endpoint() throws Throwable {
         try {
             Integer subjectId = existingSubject.getId().intValue();
             lastApiResponse = api.deleteSubjectWithHttpInfo(subjectId);
@@ -156,13 +180,13 @@ public class SubjectSteps {
             lastApiException = e;
             lastStatusCode = lastApiException.getCode();
         }
-
     }
 
     @Given("^there exists subject to update$")
     public void there_exists_subject_to_update() throws Throwable {
         try {
-            lastApiResponse = api.getSubjectsWithHttpInfo();
+            Integer subjectId = existingSubject.getId().intValue();
+            lastApiResponse = api.getASubjectWithHttpInfo(subjectId.longValue());
             lastApiCallThrewException = false;
             lastApiException = null;
             lastStatusCode = lastApiResponse.getStatusCode();
@@ -177,10 +201,44 @@ public class SubjectSteps {
         }
     }
 
-    @When("^I send a UPDATE the subject$")
-    public void i_send_a_UPDATE_the_subject() throws Throwable {
 
+
+    @When("^I send a UPDATE the /subjects endpoint$")
+    public void i_send_a_UPDATE_the_subjects_endpoint() throws Throwable {
+        try {
+            subject = new ch.heigvd.amt.gestioncours.dto.Subject();
+            subject.setName("AMT");
+            subject.setCreditsEtcs(10L);
+            environment.setLastApiResponse(api.updateSubjectWithHttpInfo(1,subject ));
+            environment.setLastApiCallThrewException(false);
+            environment.setLastApiException(null);
+            environment.setLastStatusCode(environment.getLastApiResponse().getStatusCode());
+        } catch (ApiException e) {
+            environment.setLastApiCallThrewException(true);
+            environment.setLastApiException(null);
+            environment.setLastApiException(e);
+            environment.setLastStatusCode(environment.getLastApiException().getCode());
+        }
     }
+
+
+    @When("^I GET a subject to the /subjects endpoint$")
+    public void i_GET_a_subject_to_the_subjects_endpoint() throws Throwable {
+        try {
+            Integer subjectId = existingSubject.getId().intValue();
+            lastApiResponse = api.getASubjectWithHttpInfo(subjectId.longValue());
+            lastApiCallThrewException = false;
+            lastApiException = null;
+            lastStatusCode = lastApiResponse.getStatusCode();
+        } catch (ApiException e) {
+            System.out.println(e);
+            lastApiCallThrewException = true;
+            lastApiResponse = null;
+            lastApiException = e;
+            lastStatusCode = lastApiException.getCode();
+        }
+    }
+
 
 
 }
