@@ -1,8 +1,10 @@
 package ch.heigvd.amt.gestioncours.api.endpoints;
 
 import ch.heigvd.amt.gestioncours.api.SubjectsApi;
+import ch.heigvd.amt.gestioncours.api.model.Labo;
 import ch.heigvd.amt.gestioncours.api.model.Subject;
 import ch.heigvd.amt.gestioncours.entities.SubjectEntity;
+import ch.heigvd.amt.gestioncours.repositories.LaboRepository;
 import ch.heigvd.amt.gestioncours.repositories.SubjectRepository;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,9 @@ public class SubjectsApiController implements SubjectsApi {
     SubjectRepository subjectRepository;
 
     @Autowired
+    LaboRepository laboRepository;
     HttpServletRequest httpServletRequest;
+
 
     /**
      *
@@ -162,6 +166,7 @@ public class SubjectsApiController implements SubjectsApi {
         SubjectEntity entity = new SubjectEntity();
         entity.setName(subject.getName());
         entity.setCredits_etcs(subject.getCreditsEtcs());
+        entity.setLabo(laboRepository.findById(subject.getLaboId()).get());
         return entity;
     }
 

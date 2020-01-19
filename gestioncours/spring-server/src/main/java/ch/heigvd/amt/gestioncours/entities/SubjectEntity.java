@@ -2,7 +2,6 @@ package ch.heigvd.amt.gestioncours.entities;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -21,6 +20,7 @@ public class SubjectEntity implements Serializable {
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private LaboEntity laboEntity;
+
 
     public long getId() { return id; }
 

@@ -35,18 +35,16 @@ public class LabosApiController implements LabosApi {
      * @return
      */
     public ResponseEntity<Labo> createLabo(@ApiParam(value = "" ,required=true )  @Valid @RequestBody Labo labo) {
-
-        SubjectEntity subjectEntity = subjectRepository.findByName(labo.getSubjectName());
+        
+      SubjectEntity subjectEntity = subjectRepository.findByName(labo.getSubjectName());
 
           if(subjectEntity!=null){
-
 
               LaboEntity newLaboEntity = toLaboEntity(labo); //convertir la dto en entité
               LaboEntity saveLaboEntity = labosRepository.save(newLaboEntity); //on persiste
               subjectEntity.setLaboEntity(newLaboEntity);
              subjectRepository.save(subjectEntity);
-              Labo labo1 = toLabo(saveLaboEntity);
-              //labo1.setSubjectName(subjectRepository.findByName(labo.getSubjectName()).getName());
+              Labo labo1 = toLabo(saveLaboEntity); 
               URI location = ServletUriComponentsBuilder
                       .fromCurrentRequest().path("/{id}")
                       .buildAndExpand(saveLaboEntity.getId()).toUri(); //on le stocke dans le header

@@ -269,6 +269,26 @@ paths:
                   $ref: '#/components/schemas/Labo'
         '401':
           description: unexpected error
+  /labos/{id}:
+    get:
+      description: Returns an labo based on a single ID
+      operationId: get labo by id
+      parameters:
+        - name: id
+          in: path
+          description: ID of labo to fetch
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: labo response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Labo'
+        default:
+          description: unexpected error
       security:
         - bearerAuth: [ ]
 
@@ -374,6 +394,9 @@ components:
         name:
           type: string
         credits_etcs:
+          type: integer
+          format: int64
+        laboId:
           type: integer
           format: int64
     SubjectList:
