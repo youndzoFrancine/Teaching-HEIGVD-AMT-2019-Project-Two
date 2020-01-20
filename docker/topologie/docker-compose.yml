@@ -5,6 +5,7 @@ services:
     mysql:
         build:
           context: ../images/mysql
+        restart: always
         environment:
          - MYSQL_DATABASE=gestionCours
          - MYSQL_USER=amtprojet2
@@ -17,6 +18,7 @@ services:
     db_authentication:
         build:
           context: ../images/mysql
+        restart: always
         environment:
          - MYSQL_DATABASE=Users
          - MYSQL_USER=amtprojet2
@@ -29,16 +31,49 @@ services:
     backend-auth:
         build: ../images/authentication
         ports:
-         - "8080:8080"
-        restart: unless-stopped
-        environment:
-            spring_profiles_active: docker
-            
-    backend-gestioncours:
-        build: ../images/gestioncours
-        ports:
          - "8087:8080"
         restart: unless-stopped
         environment:
             spring_profiles_active: docker
+            WAIT_HOSTS: mysql:3307
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.backend-auth.rule=PathPrefix(/authentication)"
+          - "traefik.http.services.backend-auth.loadbalancer.server.port=8087"
+          - "traefik.http.middlewares.strip-log.stripprefix.prefixes=/authentication"
+        depends_on:
+           - db_authentication
+            
+    backend-gestioncours:
+        build: ../images/gestioncours
+        restart: unless-stopped
+        ports:
+         - "8081:8080"
+        restart: unless-stopped
+        environment:
+            spring_profiles_active: docker
+            WAIT_HOSTS: mysql:3308
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.backend-gestioncours.rule=PathPrefix(/gestioncours)"
+          - "traefik.http.services.backend-gestioncours.loadbalancer.server.port=8081"
+          - "traefik.http.middlewares.strip-log.stripprefix.prefixes=/gestioncours"
+        depends_on:
+          - mysql
+    proxy:
+      image: traefik
+      restart: unless-stopped
+      command:
+          - "--api.insecure=true"
+          - "--providers.docker=true"
+          - "--providers.docker.exposedbydefault=false"
+        
+      ports:
+          - "9000:80"
+          - "8082:8080"
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+      labels:
+        - "--traefik.http.routers.api.rule=Host(api.localhost)"
+        - "--traefik.htpp.routers.api.service=api@internal"
      
